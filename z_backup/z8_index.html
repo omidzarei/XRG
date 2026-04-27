@@ -152,17 +152,8 @@ main{max-width:1040px;margin:0 auto;padding:1rem 1.5rem calc(5rem + var(--sab));
 /* ============================================ */
 /* FILM PAGE (NTS-inspired brutalist layout)    */
 /* ============================================ */
-/* Force TEXT-presentation (not colored emoji) for all symbols in this page,
-   the portal link, and minimal action buttons — iOS otherwise renders
-   ↗ ✓ ✕ ✎ ☰ ⚙ etc. as colored emoji glyphs. */
-.film-page, .film-page *,
-.card-actions .portal-link, .min-btn,
-.no-emoji, .no-emoji *{
-  font-variant-emoji: text;
-  -webkit-font-feature-settings: "liga" off;
-}
 .film-page{position:fixed;inset:0;background:var(--bg);z-index:500;display:none;flex-direction:column;overflow:hidden}
-.film-page.show{display:flex;overflow-x:hidden}
+.film-page.show{display:flex}
 .fp-bar{display:flex;align-items:center;justify-content:space-between;padding:0.7rem 1.4rem;padding-top:calc(0.7rem + var(--sat));padding-left:calc(1.4rem + var(--sal));padding-right:calc(1.4rem + var(--sar));border-bottom:1px solid var(--ink);background:var(--bg);flex-shrink:0;position:sticky;top:0;z-index:2}
 .fp-back{font-family:var(--font-body);background:transparent;border:1px solid var(--ink);color:var(--ink);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;padding:7px 14px;cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:600;border-radius:0;transition:all 0.12s}
 .fp-back:hover{background:var(--ink);color:var(--bg)}
@@ -251,87 +242,18 @@ main{max-width:1040px;margin:0 auto;padding:1rem 1.5rem calc(5rem + var(--sab));
 .fp-foot-btn:hover{border-color:var(--ink);color:var(--ink);background:var(--bg2)}
 .fp-foot-btn.danger:hover{border-color:#d05a4d;color:#d05a4d;background:rgba(208,90,77,0.08)}
 
-/* Edit-mode toggle for masthead names */
-.fp-edit-toggle{background:transparent;border:1px solid var(--border2);color:var(--ink2);font-family:var(--font-body);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;padding:3px 7px;cursor:pointer;border-radius:0;font-weight:600;display:inline-flex;align-items:center;gap:4px;margin-left:8px;vertical-align:middle;line-height:1}
-.fp-edit-toggle:hover{border-color:var(--ink);color:var(--ink)}
-.fp-edit-toggle.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.fp-edit-toggle .sym{font-size:10px;line-height:1}
-.fp-name-static{display:inline;color:var(--ink);min-width:80px}
-.fp-name-static:empty::before{content:attr(data-placeholder);color:var(--ink3);opacity:0.5;font-style:italic}
-.fp-sub [contenteditable="false"]{cursor:default;border-bottom:none;background:transparent}
-.fp-sub [contenteditable="true"]{outline:none;border-bottom:1px solid var(--ink2);padding:0 4px;background:var(--bg2)}
-
-/* Custom links */
-.fp-add-link-btn{background:transparent;border:1px solid var(--border2);color:var(--ink2);width:24px;height:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;line-height:1;padding:0;border-radius:0;font-weight:600;flex-shrink:0;font-family:var(--font-head)}
-.fp-add-link-btn:hover{border-color:var(--ink);color:var(--ink);background:var(--bg2)}
-.fp-link-row.custom .fp-link-label{display:none}
-.fp-link-row.custom{grid-template-columns:1fr 1fr auto auto auto;gap:6px}
-.fp-link-row.custom .fp-link-title{font-family:var(--font-head);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;color:var(--ink);background:transparent;border:none;border-bottom:1px solid transparent;padding:4px 6px;outline:none;width:100%;border-radius:0;transition:border-color 0.12s}
-.fp-link-row.custom .fp-link-title:hover{border-bottom-color:var(--border2)}
-.fp-link-row.custom .fp-link-title:focus{border-bottom-color:var(--ink);background:var(--bg2)}
-.fp-link-row.custom .fp-link-title::placeholder{color:var(--ink3);opacity:0.5;font-style:italic;text-transform:none;letter-spacing:0}
-.fp-link-remove{background:transparent;border:1px solid var(--border2);color:var(--ink3);width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:13px;line-height:1;padding:0;border-radius:0;flex-shrink:0}
-.fp-link-remove:hover{border-color:#d05a4d;color:#d05a4d}
-
-/* ============================================ */
-/* iPhone PORTRAIT — fits perfectly, no h-scroll */
-/* ============================================ */
 @media(max-width:600px){
-  .film-page, .fp-scroll, .fp-inner{max-width:100vw;overflow-x:hidden}
-  .fp-inner{padding:1rem 14px 5rem;padding-left:calc(14px + var(--sal));padding-right:calc(14px + var(--sar));padding-bottom:calc(5rem + var(--sab));box-sizing:border-box;width:100%}
-  .fp-bar{padding:0.5rem 12px;padding-top:calc(0.5rem + var(--sat));padding-left:calc(12px + var(--sal));padding-right:calc(12px + var(--sar))}
-  .fp-back{padding:6px 10px;font-size:10px;letter-spacing:0.12em;gap:5px}
-  .fp-bar-title{display:none}
-  .fp-masthead{padding-bottom:1rem;margin-bottom:1.3rem}
-  .fp-eyebrow{font-size:9px;letter-spacing:0.25em;margin-bottom:0.35rem}
-  .fp-title{font-size:clamp(1.7rem, 9vw, 2.4rem);letter-spacing:-0.015em;line-height:0.95;word-break:break-word;hyphens:auto}
-  .fp-sub{font-size:0.78rem;line-height:1.4}
-  .fp-section{margin-bottom:1.5rem}
-  .fp-section-head{margin-bottom:0.6rem;padding-bottom:0.3rem;gap:8px;flex-wrap:wrap}
-  .fp-section-label{font-size:9px;letter-spacing:0.25em;gap:8px}
-  .fp-section-num{font-size:8px}
-  /* Photos */
-  .fp-photo-row{gap:10px}
-  .fp-photo-row.directors{gap:8px;grid-template-columns:repeat(2,1fr)}
-  .fp-photo-slot.directors{aspect-ratio:1/1}
-  .fp-photo-empty .sym{font-size:24px}
-  .fp-photo-empty .lbl{font-size:9px;letter-spacing:0.18em}
-  .fp-photo-empty .hint{font-size:9px}
-  .fp-photo-caption{font-size:9px;letter-spacing:0.14em;margin-top:6px}
-  .fp-photo-btn{width:24px;height:24px;font-size:11px}
-  /* Director bios stack */
+  .fp-inner{padding:1.4rem 0.9rem 5rem;padding-left:calc(0.9rem + var(--sal));padding-right:calc(0.9rem + var(--sar))}
+  .fp-bar{padding:0.55rem 0.9rem;padding-top:calc(0.55rem + var(--sat));padding-left:calc(0.9rem + var(--sal));padding-right:calc(0.9rem + var(--sar))}
+  .fp-title{font-size:clamp(2rem, 12vw, 2.8rem)}
   .fp-dir-grid{grid-template-columns:1fr;gap:1.2rem}
-  .fp-dir-name{font-size:0.95rem}
-  /* Text blocks */
-  .fp-text{font-size:0.88rem;line-height:1.55;padding-left:0.7rem}
-  .fp-text.short{font-size:1rem;line-height:1.4}
-  .fp-text.bio{font-size:0.82rem}
-  .fp-field-label{font-size:9px;letter-spacing:0.18em}
-  .fp-mini-btn{font-size:9px;padding:3px 7px;letter-spacing:0.06em;gap:4px}
-  .fp-mini-btn .sym{font-size:11px}
-  /* Links — stack into label+input rows so they NEVER overflow on iPhone */
-  .fp-links{gap:0.4rem}
-  .fp-link-row{grid-template-columns:1fr auto auto;grid-template-areas:"lbl lbl lbl" "inp copy go";gap:4px 6px;padding:0.5rem 0;align-items:center;width:100%;min-width:0}
-  .fp-link-label{grid-area:lbl;font-size:9px;letter-spacing:0.18em;margin-bottom:2px}
-  .fp-link-input{grid-area:inp;font-size:13px;width:100%;min-width:0;box-sizing:border-box}
-  .fp-link-row .fp-mini-btn{grid-area:copy}
-  .fp-link-go{grid-area:go;width:30px;height:30px;font-size:14px}
-  /* Custom links: stack title + url + actions */
-  .fp-link-row.custom{grid-template-columns:1fr auto auto auto;grid-template-areas:"title rm rm rm" "inp copy go go";gap:4px 6px}
-  .fp-link-row.custom .fp-link-title{grid-area:title}
-  .fp-link-row.custom .fp-link-input{grid-area:inp}
-  .fp-link-row.custom .fp-mini-btn{grid-area:copy}
-  .fp-link-row.custom .fp-link-go{grid-area:go}
-  .fp-link-row.custom .fp-link-remove{grid-area:rm;width:24px;height:24px;font-size:11px}
-  /* Footer */
-  .fp-footer{margin-top:1.8rem;padding-top:1rem;gap:8px}
-  .fp-foot-meta{font-size:9px;letter-spacing:0.12em}
-  .fp-foot-btn{font-size:9px;padding:5px 9px;letter-spacing:0.14em;gap:4px}
-  /* Inputs/contenteditable: never overflow */
-  .fp-text, .fp-dir-name, .fp-link-input, .fp-link-row.custom .fp-link-title{max-width:100%;overflow-wrap:break-word;word-wrap:break-word;word-break:break-word;box-sizing:border-box}
-  /* Edit toggle pill smaller */
-  .fp-edit-toggle{font-size:8px;padding:2px 6px;letter-spacing:0.16em;margin-left:6px}
-  .fp-edit-toggle .sym{font-size:9px}
+  .fp-link-row{grid-template-columns:1fr auto;grid-template-areas:"label go" "input input copy ." "input input copy .";gap:6px}
+  .fp-link-row{grid-template-columns:1fr auto auto}
+  .fp-link-label{grid-column:1 / -1}
+  .fp-link-input{grid-column:1 / 2}
+  .fp-photo-row.directors{gap:10px}
+  .fp-section{margin-bottom:1.8rem}
+  .fp-bar-title{display:none}
 }
 
 /* TAB MANAGE MODAL */
@@ -4640,7 +4562,7 @@ function cardHTML(f){
   // For consider tab: show notification date in mini-info too
   const notifMini = f.csv?.notification && currentTab==='consider' ? `<span style="color:var(--amber)">🔔 ${esc(f.csv.notification)}</span>` : '';
   const highlight = f.csv?.judging==='Selected'?'border-color:rgba(59,130,246,0.4);':f.csv?.status==='Disqualified'?'border-color:rgba(229,62,62,0.35);':'';
-  const portalLink = f.url ? `<a class="portal-link no-emoji" href="${esc(f.url)}" target="_blank" rel="noopener">↗\uFE0E Portal</a>` : '';
+  const portalLink = f.url ? `<a class="portal-link" href="${esc(f.url)}" target="_blank" rel="noopener">↗ Portal</a>` : '';
   const needBtnStyle = isNeed ? 'color:var(--amber);border-color:rgba(217,119,6,0.4);background:var(--amber-dim)' : '';
   const selBtnStyle = isSel ? 'color:var(--blue);border-color:rgba(59,130,246,0.45);background:var(--blue-dim)' : '';
   const calBtnStyle = isCal ? 'color:var(--teal);border-color:rgba(14,165,233,0.45);background:var(--teal-dim)' : '';
@@ -4655,8 +4577,8 @@ function cardHTML(f){
     <button class="min-btn${isNeed?' active-need':''}" onclick="toggleNeed('${esc(f.id)}')" title="To submit" aria-label="To submit">+</button>
     <button class="min-btn${isSub?' active-sub':''}" onclick="toggleSub('${esc(f.id)}')" title="Submitted" aria-label="Submitted">✓</button>
     ${f.url
-      ? `<a class="min-btn no-emoji" href="${esc(f.url)}" target="_blank" rel="noopener" title="Open portal" aria-label="Open portal">↗\uFE0E</a>`
-      : `<button class="min-btn no-emoji" disabled title="No portal link" style="opacity:0.4;cursor:default">↗\uFE0E</button>`}
+      ? `<a class="min-btn" href="${esc(f.url)}" target="_blank" rel="noopener" title="Open portal" aria-label="Open portal">↗</a>`
+      : `<button class="min-btn" disabled title="No portal link" style="opacity:0.4;cursor:default">↗</button>`}
   </div>`;
   const deadlineMini = f.dl && f.dl !== 'TBA' ? `<span style="color:var(--amber)">⏰ ${esc(f.dl)}</span>` : '';
   const datesMini = f.dates ? `<span>📅 ${esc(f.dates)}</span>` : '';
@@ -5543,120 +5465,6 @@ function fpAttachListeners(){
     }
   });
 }
-// ── Edit mode for masthead names ──
-let fpEditMode = false;
-const FP_NAME_FIELDS = ['dir1Name','dir2Name','dir1NameCaption','dir2NameCaption','dir1NameBio','dir2NameBio'];
-function fpToggleEdit(){
-  fpEditMode = !fpEditMode;
-  const btn = document.getElementById('fp-edit-toggle');
-  const lbl = document.getElementById('fp-edit-toggle-label');
-  if(btn) btn.classList.toggle('active', fpEditMode);
-  if(lbl) lbl.textContent = fpEditMode ? 'Done' : 'Edit';
-  document.querySelectorAll('.fp-name-static').forEach(el => {
-    el.setAttribute('contenteditable', fpEditMode ? 'true' : 'false');
-    if(fpEditMode){
-      el.style.borderBottom = '1px solid var(--ink2)';
-      el.style.padding = '0 4px';
-      el.style.background = 'var(--bg2)';
-    } else {
-      el.style.borderBottom = '';
-      el.style.padding = '';
-      el.style.background = '';
-    }
-  });
-  if(fpEditMode){
-    // Focus the first name field for instant editing
-    const first = document.querySelector('.fp-sub .fp-name-static');
-    if(first) first.focus();
-  } else {
-    fpSave();
-  }
-}
-
-// ── Custom links ──
-function fpAddCustomLink(){
-  if(!fpData.customLinks) fpData.customLinks = [];
-  fpData.customLinks.push({title:'', url:''});
-  fpSave();
-  fpRenderCustomLinks(true);
-}
-function fpRemoveCustomLink(idx){
-  if(!fpData.customLinks || idx<0 || idx>=fpData.customLinks.length) return;
-  fpData.customLinks.splice(idx, 1);
-  fpSave();
-  fpRenderCustomLinks();
-}
-function fpRenderCustomLinks(focusLast){
-  const wrap = document.getElementById('fp-custom-links');
-  if(!wrap) return;
-  wrap.innerHTML = '';
-  const arr = fpData.customLinks || [];
-  arr.forEach((lnk, idx) => {
-    const row = document.createElement('div');
-    row.className = 'fp-link-row custom';
-    row.innerHTML = `
-      <input class="fp-link-title" type="text" placeholder="Link title (e.g. EPK)" value="${(lnk.title||'').replace(/"/g,'&quot;')}" data-cl-field="title" data-cl-idx="${idx}">
-      <input class="fp-link-input" type="url" placeholder="https://…" value="${(lnk.url||'').replace(/"/g,'&quot;')}" data-cl-field="url" data-cl-idx="${idx}">
-      <button class="fp-mini-btn" data-cl-copy="${idx}" title="Copy URL"><span class="sym">⎘</span></button>
-      <a class="fp-link-go disabled" data-cl-link="${idx}" target="_blank" rel="noopener" title="Open">↗&#xFE0E;</a>
-      <button class="fp-link-remove no-emoji" data-cl-remove="${idx}" title="Remove link" aria-label="Remove">✕&#xFE0E;</button>
-    `;
-    wrap.appendChild(row);
-
-    const titleInp = row.querySelector('input[data-cl-field="title"]');
-    const urlInp   = row.querySelector('input[data-cl-field="url"]');
-    const goLink   = row.querySelector('a.fp-link-go');
-    const copyBtn  = row.querySelector('button[data-cl-copy]');
-    const rmBtn    = row.querySelector('button[data-cl-remove]');
-
-    const syncGo = () => {
-      const url = (urlInp.value || '').trim();
-      if(/^https?:\/\//i.test(url) || (url && !url.includes(' '))){
-        goLink.href = /^https?:\/\//i.test(url) ? url : 'https://' + url;
-        goLink.classList.remove('disabled');
-      } else {
-        goLink.removeAttribute('href');
-        goLink.classList.add('disabled');
-      }
-    };
-    syncGo();
-
-    const saveDebounced = (() => { let t; return () => { clearTimeout(t); t = setTimeout(fpSave, 200); }; })();
-    titleInp.addEventListener('input', () => { fpData.customLinks[idx].title = titleInp.value; saveDebounced(); });
-    urlInp.addEventListener('input', () => { fpData.customLinks[idx].url = urlInp.value; syncGo(); saveDebounced(); });
-    titleInp.addEventListener('blur', fpSave);
-    urlInp.addEventListener('blur', fpSave);
-    copyBtn.addEventListener('click', () => fpCopyToClipboard((urlInp.value || '').trim()).then(()=>fpFlashCopied(copyBtn)));
-    rmBtn.addEventListener('click', () => fpRemoveCustomLink(idx));
-  });
-  if(focusLast && arr.length){
-    const titles = wrap.querySelectorAll('input[data-cl-field="title"]');
-    const last = titles[titles.length-1];
-    if(last) setTimeout(()=>last.focus(), 30);
-  }
-}
-
-// Patch fpHydrate to also render custom links
-const _origFpHydrate = fpHydrate;
-fpHydrate = function(){
-  _origFpHydrate();
-  fpRenderCustomLinks();
-  // Reset edit mode when hydrating
-  if(fpEditMode){
-    fpEditMode = false;
-    const btn = document.getElementById('fp-edit-toggle');
-    const lbl = document.getElementById('fp-edit-toggle-label');
-    if(btn) btn.classList.remove('active');
-    if(lbl) lbl.textContent = 'Edit';
-  }
-  document.querySelectorAll('.fp-name-static').forEach(el => {
-    el.setAttribute('contenteditable', 'false');
-    el.style.borderBottom = '';
-    el.style.padding = '';
-    el.style.background = '';
-  });
-};
-
 function openFilmPage(){
   fpLoad();
   fpAttachListeners();
@@ -5721,15 +5529,7 @@ renderTabBar();
       <div class="fp-masthead">
         <div class="fp-eyebrow"><span>◈ Feature · Immersive · 2026</span></div>
         <h1 class="fp-title">Reality Looks Back</h1>
-        <div class="fp-sub">
-          A film by
-          <span contenteditable="false" class="fp-name-static" data-fp-field="dir1Name" data-placeholder="Director One"></span>
-          &amp;
-          <span contenteditable="false" class="fp-name-static" data-fp-field="dir2Name" data-placeholder="Director Two"></span>
-          <button class="fp-edit-toggle" id="fp-edit-toggle" onclick="fpToggleEdit()" title="Edit director names">
-            <span class="sym">✎&#xFE0E;</span> <span id="fp-edit-toggle-label">Edit</span>
-          </button>
-        </div>
+        <div class="fp-sub">A film by <span contenteditable="true" data-fp-field="dir1Name" data-placeholder="Director One"></span> &amp; <span contenteditable="true" data-fp-field="dir2Name" data-placeholder="Director Two"></span></div>
       </div>
 
       <!-- POSTER -->
@@ -5774,7 +5574,7 @@ renderTabBar();
                 <button type="button" class="fp-photo-btn" title="Remove" onclick="fpRemovePhoto(event,'dir1')">✕</button>
               </div>
             </div>
-            <div class="fp-photo-caption"><span contenteditable="false" class="fp-name-static" data-fp-field="dir1NameCaption" data-placeholder="Director One"></span></div>
+            <div class="fp-photo-caption"><span contenteditable="true" data-fp-field="dir1NameCaption" data-placeholder="Director One"></span></div>
           </div>
           <div>
             <div class="fp-photo-slot directors" data-fp-photo="dir2">
@@ -5790,7 +5590,7 @@ renderTabBar();
                 <button type="button" class="fp-photo-btn" title="Remove" onclick="fpRemovePhoto(event,'dir2')">✕</button>
               </div>
             </div>
-            <div class="fp-photo-caption"><span contenteditable="false" class="fp-name-static" data-fp-field="dir2NameCaption" data-placeholder="Director Two"></span></div>
+            <div class="fp-photo-caption"><span contenteditable="true" data-fp-field="dir2NameCaption" data-placeholder="Director Two"></span></div>
           </div>
         </div>
       </div>
@@ -5824,7 +5624,7 @@ renderTabBar();
         </div>
         <div class="fp-dir-grid">
           <div class="fp-dir-block">
-            <div class="fp-dir-name fp-name-static" contenteditable="false" data-fp-field="dir1NameBio" data-placeholder="Director One"></div>
+            <div class="fp-dir-name" contenteditable="true" data-fp-field="dir1NameBio" data-placeholder="Director One"></div>
             <div class="fp-field-head" style="margin-top:6px;margin-bottom:6px">
               <span class="fp-field-label">Bio</span>
               <button class="fp-mini-btn" onclick="fpCopyField('dir1Bio', this)"><span class="sym">⎘</span> Copy</button>
@@ -5832,7 +5632,7 @@ renderTabBar();
             <div class="fp-text bio" contenteditable="true" data-fp-field="dir1Bio" data-placeholder="Director one bio…"></div>
           </div>
           <div class="fp-dir-block">
-            <div class="fp-dir-name fp-name-static" contenteditable="false" data-fp-field="dir2NameBio" data-placeholder="Director Two"></div>
+            <div class="fp-dir-name" contenteditable="true" data-fp-field="dir2NameBio" data-placeholder="Director Two"></div>
             <div class="fp-field-head" style="margin-top:6px;margin-bottom:6px">
               <span class="fp-field-label">Bio</span>
               <button class="fp-mini-btn" onclick="fpCopyField('dir2Bio', this)"><span class="sym">⎘</span> Copy</button>
@@ -5846,34 +5646,32 @@ renderTabBar();
       <div class="fp-section">
         <div class="fp-section-head">
           <div class="fp-section-label"><span class="fp-section-num">06 ―</span> Links</div>
-          <button class="fp-add-link-btn" onclick="fpAddCustomLink()" title="Add custom link" aria-label="Add link">+</button>
         </div>
-        <div class="fp-links" id="fp-links-list">
+        <div class="fp-links">
           <div class="fp-link-row">
             <span class="fp-link-label">Trailer</span>
             <input class="fp-link-input" type="url" placeholder="https://…" data-fp-field="trailerUrl" oninput="fpSyncLinkBtn(this)">
             <button class="fp-mini-btn" onclick="fpCopyLink('trailerUrl', this)"><span class="sym">⎘</span></button>
-            <a class="fp-link-go disabled" data-fp-link="trailerUrl" target="_blank" rel="noopener" title="Open">↗&#xFE0E;</a>
+            <a class="fp-link-go disabled" data-fp-link="trailerUrl" target="_blank" rel="noopener" title="Open">↗</a>
           </div>
           <div class="fp-link-row">
             <span class="fp-link-label">VR Screener</span>
             <input class="fp-link-input" type="url" placeholder="https://…" data-fp-field="vrUrl" oninput="fpSyncLinkBtn(this)">
             <button class="fp-mini-btn" onclick="fpCopyLink('vrUrl', this)"><span class="sym">⎘</span></button>
-            <a class="fp-link-go disabled" data-fp-link="vrUrl" target="_blank" rel="noopener" title="Open">↗&#xFE0E;</a>
+            <a class="fp-link-go disabled" data-fp-link="vrUrl" target="_blank" rel="noopener" title="Open">↗</a>
           </div>
           <div class="fp-link-row">
             <span class="fp-link-label">Dome Screener</span>
             <input class="fp-link-input" type="url" placeholder="https://…" data-fp-field="domeUrl" oninput="fpSyncLinkBtn(this)">
             <button class="fp-mini-btn" onclick="fpCopyLink('domeUrl', this)"><span class="sym">⎘</span></button>
-            <a class="fp-link-go disabled" data-fp-link="domeUrl" target="_blank" rel="noopener" title="Open">↗&#xFE0E;</a>
+            <a class="fp-link-go disabled" data-fp-link="domeUrl" target="_blank" rel="noopener" title="Open">↗</a>
           </div>
           <div class="fp-link-row">
             <span class="fp-link-label">Press Kit / Stills</span>
             <input class="fp-link-input" type="url" placeholder="https://…" data-fp-field="presskitUrl" oninput="fpSyncLinkBtn(this)">
             <button class="fp-mini-btn" onclick="fpCopyLink('presskitUrl', this)"><span class="sym">⎘</span></button>
-            <a class="fp-link-go disabled" data-fp-link="presskitUrl" target="_blank" rel="noopener" title="Open">↗&#xFE0E;</a>
+            <a class="fp-link-go disabled" data-fp-link="presskitUrl" target="_blank" rel="noopener" title="Open">↗</a>
           </div>
-          <div id="fp-custom-links"></div>
         </div>
       </div>
 
