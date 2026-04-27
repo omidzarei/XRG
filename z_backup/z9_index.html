@@ -149,147 +149,6 @@ main{max-width:1040px;margin:0 auto;padding:1rem 1.5rem calc(5rem + var(--sab));
 .tab-btn[draggable]{cursor:grab}
 .tab-btn[draggable]:active{cursor:grabbing;opacity:0.6}
 
-/* =========================================================== */
-/* NTS-STYLE GLOBAL OVERRIDES — brutalist treatment, sitewide   */
-/* =========================================================== */
-/* Force text-presentation for all alt-code symbols globally   */
-*, *::before, *::after{font-variant-emoji:text}
-
-/* Sharp corners everywhere */
-:root{--radius:0px;--radius-sm:0px;--radius-lg:0px}
-.btn-sm,.qs-btn,.sub-toggle,.portal-link,.sf-btn,.fb,.sb,.collapse-btn,.min-btn,
-.search-box,.legend,.ai-status,.modal,.tab-modal,.card,.delete-dialog,.swipe-bg,
-.tag,.verif,.badge,.ai-meta-pill,.stat-card,.tm-row,.tm-toggle,.tm-slider,.tm-move-btn,
-.cb,.empty-state,.toast,.toast-btn,.tab-manage-btn,.btn-pri,.btn-sec,.btn-danger,
-.event-logo,.day-cell,.ev-card,.modal-close,.add-btn,.theme-btn,
-input,textarea,select,
-.field input,.field textarea,.field select{border-radius:0 !important}
-
-/* Kill drop shadows — flat brutalism */
-.card,.modal,.tab-modal,.delete-dialog,.legend,.stat-card,.ev-card,.day-cell,
-.ai-status,.toast{box-shadow:none !important}
-
-/* Hairline framing on cards */
-.card{border:1px solid var(--border) !important;background:var(--bg2) !important;transition:border-color 0.12s,background 0.12s}
-.card:hover{border-color:var(--ink2) !important;background:var(--bg2) !important}
-.card.is-sub{border-color:rgba(62,207,142,0.5) !important}
-.card.is-open{border-color:var(--ink2) !important}
-.card.is-tbc{border-color:var(--border2) !important}
-.cb{display:none !important}
-.card-inner{padding-left:0 !important}
-
-/* Festival name: uppercase headline */
-.cn{font-family:var(--font-head) !important;font-weight:700 !important;text-transform:uppercase !important;letter-spacing:-0.005em;font-size:1.02rem;line-height:1.15}
-.cmeta{text-transform:uppercase;letter-spacing:0.1em;font-size:10px;color:var(--ink3) !important;font-weight:500}
-.cmeta strong{font-weight:700;color:var(--ink2)}
-.card-mini-info{text-transform:uppercase;letter-spacing:0.1em;font-size:10px;color:var(--ink3);font-weight:500}
-
-/* Tabs */
-.tab-bar{border-bottom:1px solid var(--ink) !important;gap:0;padding-bottom:0}
-.tab-btn{text-transform:uppercase !important;letter-spacing:0.18em !important;font-weight:600 !important;font-size:10px !important;padding:11px 13px !important}
-.tab-btn.active{border-bottom-width:2px !important;border-bottom-color:var(--ink) !important;color:var(--ink) !important}
-.tab-btn .tc{border-radius:0 !important;padding:1px 5px !important;font-family:var(--font-body);background:transparent !important;border:1px solid var(--border2) !important;color:var(--ink3) !important;font-weight:600;font-size:9px}
-.tab-btn.active .tc{background:var(--ink) !important;color:var(--bg) !important;border-color:var(--ink) !important}
-.tab-sep{background:var(--ink) !important}
-.tab-manage-btn{border:1px solid var(--border2) !important;text-transform:uppercase;letter-spacing:0.16em;font-size:9px !important;font-weight:600;border-bottom:1px solid var(--border2) !important;padding:6px 9px !important}
-.tab-manage-btn:hover{border-color:var(--ink) !important;color:var(--ink) !important}
-
-/* Buttons — bordered text */
-.btn-sm,.qs-btn,.sub-toggle,.portal-link,.sf-btn,.fb,.sb,.collapse-btn{
-  background:transparent !important;
-  border:1px solid var(--border2) !important;
-  text-transform:uppercase !important;
-  letter-spacing:0.14em !important;
-  font-weight:600 !important;
-  font-size:10px !important;
-  color:var(--ink2) !important;
-}
-.btn-sm:hover,.qs-btn:hover,.sub-toggle:hover,.portal-link:hover,
-.sf-btn:hover,.fb:hover,.sb:hover,.collapse-btn:hover{border-color:var(--ink) !important;color:var(--ink) !important;background:transparent !important}
-.fb.active,.sb.active{background:var(--ink) !important;color:var(--bg) !important;border-color:var(--ink) !important}
-.sub-toggle.sub-active{border-color:var(--green) !important;color:var(--green) !important;background:transparent !important}
-
-/* Status filter buttons keep semantic accent on border only */
-.sf-btn .sfn{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:0;text-transform:none}
-
-/* Min-buttons (minimal view) */
-.min-btn{border:1px solid var(--border2) !important;background:transparent !important;color:var(--ink2) !important}
-.min-btn:hover{border-color:var(--ink) !important;color:var(--ink) !important}
-.min-btn.active-need{border-color:var(--amber) !important;color:var(--amber) !important}
-.min-btn.active-sub{border-color:var(--green) !important;color:var(--green) !important}
-
-/* Inputs */
-input,textarea,select,.search-box{
-  background:var(--bg2) !important;
-  border:1px solid var(--border2) !important;
-  color:var(--ink) !important;
-}
-input:focus,textarea:focus,select:focus,.search-box:focus{border-color:var(--ink) !important;outline:none}
-.search-box{text-transform:uppercase;letter-spacing:0.1em;font-size:11px !important;font-weight:500}
-.search-box::placeholder{text-transform:uppercase;letter-spacing:0.18em;font-size:10px}
-
-/* Section eyebrows / heading */
-.eyebrow{letter-spacing:0.3em !important;color:var(--ink3) !important;font-weight:600}
-h1{text-transform:uppercase;letter-spacing:0.16em;font-weight:700}
-h1 span{letter-spacing:0.16em;font-weight:400}
-h2,h3,h4{text-transform:uppercase !important;letter-spacing:0.06em}
-.modal h2,.modal h3,.tab-modal h3,.delete-dialog h3{letter-spacing:0.18em !important;font-size:0.8rem !important;font-weight:700 !important}
-
-/* Header brand pill */
-.project-pill{text-transform:uppercase !important;letter-spacing:0.22em !important;font-weight:700 !important;font-size:11px !important;border:1px solid var(--ink) !important;padding:6px 12px !important;color:var(--ink) !important;background:transparent !important;border-radius:0 !important}
-.project-pill:hover{background:var(--ink) !important;color:var(--bg) !important}
-
-/* AI status bar */
-.ai-status{border:1px solid var(--border2) !important;text-transform:uppercase;letter-spacing:0.1em;font-size:10px !important}
-.ai-meta-pill{border:1px solid var(--border2) !important;text-transform:uppercase;letter-spacing:0.12em;font-size:9px !important;border-radius:0 !important}
-
-/* Modals */
-.modal,.tab-modal,.delete-dialog{border:1px solid var(--ink) !important;background:var(--bg2) !important}
-.modal-back,.tab-modal-back,.card-delete-confirm{backdrop-filter:blur(2px)}
-.btn-pri{background:var(--ink) !important;color:var(--bg) !important;border:1px solid var(--ink) !important;text-transform:uppercase;letter-spacing:0.16em;font-weight:700;font-size:11px}
-.btn-pri:hover{background:transparent !important;color:var(--ink) !important}
-.btn-sec{background:transparent !important;color:var(--ink) !important;border:1px solid var(--border2) !important;text-transform:uppercase;letter-spacing:0.16em;font-weight:600;font-size:11px}
-.btn-sec:hover{border-color:var(--ink) !important}
-.btn-danger{background:transparent !important;color:#d05a4d !important;border:1px solid #d05a4d !important;text-transform:uppercase;letter-spacing:0.16em;font-weight:600;font-size:11px}
-.btn-danger:hover{background:#d05a4d !important;color:var(--bg) !important}
-.modal-close{font-size:16px !important;border:1px solid var(--border2) !important;width:26px;height:26px;display:flex;align-items:center;justify-content:center;border-radius:0 !important;padding:0 !important}
-.modal-close:hover{border-color:var(--ink) !important;color:var(--ink) !important;background:transparent !important}
-
-/* Badges & tags */
-.badge,.tag,.verif{text-transform:uppercase !important;letter-spacing:0.14em !important;font-weight:600 !important;font-size:9px !important;border-radius:0 !important;border:1px solid var(--border2) !important;padding:2px 6px !important}
-
-/* Stats / legend */
-.legend{border:1px solid var(--border2) !important;text-transform:uppercase;letter-spacing:0.14em;font-size:10px;font-weight:500}
-.stats-row > *,.stat-card{border:1px solid var(--border) !important;border-radius:0 !important;background:var(--bg2) !important}
-.stat-card h3,.stats-row h3{text-transform:uppercase;letter-spacing:0.2em;font-size:9px}
-
-/* Calendar */
-.day-cell,.ev-card{border:1px solid var(--border) !important;border-radius:0 !important;background:var(--bg2) !important}
-
-/* Event logo: subtle frame */
-.event-logo{border:1px solid var(--border) !important;border-radius:0 !important;background:var(--bg2) !important}
-
-/* Toast */
-.toast{border:1px solid var(--ink) !important;background:var(--bg2) !important;border-radius:0 !important}
-.toast-btn{border-radius:0 !important;text-transform:uppercase;letter-spacing:0.14em;font-weight:700}
-
-/* Empty states */
-.empty-state{border:1px dashed var(--border2) !important;text-transform:none}
-
-/* Mobile tightening retains NTS sizes */
-@media(max-width:600px){
-  .tab-btn{padding:9px 10px !important;font-size:9px !important;letter-spacing:0.14em !important}
-  .cn{font-size:0.95rem}
-  .cmeta,.card-mini-info{font-size:9px;letter-spacing:0.08em}
-  .project-pill{font-size:10px !important;padding:5px 9px !important;letter-spacing:0.18em !important}
-  .btn-sm{font-size:9px !important;padding:5px 9px !important;letter-spacing:0.12em !important}
-  .search-box{font-size:11px !important}
-  .legend{font-size:9px !important;letter-spacing:0.1em !important}
-  .ai-status{font-size:9px !important}
-  .badge,.tag,.verif{font-size:8px !important;padding:2px 5px !important}
-  .modal h2,.modal h3,.tab-modal h3{font-size:0.7rem !important;letter-spacing:0.16em !important}
-}
-
 /* ============================================ */
 /* FILM PAGE (NTS-inspired brutalist layout)    */
 /* ============================================ */
@@ -811,7 +670,7 @@ input,select,textarea{font-size:16px}
         <button class="project-pill" onclick="openFilmPage()" title="Open film page" style="cursor:pointer;border:none;font:inherit;color:inherit;background:inherit;padding:inherit">◈ Reality Looks Back</button>
       </div>
       <div class="header-actions">
-        <button class="btn-sm theme-btn no-emoji" id="theme-btn" onclick="toggleTheme()" title="Toggle light/dark">◐&#xFE0E;</button>
+        <button class="btn-sm theme-btn" id="theme-btn" onclick="toggleTheme()" title="Toggle light/dark">🌙</button>
         <button class="btn-sm add-btn" onclick="openAdd()">+ Add</button>
         <button class="btn-sm" id="refresh-btn" onclick="runAI()">
           <span class="spin" id="spin-icon">⟳</span>
@@ -4311,7 +4170,7 @@ function eventDateFromDates(s){
 /* ── THEME ── */
 function applyTheme(){
   document.documentElement.setAttribute('data-theme', isDark?'dark':'light');
-  document.getElementById('theme-btn').innerHTML = isDark?'◑&#xFE0E;':'◐&#xFE0E;';
+  document.getElementById('theme-btn').textContent = isDark?'☀️':'🌙';
 }
 function toggleTheme(){
   isDark=!isDark;
@@ -4773,13 +4632,13 @@ function cardHTML(f){
   const notifHighlight = f.csv?.notificationDate && f.csv.notificationDate <= '2026-07-01' ? 'color:var(--amber);font-weight:500' : 'color:var(--ink3)';
   const csvRow = f.csv?`<div class="csvrow">
     <span class="badge ${csvBadgeCls(f.csv.status,f.csv.judging)}">${csvBadgeLbl(f.csv.status,f.csv.judging)}</span>
-    <span style="${notifHighlight}">NOTIF · ${esc(f.csv.notification)}</span>
-    <span style="color:var(--ink3)">SENT · ${esc(f.csv.submitted)}</span>
+    <span style="${notifHighlight}">🔔 ${esc(f.csv.notification)}</span>
+    <span style="color:var(--ink3)">📤 ${esc(f.csv.submitted)}</span>
     ${f.csv.category?`<span style="color:var(--ink3);font-style:italic">${esc(f.csv.category.trim())}</span>`:''}
     <span class="tracking">#${esc(f.csv.tracking)}</span>
   </div>`:'';
   // For consider tab: show notification date in mini-info too
-  const notifMini = f.csv?.notification && currentTab==='consider' ? `<span style="color:var(--amber)">NOTIF · ${esc(f.csv.notification)}</span>` : '';
+  const notifMini = f.csv?.notification && currentTab==='consider' ? `<span style="color:var(--amber)">🔔 ${esc(f.csv.notification)}</span>` : '';
   const highlight = f.csv?.judging==='Selected'?'border-color:rgba(59,130,246,0.4);':f.csv?.status==='Disqualified'?'border-color:rgba(229,62,62,0.35);':'';
   const portalLink = f.url ? `<a class="portal-link no-emoji" href="${esc(f.url)}" target="_blank" rel="noopener">↗\uFE0E Portal</a>` : '';
   const needBtnStyle = isNeed ? 'color:var(--amber);border-color:rgba(217,119,6,0.4);background:var(--amber-dim)' : '';
@@ -4799,11 +4658,11 @@ function cardHTML(f){
       ? `<a class="min-btn no-emoji" href="${esc(f.url)}" target="_blank" rel="noopener" title="Open portal" aria-label="Open portal">↗\uFE0E</a>`
       : `<button class="min-btn no-emoji" disabled title="No portal link" style="opacity:0.4;cursor:default">↗\uFE0E</button>`}
   </div>`;
-  const deadlineMini = f.dl && f.dl !== 'TBA' ? `<span style="color:var(--amber)">DL · ${esc(f.dl)}</span>` : '';
-  const datesMini = f.dates ? `<span>${esc(f.dates)}</span>` : '';
+  const deadlineMini = f.dl && f.dl !== 'TBA' ? `<span style="color:var(--amber)">⏰ ${esc(f.dl)}</span>` : '';
+  const datesMini = f.dates ? `<span>📅 ${esc(f.dates)}</span>` : '';
   const miniParts = [datesMini, deadlineMini, notifMini].filter(Boolean);
   return `<div class="card-swipe-wrap" id="sw-${esc(f.id)}">
-  <div class="swipe-bg"><span>⌫</span> Remove</div>
+  <div class="swipe-bg"><span>🗑</span> Remove</div>
   <div class="card${isSub?' is-sub':''}${f.status==='open'?' is-open':''}${f.status==='tbc'?' is-tbc':''}${(f.src==='csv'||f.src==='both')?' from-csv':''} ${isCollapsed}" id="c-${esc(f.id)}" style="${selHighlight}">
   <div class="cb ${cbCls(f,isSub)}"></div>
   <div class="card-inner">
@@ -4816,7 +4675,7 @@ function cardHTML(f){
         <span class="card-list-date">${listDate}</span>
       </div>
       <div class="card-mini-info">${miniParts.join(' · ')}</div>
-      <div class="cmeta"><strong>${esc(f.loc)}</strong> · ${esc(f.dates)} · DL ${esc(f.dl)}</div>
+      <div class="cmeta"><strong>${esc(f.loc)}</strong> · 📅 ${esc(f.dates)} · ⏰ deadline: ${esc(f.dl)}</div>
       ${csvRow}
       <div class="tags">${tags}</div>
       ${awardsHTML}
@@ -4829,11 +4688,11 @@ function cardHTML(f){
       ${statusBtnsHTML(f)}
       <div class="card-actions">
         ${portalLink}
-        <button class="sub-toggle${isSub?' sub-active':''}" onclick="toggleSub('${esc(f.id)}')" style="${isSub?'color:var(--green);border-color:rgba(62,207,142,0.4);background:var(--green-dim)':''}">${isSub?'✓\uFE0E Submitted':'+ Submit'}</button>
+        <button class="sub-toggle${isSub?' sub-active':''}" onclick="toggleSub('${esc(f.id)}')" style="${isSub?'color:var(--green);border-color:rgba(62,207,142,0.4);background:var(--green-dim)':''}">${isSub?'✓ Submitted':'＋ Submit'}</button>
         <button class="sub-toggle" onclick="toggleSelected('${esc(f.id)}')" style="${selBtnStyle}">${isSel?'★ Selected':'☆ Select'}</button>
         <button class="sub-toggle" onclick="toggleNeed('${esc(f.id)}')" style="${needBtnStyle}">${isNeed?'● To-submit':'○ To-submit'}</button>
-        <button class="sub-toggle" onclick="toggleCal('${esc(f.id)}')" style="${calBtnStyle}">${isCal?'■ On cal':'□ Calendar'}</button>
-        <button class="sub-toggle" onclick="openEdit('${esc(f.id)}')">✎\uFE0E Edit</button>
+        <button class="sub-toggle" onclick="toggleCal('${esc(f.id)}')" style="${calBtnStyle}">${isCal?'📅 On cal':'📅 Calendar'}</button>
+        <button class="sub-toggle" onclick="openEdit('${esc(f.id)}')">✎ Edit</button>
       </div>
     </div>
   </div>
@@ -4860,7 +4719,7 @@ function calendarHTML(){
     }
   });
   events.sort((a,b)=>a.date - b.date);
-  if(events.length === 0) return '<div class="empty-state">Your calendar is empty. Use the <strong>□ Calendar</strong> button on any festival card to track its deadline and event date here.</div>';
+  if(events.length === 0) return '<div class="empty-state">Your calendar is empty. Use the <strong>📅 Add to calendar</strong> button on any festival card to track its deadline and event date here.</div>';
   const groups = {};
   const order = [];
   events.forEach(e=>{
@@ -4882,8 +4741,8 @@ function calendarHTML(){
       const isEvent = kind === 'event';
       const needTag = isNeed ? `<span class="badge" style="background:var(--amber-dim);color:var(--amber);font-size:9px;padding:1px 7px;margin-left:6px">★ to submit</span>` : '';
       const evTag = isEvent ? `<span class="badge b-selected" style="font-size:9px;padding:1px 7px;margin-left:6px">★ SELECTED — event</span>` : '';
-      const lineLbl = isEvent ? `▶\uFE0E Festival starts: ${esc(f.dates)}` : `DL · Deadline: ${esc(f.dl)}`;
-      const line2 = isEvent ? `◉ ${esc(f.loc)}` : `Festival: ${esc(f.dates)} · ◉ ${esc(f.loc)}`;
+      const lineLbl = isEvent ? `🎬 Festival starts: ${esc(f.dates)}` : `⏰ Deadline: ${esc(f.dl)}`;
+      const line2 = isEvent ? `📍 ${esc(f.loc)}` : `📅 Festival: ${esc(f.dates)} · 📍 ${esc(f.loc)}`;
       html += `<div class="cal-row${isPast?' past':''}${isEvent?' cal-event':''}">
         <div class="cal-date">
           <div class="cal-d">${date.getDate()}</div>
@@ -5821,7 +5680,7 @@ renderTabBar();
 
 <div class="card-delete-confirm hidden" id="delete-confirm">
   <div class="delete-dialog">
-    <h3>⌫ Remove festival?</h3>
+    <h3>🗑 Remove festival?</h3>
     <p id="delete-confirm-name" style="color:var(--ink2);font-weight:500;margin-bottom:0.3rem"></p>
     <p>This will remove it from your tracker. Built-in festivals can be re-added via the + Add button.</p>
     <div class="delete-dialog-btns">
