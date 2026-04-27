@@ -185,9 +185,7 @@ main{max-width:1040px;margin:0 auto;padding:1rem 1.5rem calc(5rem + var(--sab));
 /* CARD */
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem 1rem 1rem 1.3rem;margin-bottom:7px;transition:border-color 0.15s,box-shadow 0.15s;position:relative;overflow:hidden}
 .card:hover{border-color:var(--border2);box-shadow:var(--card-hover)}
-.card.is-open{background:rgba(62,207,142,0.04)}
-.card.is-sub{border-color:rgba(59,130,246,0.25)}
-.card.is-tbc{background:rgba(76,29,149,0.12);border-color:rgba(109,40,217,0.3)}
+.card.is-sub{border-color:rgba(62,207,142,0.22);background:var(--green-dim)}
 .card.from-csv{border-left-color:rgba(139,92,246,0.35)}
 .card.from-dome{border-left-color:rgba(245,166,35,0.35)}
 .cb{position:absolute;left:0;top:0;bottom:0;width:3px}
@@ -195,7 +193,6 @@ main{max-width:1040px;margin:0 auto;padding:1rem 1.5rem calc(5rem + var(--sab));
 .cb-watch{background:var(--amber)}
 .cb-closed{background:var(--ink3)}
 .cb-no{background:var(--red)}
-.cb-tbc{background:linear-gradient(180deg,#7c3aed,#4c1d95)}
 .cb-sub{background:linear-gradient(180deg,var(--green),var(--blue))}
 .cb-pdf{background:var(--teal)}
 
@@ -213,7 +210,6 @@ main{max-width:1040px;margin:0 auto;padding:1rem 1.5rem calc(5rem + var(--sab));
 .b-watch{background:var(--amber-dim);color:var(--amber)}
 .b-closed{background:rgba(168,164,158,0.12);color:var(--ink3)}
 .b-no{background:var(--red-dim);color:var(--red)}
-.b-tbc{background:rgba(109,40,217,0.15);color:#a78bfa}
 .b-sub{background:var(--blue-dim);color:var(--blue)}
 .b-pdf{background:var(--teal-dim);color:var(--teal)}
 .b-csv{background:var(--purple-dim);color:var(--purple);font-size:9px;padding:1px 7px;margin-left:3px}
@@ -247,17 +243,7 @@ main{max-width:1040px;margin:0 auto;padding:1rem 1.5rem calc(5rem + var(--sab));
 .vc{font-size:10px;color:var(--ink3)}
 .vc.ok{color:var(--green);opacity:0.75}
 
-/* SWIPE TO DELETE */
-.card-swipe-wrap{position:relative;overflow:hidden;border-radius:var(--radius-lg);margin-bottom:7px;}
-.card-swipe-wrap .card{margin-bottom:0;border-radius:var(--radius-lg);transition:transform 0.15s ease,opacity 0.15s;touch-action:pan-y;user-select:none;}
-.card-swipe-wrap .swipe-bg{position:absolute;inset:0;background:var(--red);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:flex-end;padding-right:1.5rem;gap:8px;color:#fff;font-size:13px;font-weight:600;opacity:0;transition:opacity 0.1s;}
-.card-swipe-wrap .swipe-bg span{font-size:18px;}
-.card-delete-confirm{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;background:rgba(13,15,16,0.85);backdrop-filter:blur(6px);}
-.card-delete-confirm.hidden{display:none;}
-.delete-dialog{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:1.4rem 1.4rem 1.2rem;max-width:320px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.5);}
-.delete-dialog h3{font-family:var(--font-head);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.4rem;}
-.delete-dialog p{font-size:12px;color:var(--ink3);margin-bottom:1.1rem;line-height:1.5;}
-.delete-dialog-btns{display:flex;gap:8px;justify-content:flex-end;}
+/* SUBMITTED PANEL */
 #sub-panel{max-width:1040px;margin:0 auto;padding:0 1.5rem 4rem}
 .sub-section{background:var(--green-dim);border:1px solid rgba(62,207,142,0.18);border-radius:var(--radius-lg);padding:1.1rem}
 .sub-section h2{font-family:var(--font-head);font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:0.85rem;display:flex;align-items:center;gap:8px}
@@ -272,12 +258,6 @@ main{max-width:1040px;margin:0 auto;padding:1rem 1.5rem calc(5rem + var(--sab));
 .award-row{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:0.6rem}
 .award-chip{font-size:10px;padding:2px 9px;border-radius:99px;background:rgba(245,166,35,0.12);border:1px solid rgba(245,166,35,0.25);color:var(--amber);white-space:nowrap}
 .empty-state{padding:2rem;text-align:center;color:var(--ink3);font-size:13px}
-
-/* LIST HEADER — shown at top of each non-all tab */
-.list-header{display:flex;align-items:center;gap:10px;margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:2px solid var(--border)}
-.list-header-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.list-header-name{font-family:var(--font-head);font-size:1rem;font-weight:600;color:var(--ink)}
-.list-header-count{font-size:11px;color:var(--ink3);background:var(--bg3);border:1px solid var(--border);padding:1px 8px;border-radius:99px;margin-left:2px}
 
 /* OVERLAY */
 .overlay{display:none;position:fixed;inset:0;background:rgba(13,15,16,0.8);backdrop-filter:blur(4px);z-index:100;align-items:center;justify-content:center;flex-direction:column;gap:1rem}
@@ -354,7 +334,6 @@ main{max-width:1040px;margin:0 auto;padding:1rem 1.5rem calc(5rem + var(--sab));
 .qs-btn.qs-active-watch{background:var(--amber-dim);color:var(--amber);border-color:rgba(217,119,6,0.35)}
 .qs-btn.qs-active-closed{background:var(--bg3);color:var(--ink2);border-color:var(--border2)}
 .qs-btn.qs-active-no{background:var(--red-dim);color:var(--red);border-color:rgba(229,62,62,0.35)}
-.qs-btn.qs-active-tbc{background:rgba(109,40,217,0.15);color:#a78bfa;border-color:rgba(109,40,217,0.4)}
 
 /* CARD ACTIONS — always visible, right column */
 .card-actions{display:flex;gap:3px;flex-wrap:wrap;justify-content:flex-end}
@@ -430,7 +409,6 @@ main{max-width:1040px;margin:0 auto;padding:1rem 1.5rem calc(5rem + var(--sab));
       <button class="sb active" data-s="dl" id="sb-dl" onclick="setSort('dl',this)">Deadline ↑</button>
       <button class="sb" data-s="ev" id="sb-ev" onclick="setSort('ev',this)">Event date</button>
       <button class="sb" data-s="name" id="sb-name" onclick="setSort('name',this)">Name</button>
-      <button class="sb" data-s="notif" id="sb-notif" onclick="setSort('notif',this)">Notification</button>
       <button class="collapse-btn" id="collapse-btn" onclick="toggleCollapse()" style="margin-left:8px">⊟ Collapse all</button>
     </div>
     <input class="search-box" id="srch" placeholder="Search…" oninput="render()">
@@ -563,7 +541,7 @@ const DB = [
   "verified": false,
   "src": "csv",
   "csv": {
-   "status": "",
+   "status": "In Consideration",
    "judging": "Not Selected",
    "tracking": "1402 / 1444",
    "submitted": "Apr 15–20, 2026",
@@ -708,8 +686,7 @@ const DB = [
    "VR",
    "Immersive",
    "Installation",
-   "360°",
-   "In Consideration"
+   "360°"
   ],
   "notes": "Verified Apr 2026 via fivars.net. FIVARS 12th annual Jun 15–19, 2026 in Toronto with online WebXR theatre afterward (~14 days post). VR/AR storytelling festival. Submit via FilmFreeway.",
   "url": "https://filmfreeway.com/FIVARS",
@@ -719,10 +696,8 @@ const DB = [
    "status": "In Consideration",
    "judging": "Undecided",
    "tracking": "FVRS2027",
-   "submitted": "November 22, 2025",
-   "notification": "June 14, 2026",
-   "notificationDate": "2026-06-14",
-   "eventDates": "June 15, 2026 to June 19, 2026",
+   "submitted": "Nov 22, 2025",
+   "notification": "Jun 14, 2026",
    "category": "Installation"
   },
   "lastVerified": "2026-04-26"
@@ -740,8 +715,7 @@ const DB = [
    "VR",
    "Immersive",
    "360°",
-   "XR",
-   "In Consideration"
+   "XR"
   ],
   "notes": "Verified Apr 2026 via filmfreeway.com/asffestival. 16th Aesthetica Nov 4–8, 2026 in York. VR/Immersive/360 lab. Submissions opened Dec 1, 2025. Selections announced Aug 31, 2026.",
   "url": "https://filmfreeway.com/asffestival",
@@ -751,10 +725,8 @@ const DB = [
    "status": "In Consideration",
    "judging": "Undecided",
    "tracking": "ASFF21752",
-   "submitted": "December 21, 2025",
-   "notification": "August 31, 2026",
-   "notificationDate": "2026-08-31",
-   "eventDates": "November 04, 2026 to November 08, 2026",
+   "submitted": "Dec 21, 2025",
+   "notification": "Aug 31, 2026",
    "category": "VR, Immersive & 360 Films"
   },
   "lastVerified": "2026-04-26"
@@ -773,8 +745,7 @@ const DB = [
    "AR",
    "MR",
    "XR",
-   "360°",
-   "In Consideration"
+   "360°"
   ],
   "notes": "Verified Apr 2026 via filmfreeway.com/KFFCompetition. 26th Kaohsiung Film Festival Oct 9–26, 2026. XR Competition is one of Asia's leading XR awards. Final XR deadline Jun 10, 2026.",
   "url": "https://filmfreeway.com/KFFCompetition",
@@ -784,17 +755,15 @@ const DB = [
    "status": "In Consideration",
    "judging": "Undecided",
    "tracking": "2026KFF9004",
-   "submitted": "April 02, 2026",
-   "notification": "August 31, 2026",
-   "notificationDate": "2026-08-31",
-   "eventDates": "October 09, 2026 to October 26, 2026",
+   "submitted": "Apr 2, 2026",
+   "notification": "Aug 31, 2026",
    "category": "XR Competition"
   },
   "lastVerified": "2026-04-26"
  },
  {
   "id": "idfa",
-  "name": "IDFA DocLab '25 — Int'l Documentary Festival Amsterdam",
+  "name": "IDFA DocLab 2026",
   "loc": "Amsterdam, Netherlands",
   "region": "Europe",
   "dates": "Nov 12–22, 2026 (39th IDFA, Amsterdam)",
@@ -807,16 +776,13 @@ const DB = [
    "AR",
    "Interactive",
    "Installation",
-   "Performance",
-   "Selected",
-   "World Premiere"
+   "Performance"
   ],
   "notes": "Verified Apr 2026 via professionals.idfa.nl. 39th IDFA + DocLab Nov 12–22, 2026. Entries open Mar 17. Film Fund DocLab Interactive Grant Apr 14. Early entry Apr 14 (€25/€35). Final Jun 16 (€25/€45). VR/XR/Interactive/Immersive program.",
   "url": "https://professionals.idfa.nl/program/festival-entries/festival-entry-regulations/",
   "verified": true,
   "src": "pdf",
-  "lastVerified": "2026-04-26",
-  "selected": true
+  "lastVerified": "2026-04-26"
  },
  {
   "id": "bolton",
@@ -830,8 +796,7 @@ const DB = [
   "tags": [
    "VR",
    "AR",
-   "360°",
-   "In Consideration"
+   "360°"
   ],
   "notes": "Verified Apr 2026 via boltonfilmfestival.com / FilmFreeway. Bolton Int'l Film Festival Oct 1–5, 2026, awards Oct 4. VR/AR/360/Immersive strand. Materials due Jun 17.",
   "url": "https://filmfreeway.com/BoltonFilmFestival",
@@ -841,10 +806,8 @@ const DB = [
    "status": "In Consideration",
    "judging": "Undecided",
    "tracking": "BFF20262197",
-   "submitted": "December 05, 2025",
-   "notification": "July 14, 2026",
-   "notificationDate": "2026-07-14",
-   "eventDates": "September 30, 2026 to October 04, 2026",
+   "submitted": "Dec 5, 2025",
+   "notification": "Jul 14, 2026",
    "category": "VR/AR/360"
   },
   "lastVerified": "2026-04-26"
@@ -862,8 +825,7 @@ const DB = [
    "Moving Image",
    "Art",
    "Experimental",
-   "New Media",
-   "In Consideration"
+   "New Media"
   ],
   "notes": "Verified Apr 2026 via art-action.org. Rencontres Internationales Paris/Berlin — Spring Berlin + Autumn Paris (Nov 2026). Current 2026 call only relates to Paris Nov 2026. New cinema and contemporary art including VR/immersive. 1st deadline closed Mar 12, 2nd part still open.",
   "url": "https://www.art-action.org/",
@@ -873,10 +835,8 @@ const DB = [
    "status": "In Consideration",
    "judging": "Undecided",
    "tracking": "RIPB26_6308",
-   "submitted": "March 11, 2026",
-   "notification": "August 14, 2026",
-   "notificationDate": "2026-08-14",
-   "eventDates": "November 23, 2026 to November 29, 2026",
+   "submitted": "Mar 11, 2026",
+   "notification": "Aug 14, 2026",
    "category": "Moving Image Art Prize"
   },
   "lastVerified": "2026-04-26"
@@ -937,8 +897,7 @@ const DB = [
    "New Media",
    "Video Art",
    "Installation",
-   "VR",
-   "In Consideration"
+   "VR"
   ],
   "notes": "Verified Apr 2026 via videomedeja.org. 30th Videomedeja Oct 15–17, 2026 in Novi Sad. Tiers: Early Feb 28, Regular Jun 15, Late Jul 10. Includes new media art / immersive works.",
   "url": "https://www.videomedeja.org/",
@@ -948,10 +907,8 @@ const DB = [
    "status": "In Consideration",
    "judging": "Undecided",
    "tracking": "VM26182",
-   "submitted": "March 21, 2026",
-   "notification": "September 01, 2026",
-   "notificationDate": "2026-09-01",
-   "eventDates": "October 15, 2026 to October 17, 2026",
+   "submitted": "Mar 21, 2026",
+   "notification": "Sep 1, 2026",
    "category": "Media Projects"
   },
   "lastVerified": "2026-04-26"
@@ -961,19 +918,19 @@ const DB = [
   "name": "Art*VR — Virtual Reality Film Festival",
   "loc": "Prague, Czech Republic",
   "region": "Europe",
-  "dates": "23rd edition: ~Oct/Nov 2026 (TBC)",
-  "dl": "2026 call not yet announced (TBC). 2025 deadline was July 31, 2025.",
-  "dls": "2026-07-31",
-  "status": "watch",
+  "dates": "Nov 10–15, 2026",
+  "dl": "July 10, 2026",
+  "dls": "2026-07-10",
+  "status": "open",
   "tags": [
    "VR",
    "360°",
    "Interactive",
    "Immersive"
   ],
-  "notes": "Verified Apr 2026 via artvr.cz. Held at DOX Centre for Contemporary Art + Prague Planetarium. Most recent edition: Oct 21–26, 2025 (international competition). 2026 edition expected ~Oct/Nov 2026 but exact dates and deadlines not yet announced. Watch artvr.cz/en.",
+  "notes": "Director: Ondřej Moravec. Immersive Content (360 & Interactive). Free entry. Source: XR Film Festivals Calendar 2026 (Georgy Molodtsov).",
   "url": "https://www.artvrfest.com/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -981,10 +938,10 @@ const DB = [
   "name": "Geneva International Film Festival (GIFF)",
   "loc": "Geneva, Switzerland",
   "region": "Europe",
-  "dates": "32nd edition: Oct 30–Nov 8, 2026",
-  "dl": "2026 call not yet open as of Apr 2026 (TBC ~July 2026). Historically: Mar/May/July 2025 windows for 2025 edition.",
+  "dates": "Oct 30–Nov 8, 2026",
+  "dl": "~July 2026 (TBC)",
   "dls": "2026-07-31",
-  "status": "watch",
+  "status": "open",
   "tags": [
    "VR",
    "AR",
@@ -993,7 +950,7 @@ const DB = [
    "Installation",
    "Games"
   ],
-  "notes": "Verified Apr 2026 via giff.ch. 32nd edition confirmed Oct 30–Nov 8, 2026. Full Immersive Experiences Competition. 2026 submission call not yet open — expected to follow 2025 pattern (early March, regular May, late July). Watch giff.ch/en/le-festival/call-for-entries.",
+  "notes": "32nd edition. Full Immersive Experiences Competition confirmed. Accepts VR/AR/MR, digital installations, real-time narratives, video games. Works-in-progress welcome. Submit via MyGIFF platform.",
   "url": "https://www.giff.ch/en/le-festival/call-for-entries/",
   "verified": true,
   "src": "pdf"
@@ -1003,17 +960,16 @@ const DB = [
   "name": "KFFK / Kurzfilmfestival Köln — 360°/VR",
   "loc": "Cologne, Germany",
   "region": "Europe",
-  "dates": "KFFK N°20: Nov 24–29, 2026",
-  "dl": "Aug 1, 2026 (final). OPEN now.",
+  "dates": "Nov 23–29, 2026",
+  "dl": "Aug 1, 2026",
   "dls": "2026-08-01",
   "status": "open",
   "tags": [
    "VR",
    "360°",
-   "Experimental",
-   "In Consideration"
+   "Experimental"
   ],
-  "notes": "Verified Apr 2026 via filmfreeway.com/KFFKfestival + kffk.de. 20th edition Nov 24–29, 2026 in Cologne. VR Prize since 2016. 360°/VR open to international productions. Films completed current or prior year. No German residency requirement. Final deadline Aug 1.",
+  "notes": "20th edition (KFFK N°20). VR Prize since 2016. 360°/VR open to international productions — no German requirement. Films completed current or prior year.",
   "url": "https://filmfreeway.com/KFFKfestival",
   "verified": true,
   "src": "csv",
@@ -1021,10 +977,8 @@ const DB = [
    "status": "In Consideration",
    "judging": "Undecided",
    "tracking": "KFFK20-1209",
-   "submitted": "April 24, 2026",
-   "notification": "October 23, 2026",
-   "notificationDate": "2026-10-23",
-   "eventDates": "November 23, 2026 to November 29, 2026",
+   "submitted": "Apr 24, 2026",
+   "notification": "Oct 23, 2026",
    "category": "Virtual Reality Competition"
   }
  },
@@ -1082,8 +1036,7 @@ const DB = [
   "tags": [
    "Dome Film",
    "Animation",
-   "Technology",
-   "In Consideration"
+   "Technology"
   ],
   "notes": "Verified Apr 2026 via pdxfestofcinema.com & FilmFreeway. PFCAT 2026 Aug 19–23 at Oregon Museum of Science and Industry (OMSI), Portland. Empirical Theater (300-seat IMAX) + Kendall Planetarium for fulldome. Has cinema, animation, and tech/dome categories.",
   "url": "https://filmfreeway.com/PortlandFestivalCinemaTech",
@@ -1093,10 +1046,8 @@ const DB = [
    "status": "In Consideration",
    "judging": "Undecided",
    "tracking": "PFCAT2250",
-   "submitted": "October 24, 2025",
-   "notification": "June 22, 2026",
-   "notificationDate": "2026-06-22",
-   "eventDates": "August 18, 2026 to August 23, 2026",
+   "submitted": "Oct 24, 2025",
+   "notification": "Jun 22, 2026",
    "category": "Dome Film"
   },
   "lastVerified": "2026-04-26"
@@ -1171,9 +1122,9 @@ const DB = [
   "name": "Jihlava Documentary Film Festival",
   "loc": "Jihlava, Czech Republic",
   "region": "Europe",
-  "dates": "30th edition: Oct 23–Nov 1, 2026",
-  "dl": "Submissions open Jan 15, 2026. Final deadline ~June 2026 (TBC).",
-  "dls": "2026-06-30",
+  "dates": "Oct 27–Nov 1, 2026",
+  "dl": "~TBC",
+  "dls": "2026-07-01",
   "status": "watch",
   "tags": [
    "VR",
@@ -1181,9 +1132,9 @@ const DB = [
    "New Media",
    "Exhibition"
   ],
-  "notes": "Verified Apr 2026 via ji-hlava.com. 30th annual Ji.hlava IDFF Oct 23–Nov 1, 2026 in Jihlava (in person), plus 2 weeks online. Submissions opened Jan 15, 2026. Documentary festival with VR/new media historically featured. Submit at vp.eventival.com/jidff/2026.",
+  "notes": "Curated VR/new media exhibition alongside documentary programme. Watch ji-hlava.com for 2026 call.",
   "url": "http://www.ji-hlava.com/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1191,18 +1142,18 @@ const DB = [
   "name": "Nashville Film Festival — VR",
   "loc": "Nashville, USA",
   "region": "North America",
-  "dates": "57th edition: Sept 24–30, 2026",
-  "dl": "Submissions open Jan 1, 2026. Specific VR deadline TBC — check FilmFreeway.",
-  "dls": "2026-06-30",
+  "dates": "Oct 2026",
+  "dl": "TBC for 2026",
+  "dls": "2026-07-01",
   "status": "watch",
   "tags": [
    "VR",
    "Short Film",
    "Competition"
   ],
-  "notes": "Verified Apr 2026 via nashvillefilmfestival.org + filmfreeway.com/NashFilm. 57th Nashville Film Festival Sept 24–30, 2026. Submissions opened Jan 1, 2026. VR section historically present but specific deadlines not surfaced — check FilmFreeway page directly. Contact: entries@nashfilm.org.",
+  "notes": "Nashville Film Festival has dedicated VR competition with $500 Grand Jury prize. Watch nashvillefilmfestival.org for 2026 call.",
   "url": "https://nashvillefilmfestival.org",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1210,28 +1161,25 @@ const DB = [
   "name": "Porto/Post/Doc — Full Dome Planetarium",
   "loc": "Porto, Portugal",
   "region": "Europe",
-  "dates": "13th edition: Nov 19–28, 2026",
-  "dl": "Early Jan 31, 2026 — passed. Regular Apr 30, 2026. Extended Jul 31, 2026. OPEN now.",
-  "dls": "2026-04-30",
-  "status": "open",
+  "dates": "Nov 19–28, 2026",
+  "dl": "TBC",
+  "dls": "2026-07-01",
+  "status": "watch",
   "tags": [
    "Fulldome",
    "Planetarium",
-   "Documentary",
-   "In Consideration"
+   "Documentary"
   ],
-  "notes": "Verified Apr 2026 via portopostdoc.com. 13th edition Nov 19–28, 2026 in Porto. Full Dome Planetarium category at the planetarium. Tiered deadlines: early Jan 31 (passed), regular Apr 30 (closing), extended Jul 31. Materials due Oct 19. Open call live.",
+  "notes": "Documentary and expanded cinema festival with dedicated planetarium/fulldome programme. Submitted Dec 2, 2025. Notification Oct 19, 2026.",
   "url": "https://www.portopostdoc.com/",
-  "verified": true,
+  "verified": false,
   "src": "csv",
   "csv": {
    "status": "In Consideration",
    "judging": "Undecided",
    "tracking": "PPD2606",
-   "submitted": "December 02, 2025",
-   "notification": "October 19, 2026",
-   "notificationDate": "2026-10-19",
-   "eventDates": "November 19, 2026 to November 28, 2026",
+   "submitted": "Dec 2, 2025",
+   "notification": "Oct 19, 2026",
    "category": "Full Dome Planetarium"
   }
  },
@@ -1240,18 +1188,18 @@ const DB = [
   "name": "São Paulo International Film Festival",
   "loc": "São Paulo, Brazil",
   "region": "Latin America",
-  "dates": "Mostra Internacional de Cinema em São Paulo: ~Oct 2026 (TBC)",
-  "dl": "TBC for 2026 — historically ~July deadline.",
-  "dls": "2026-07-31",
+  "dates": "Oct 2026",
+  "dl": "~July 2026 (TBC)",
+  "dls": "2026-07-01",
   "status": "watch",
   "tags": [
    "VR",
    "Exhibition",
    "International"
   ],
-  "notes": "Verified Apr 2026 via mostra.org. Mostra Internacional de Cinema em São Paulo (founded 1977) — major Brazilian film festival, 300+ films/year. 2026 edition dates and submission call not yet announced. VR/immersive presence varies year-to-year. Note: \"São Paulo Film Festival\" on FilmFreeway is a distinct, smaller event.",
+  "notes": "São Paulo Mostra includes free VR screenings. Watch mostra.org for 2026 VR programme info.",
   "url": "http://www.mostra.org/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1259,8 +1207,8 @@ const DB = [
   "name": "International Animated Film Festival Animateka",
   "loc": "Ljubljana, Slovenia",
   "region": "Europe",
-  "dates": "23rd edition: ~Dec 1–7, 2026 (est., follows 2025 pattern)",
-  "dl": "~July 2026 (TBC; 2025 deadline was July 15)",
+  "dates": "Dec 2026 (next edition, TBC)",
+  "dl": "~Jul 2026 (TBC)",
   "dls": "2026-07-15",
   "status": "watch",
   "tags": [
@@ -1270,9 +1218,9 @@ const DB = [
    "3DoF",
    "360°"
   ],
-  "notes": "Verified Apr 2026 via animateka.si. International Animated Film Festival in Ljubljana, Slovenia. 22nd edition ran Dec 1–7, 2025. 23rd edition expected ~Dec 1–7, 2026 with submission deadline ~July 15, 2026 (extrapolated from 2025 pattern). Animation festival with occasional VR/immersive program.",
+  "notes": "22nd edition (Dec 2025) ran VR Competition Programme (VR 6DoF, 3DoF, 360° Video). Free entry. Watch animateka.si for 2026 call.",
   "url": "https://www.animateka.si/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1280,9 +1228,9 @@ const DB = [
   "name": "Qld XR Festival",
   "loc": "Brisbane, Australia",
   "region": "Asia-Pacific",
-  "dates": "2026 edition dates TBA",
-  "dl": "Not yet announced — watch FilmFreeway",
-  "dls": "2026-08-31",
+  "dates": "Sep 2026 (next edition, TBC)",
+  "dl": "~Jul 2026 (TBC)",
+  "dls": "2026-07-31",
   "status": "watch",
   "tags": [
    "XR",
@@ -1292,9 +1240,9 @@ const DB = [
    "Interactive",
    "Metaverse"
   ],
-  "notes": "Verified Apr 2026 via qldxrfestival.com + filmfreeway.com/QldXRFestival. Brisbane-based VR/AR/Creative AI/digital art/game dev festival. 2025 edition completed Nov 28–29, 2025. 2026 edition announced but dates and submission deadline TBA. Contact hello@qldxrfestival.com. New website coming.",
+  "notes": "Queensland's dedicated XR festival. Immersive Content (360 + Interactive + Metaverse). $23–$45. Watch qldxrfest.com.au.",
   "url": "https://qldxrfest.com.au/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1302,18 +1250,18 @@ const DB = [
   "name": "BOGOSHORTS — Bogotá Short Film Festival VR 360",
   "loc": "Bogotá, Colombia",
   "region": "Latin America",
-  "dates": "24th edition: Dec 1–8, 2026",
-  "dl": "Open Apr 9, 2026. Early Jun 8. Final Aug 6, 2026. OPEN now.",
-  "dls": "2026-08-06",
-  "status": "open",
+  "dates": "Dec 8–15, 2026",
+  "dl": "~Aug 2026 (TBC)",
+  "dls": "2026-08-01",
+  "status": "watch",
   "tags": [
    "VR",
    "360°",
    "Short Film"
   ],
-  "notes": "Verified Apr 2026 via festival.bogoshorts.com. 24th BOGOSHORTS Dec 1–8, 2026 in Bogotá. VR/360 Competition section. Submissions opened Apr 9, 2026. Tiered: early Jun 8, final Aug 6. Selection announced Oct 23, 2026 (Noche de la Revelación, Cinemateca de Bogotá). Submit via ShortFilmDepot.",
+  "notes": "VR 360 Competition section at Bogotá's main short film festival. Previous submission deadline was early August. Watch festival.bogoshorts.com.",
   "url": "http://festival.bogoshorts.com/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1321,9 +1269,9 @@ const DB = [
   "name": "Fonica Festival",
   "loc": "Rome, Italy",
   "region": "Europe",
-  "dates": "Status uncertain — no recent activity",
-  "dl": "No active call found",
-  "dls": "2026-12-31",
+  "dates": "~Annually",
+  "dl": "~Summer–Autumn (TBC for 2026/2027)",
+  "dls": "2026-08-01",
   "status": "watch",
   "tags": [
    "Audio",
@@ -1332,9 +1280,9 @@ const DB = [
    "Immersive",
    "Experimental"
   ],
-  "notes": "Verified Apr 2026 — fonicafestival.com returned no current results. Festival appears dormant or domain not indexed. May have been folded into another event. No 2026 call traced. Keep watching.",
+  "notes": "Annual audio-visual and digital arts festival in Rome. Astro_v3 screened here in 2024. Programs immersive/dome and experimental AV works. Check fonicafestival.com for open call.",
   "url": "http://www.fonicafestival.com/",
-  "verified": true,
+  "verified": false,
   "src": "dome"
  },
  {
@@ -1342,18 +1290,18 @@ const DB = [
   "name": "LISTAPAD Minsk Int'l Film Festival",
   "loc": "Minsk, Belarus",
   "region": "Europe",
-  "dates": "32nd edition: Oct 30–Nov 6, 2026",
-  "dl": "Apr 10–Jul 31, 2026. OPEN now (free).",
-  "dls": "2026-07-31",
-  "status": "open",
+  "dates": "Nov 2026",
+  "dl": "TBC — geopolitical situation uncertain",
+  "dls": "2026-08-01",
+  "status": "watch",
   "tags": [
    "VR",
    "Exhibition",
    "Documentary"
   ],
-  "notes": "Verified Apr 2026 via listapad.org. 32nd Minsk International Film Festival Oct 30–Nov 6, 2026. Submissions opened Apr 10, deadline Jul 31. Free to submit. Belarusian state-affiliated festival — primarily traditional cinema; VR/XR presence minimal. Note: listapad.com redirects to listapad.org.",
-  "url": "https://listapad.org/en/",
-  "verified": true,
+  "notes": "Minsk festival has historically included VR exhibition/lab. Current status uncertain due to geopolitical situation. Check listapad.com.",
+  "url": "http://listapad.com",
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1361,10 +1309,10 @@ const DB = [
   "name": "MIRA Festival",
   "loc": "Barcelona, Spain",
   "region": "Europe",
-  "dates": "2026 edition: Nov 6–7, 2026",
-  "dl": "No open call — curated programme",
-  "dls": "2026-11-06",
-  "status": "no",
+  "dates": "~Oct–Nov annually",
+  "dl": "~June–Aug (TBC for 2026)",
+  "dls": "2026-08-01",
+  "status": "watch",
   "tags": [
    "Digital Art",
    "AV Performance",
@@ -1372,9 +1320,9 @@ const DB = [
    "360°",
    "Electronic"
   ],
-  "notes": "Verified Apr 2026 via mirafestival.com. MIRA Digital Arts Festival Nov 6–7, 2026 at Fira Montjuïc, Barcelona. AV concerts + immersive A/V installations. Curated programme — no open submissions call surfaced. Festival operates on commission/invitation basis.",
-  "url": "https://mirafestival.com/",
-  "verified": true,
+  "notes": "Major international festival of advanced music and digital arts. Astro_v3 screened here in 2023. Programs dome/fulldome works alongside AV performances. Open call typically launches in summer. Watch miracfestival.net.",
+  "url": "https://www.miracfestival.net/",
+  "verified": false,
   "src": "dome"
  },
  {
@@ -1382,9 +1330,9 @@ const DB = [
   "name": "MUTEK MX",
   "loc": "Mexico City, Mexico",
   "region": "Latin America",
-  "dates": "2026 edition dates TBA (2024 ran Oct 7–20)",
-  "dl": "Not yet announced for MX edition",
-  "dls": "2026-08-31",
+  "dates": "~Nov annually",
+  "dl": "~June–Aug (TBC for 2026)",
+  "dls": "2026-08-01",
   "status": "watch",
   "tags": [
    "Electronic Music",
@@ -1392,9 +1340,9 @@ const DB = [
    "Immersive",
    "AV Performance"
   ],
-  "notes": "Verified Apr 2026 via mx.mutek.org. MUTEK MX (Mexico City edition) — 2024 ran Oct 7–20, 2024. 2026 dates not publicly announced. Note: MUTEK Montréal has its own active 2026 call (separate event). Watch mx.mutek.org for MX-specific call.",
+  "notes": "Mexico's edition of the international MUTEK festival. Astro_v3 screened here in 2023. Programs dome/immersive works alongside electronic music performances. Watch mx.mutek.org.",
   "url": "https://mx.mutek.org/",
-  "verified": true,
+  "verified": false,
   "src": "dome"
  },
  {
@@ -1402,9 +1350,9 @@ const DB = [
   "name": "Patchlab Digital Art Festival",
   "loc": "Kraków, Poland",
   "region": "Europe",
-  "dates": "~Oct 2026 (TBC)",
-  "dl": "No public call surfaced — likely curated",
-  "dls": "2026-08-31",
+  "dates": "~Oct–Nov annually",
+  "dl": "~June–Aug (TBC for 2026)",
+  "dls": "2026-08-01",
   "status": "watch",
   "tags": [
    "Digital Art",
@@ -1412,9 +1360,9 @@ const DB = [
    "360°",
    "Generative Art"
   ],
-  "notes": "Verified Apr 2026 via en.patchlab.pl. Kraków-based digital art festival (Photon Foundation). Annual ~October. AV concerts, exhibitions, performances. No public open-call surfaced — historically curated. 10th edition was 2022. Watch en.patchlab.pl for any new submission window.",
+  "notes": "International digital art festival in Kraków. Astro_v3 screened here in 2024. Programs dome/immersive content alongside digital art. Call usually opens summer. Watch patchlab.pl.",
   "url": "https://patchlab.pl/",
-  "verified": true,
+  "verified": false,
   "src": "dome"
  },
  {
@@ -1422,10 +1370,10 @@ const DB = [
   "name": "SIGGRAPH Asia — XR / VR Theatre",
   "loc": "South Korea / Asia (varies)",
   "region": "Asia-Pacific",
-  "dates": "19th SIGGRAPH Asia: Dec 1–4, 2026",
-  "dl": "Multiple deadlines — varies by track. Most main tracks ~May–July 2026.",
-  "dls": "2026-07-15",
-  "status": "open",
+  "dates": "Nov–Dec 2026",
+  "dl": "~July–Aug 2026 (TBC)",
+  "dls": "2026-08-01",
+  "status": "watch",
   "tags": [
    "VR",
    "XR",
@@ -1433,9 +1381,9 @@ const DB = [
    "Interactive",
    "Emerging Tech"
   ],
-  "notes": "Verified Apr 2026 via asia.siggraph.org/2026. 19th ACM SIGGRAPH Asia Dec 1–4, 2026 in Kuala Lumpur (first time in Malaysia). Theme: \"Weaving the Future\". Multiple tracks — XR/Immersive Pavilion, Real-Time Live!, Art Gallery, Computer Animation Festival. Deadlines stagger May–July 2026.",
+  "notes": "Annual SIGGRAPH Asia includes VR Theatre and Emerging Technologies. 2020 edition was in Daegu. Watch sa2026.siggraph.org for 2026 call.",
   "url": "https://www.siggraph.org/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1443,19 +1391,19 @@ const DB = [
   "name": "SITGES — Cocoon / Fantastic Film Festival",
   "loc": "Barcelona, Spain",
   "region": "Europe",
-  "dates": "59th edition: Oct 8–18, 2026",
-  "dl": "Submissions Feb 23, 2026. Early Jun 18. Final Jul 16, 2026.",
-  "dls": "2026-07-16",
-  "status": "open",
+  "dates": "Oct 2026",
+  "dl": "TBC for 2026",
+  "dls": "2026-08-01",
+  "status": "watch",
   "tags": [
    "VR",
    "XR",
    "Fantastic",
    "Sci-Fi"
   ],
-  "notes": "Verified Apr 2026 via sitgesfilmfestival.com. 59th Sitges International Fantastic Film Festival of Catalonia Oct 8–18, 2026. Submissions opened Feb 23. Early Jun 18, final Jul 16 (12pm CET). Notification Sept 1. Has had VR/Immersive sidebar (Cocoon) historically. FanPitch Oct 12–13.",
+  "notes": "SITGES's Cocoon section for VR/XR/immersive. One of Spain's top genre festivals. Watch sitgesfilmfestival.com for 2026 call.",
   "url": "https://sitgesfilmfestival.com/eng/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1463,18 +1411,18 @@ const DB = [
   "name": "Beyond the Frame Festival",
   "loc": "Tokyo, Japan",
   "region": "Asia-Pacific",
-  "dates": "~Oct 2026 (TBC)",
-  "dl": "~Aug 2026 (TBC) — historically Aug deadline",
-  "dls": "2026-08-31",
+  "dates": "Oct 2026 (next edition, TBC)",
+  "dl": "~Aug 2026 (TBC)",
+  "dls": "2026-08-15",
   "status": "watch",
   "tags": [
    "Immersive",
    "360°",
    "Interactive"
   ],
-  "notes": "Verified Apr 2026 via filmfreeway.com/BeyondtheFrameFestival + btffjp.com. Tokyo-based pioneering Japanese XR/immersive festival by CinemaLeap. 2026 specific dates and deadlines not yet on FilmFreeway. Submissions email submissions@cinemaleap.com. Watch btffjp.com/en.",
+  "notes": "Tokyo immersive content festival (360 & Interactive). $28 fee. Watch beyondtheframefest.com.",
   "url": "https://beyondtheframefest.com/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1482,9 +1430,9 @@ const DB = [
   "name": "Imagine Fantastic Film Festival",
   "loc": "Amsterdam, Netherlands",
   "region": "Europe",
-  "dates": "43rd edition: Oct/Nov 2026 (TBC)",
+  "dates": "Oct–Nov 2026 (next edition)",
   "dl": "~Aug 2026 (TBC)",
-  "dls": "2026-08-31",
+  "dls": "2026-08-15",
   "status": "watch",
   "tags": [
    "Fantastic",
@@ -1493,9 +1441,9 @@ const DB = [
    "Interactive",
    "Metaverse"
   ],
-  "notes": "Verified Apr 2026 via imaginefilmfestival.nl + filmfreeway.com/ImagineFIlmFestival. 42nd edition was 2025. 43rd edition expected Oct–Nov 2026. Mixes features, shorts, masterclasses, VR. 2026 specific deadlines not yet published. Watch imaginefilmfestival.nl/en.",
+  "notes": "Fantastic film festival with immersive content (360 + interactive + metaverse). XR Curator: Stanislaw Liguzinski. Free submission. Watch imaginefilmfestival.nl.",
   "url": "https://imaginefilmfestival.nl/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1523,9 +1471,9 @@ const DB = [
   "name": "Sandbox Immersive Festival",
   "loc": "Qingdao, China",
   "region": "Asia-Pacific",
-  "dates": "Status uncertain — last known activity 2024",
-  "dl": "No 2026 call surfaced",
-  "dls": "2026-09-30",
+  "dates": "Nov 2–8, 2026",
+  "dl": "~Aug–Sept 2026 (TBC)",
+  "dls": "2026-09-01",
   "status": "watch",
   "tags": [
    "VR",
@@ -1533,9 +1481,9 @@ const DB = [
    "Immersive",
    "Pitching"
   ],
-  "notes": "Verified Apr 2026 — sandboxif.com no current 2026/2027 info indexed. Sandbox Immersive Festival (Qingdao, China) was China's first dedicated immersive media festival. May be dormant or paused. Historical formats: VR/AR/MR competitions, exhibition, student works, pitching. Watch sandboxif.com.",
+  "notes": "VR Competition + non-competitive exhibition + Student Works + Pitching programme. submission@sandboxif.co. Watch sandboxif.com.",
   "url": "http://www.sandboxif.com/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1543,18 +1491,18 @@ const DB = [
   "name": "SATIS Screen4all 360 Film Festival",
   "loc": "Paris, France",
   "region": "Europe",
-  "dates": "SATIS-Screen4All 2026: ~Nov 2026, Saint-Denis (Paris)",
+  "dates": "Nov 2026",
   "dl": "~Sept 2026 (TBC)",
-  "dls": "2026-09-30",
+  "dls": "2026-09-01",
   "status": "watch",
   "tags": [
    "360°",
    "VR",
    "Immersive"
   ],
-  "notes": "Verified Apr 2026 via satis-expo.com. SATIS-Screen4All 2026 at La Plaine Saint-Denis, Paris. 360 Film Festival is the content arm — VR/AR/large formats. French-language audiovisual industry trade event. 2026 specific dates and call dates not yet published. Watch satis-expo.com/en/festival.",
+  "notes": "360° Film Festival tied to SATIS Screen4all industry expo. Competition + awards + market. Previous deadline mid-September. Watch satis-expo.com.",
   "url": "http://www.satis-expo.com/en/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1562,7 +1510,7 @@ const DB = [
   "name": "Sherman Oaks Film Festival — Immersive",
   "loc": "Sherman Oaks, CA, USA",
   "region": "North America",
-  "dates": "~Nov 2026 (TBC)",
+  "dates": "Dec 4–7, 2026",
   "dl": "TBC — check FilmFreeway",
   "dls": "2026-09-01",
   "status": "watch",
@@ -1571,21 +1519,18 @@ const DB = [
    "VR",
    "MR",
    "360°",
-   "Immersive",
-   "In Consideration"
+   "Immersive"
   ],
-  "notes": "Verified Apr 2026 via filmfreeway.com/shermanoaksfilmfest. Sherman Oaks Film Festival held annually in November at Look Cinema, Glendale, CA. Top 1% of FilmFreeway festivals. Immersive Short – AR/VR/MR/360 category. 2026 specific deadlines TBC on FilmFreeway. Submitted Apr 24, 2026; notification Oct 15, 2026.",
-  "url": "https://filmfreeway.com/shermanoaksfilmfest",
-  "verified": true,
+  "notes": "Dedicated 'Immersive Short - AR/VR/MR/360' category. Submitted Apr 24, 2026. Notification expected Oct 15, 2026.",
+  "url": "https://filmfreeway.com/ShermanOaksFilmFestival",
+  "verified": false,
   "src": "csv",
   "csv": {
    "status": "In Consideration",
    "judging": "Undecided",
    "tracking": "SOFF5748",
-   "submitted": "April 24, 2026",
-   "notification": "October 15, 2026",
-   "notificationDate": "2026-10-15",
-   "eventDates": "December 04, 2026 to December 07, 2026",
+   "submitted": "Apr 24, 2026",
+   "notification": "Oct 15, 2026",
    "category": "Immersive Short - AR/VR/MR/360"
   }
  },
@@ -1594,18 +1539,18 @@ const DB = [
   "name": "Torino Short Film Market — VR Stories",
   "loc": "Torino, Italy",
   "region": "Europe",
-  "dates": "~Nov 2026 (TBC) — TSFM aligned with Torino Film Festival",
+  "dates": "Nov 17–21, 2026",
   "dl": "~Sept 2026 (TBC)",
-  "dls": "2026-09-30",
+  "dls": "2026-09-01",
   "status": "watch",
   "tags": [
    "VR",
    "Pitching",
    "Short Film"
   ],
-  "notes": "Verified Apr 2026 via tsfm.centrodelcorto.it. Torino Short Film Market XR Stories pitching session — narrative XR projects at any development stage. 2026/2027 specific call not yet published online. Most recent indexed call data was 2021 (Vol. 6). Contact xr@tsfm.centrodelcorto.it.",
+  "notes": "VR Stories pitching session at Torino Short Film Market. Previously deadline mid-September. Watch tsfm.centrodelcorto.it.",
   "url": "http://tsfm.centrodelcorto.it/en/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1613,18 +1558,18 @@ const DB = [
   "name": "IFFR — International Film Festival Rotterdam",
   "loc": "Rotterdam, Netherlands",
   "region": "Europe",
-  "dates": "IFFR 2027 (56th): Jan 28–Feb 7, 2027",
-  "dl": "Submissions ~Sept 2026 (TBC). 2026 IFFR closed early Sept 2025 reference.",
-  "dls": "2026-09-15",
+  "dates": "Jan 28 – Feb 7, 2027 (TBC)",
+  "dl": "~Sep 2026 (TBC)",
+  "dls": "2026-09-07",
   "status": "watch",
   "tags": [
    "Art Directions",
    "Immersive Media",
    "Experimental"
   ],
-  "notes": "Verified Apr 2026 via iffr.com. 56th IFFR Jan 28–Feb 7, 2027 in Rotterdam. Note: IFFR's dedicated XR strand (Cinema Regained / IFFR Pro Darkroom) varies. 2026 (55th) ran Jan 29–Feb 8, 2026. Submission deadlines for 2027 expected ~Sept 2026. Watch iffr.com/en/iffr-pro-submissions/film-entry.",
+  "notes": "Major NL film festival. Art Directions immersive media section. €40 ex VAT. Films must be completed after Jan 1 prior to festival year. Watch iffr.com.",
   "url": "https://iffr.com/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1632,18 +1577,18 @@ const DB = [
   "name": "Kaboom Animation Festival",
   "loc": "Utrecht & Amsterdam, Netherlands",
   "region": "Europe",
-  "dates": "Next edition (2027): ~Mar 2027 (TBC)",
-  "dl": "~Oct 2026 (TBC, follows 2026 pattern)",
-  "dls": "2026-10-31",
+  "dates": "Mar 13–22, 2026 (next: ~Mar 2027)",
+  "dl": "~Oct 2026 (TBC)",
+  "dls": "2026-10-01",
   "status": "watch",
   "tags": [
    "Animation",
    "360°",
    "Interactive"
   ],
-  "notes": "Verified Apr 2026 via kaboomfestival.nl. Kaboom Animation Festival 2026 ran Mar 13–22, 2026 in Utrecht/Amsterdam. 2027 edition expected ~March 2027 with submission deadline ~Oct 2026. Animation festival with Immersive/VR sidebar.",
+  "notes": "Major NL animation festival. Animation (360 & Interactive) — free entry. Watch kaboomfestival.nl for 2027 call.",
   "url": "https://www.kaboomfestival.nl/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1651,18 +1596,18 @@ const DB = [
   "name": "Kinetoscope VR Film Festival",
   "loc": "Seattle, USA",
   "region": "North America",
-  "dates": "TBC — limited public info",
-  "dl": "No active 2026 call surfaced",
-  "dls": "2026-12-31",
+  "dates": "TBC",
+  "dl": "~Oct 2026 (TBC)",
+  "dls": "2026-10-01",
   "status": "watch",
   "tags": [
    "VR",
    "360°",
    "Competition"
   ],
-  "notes": "Verified Apr 2026 — kinetoscopevr.org has limited public info. Kinetoscope VR / FilmFreeway page exists (filmfreeway.com/KinetoscopeVR) but no current dates/deadlines indexed. Possibly dormant or low-frequency. Watch FilmFreeway listing.",
+  "notes": "Dedicated VR film festival in Seattle. Previously ran mid-November. Watch kinetoscopevr.org for 2026/2027 call.",
   "url": "http://kinetoscopevr.org",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1670,9 +1615,9 @@ const DB = [
   "name": "STEREOPSIA Europe",
   "loc": "Brussels, Belgium",
   "region": "Europe",
-  "dates": "UnitedXR Europe 2026: Dec 2026 (TBC), Brussels",
+  "dates": "Dec 2026",
   "dl": "~Oct 2026 (TBC)",
-  "dls": "2026-10-15",
+  "dls": "2026-10-01",
   "status": "watch",
   "tags": [
    "VR",
@@ -1680,42 +1625,39 @@ const DB = [
    "XR",
    "Immersive"
   ],
-  "notes": "Verified Apr 2026 — Stereopsia Europe has merged with AWE Europe to become UnitedXR Europe (co-produced by AWE + Stereopsia). 2025 edition Dec 8–10, 2025 in Brussels. 2026 edition planned for Dec 2026 in Brussels. Watch stereopsia.com / awe.live for UnitedXR call.",
-  "url": "https://stereopsia.com/",
-  "verified": true,
+  "notes": "Annual immersive technology event with VR awards and competition. Previous deadline October 1. Watch europe.stereopsia.com.",
+  "url": "https://europe.stereopsia.com/en/",
+  "verified": false,
   "src": "pdf"
  },
  {
   "id": "sxsw",
-  "name": "SXSW '26 — XR Experience",
+  "name": "SXSW Film & TV — XR Experience 2027",
   "loc": "Austin, TX, USA",
   "region": "North America",
-  "dates": "SXSW 2027: March 13–22, 2027 (TBC, typical pattern)",
-  "dl": "Early ~Aug 25, 2026 / Regular ~Sept 17, 2026 / Final ~Oct 1, 2026 (extrapolated from 2026 cycle)",
+  "dates": "March 2027",
+  "dl": "Early ~Aug 26 / Regular ~Sept 16 / Final ~Oct 1, 2026",
   "dls": "2026-10-01",
   "status": "watch",
   "tags": [
    "XR",
    "VR",
    "AR",
-   "MR",
-   "Selected",
-   "North American Premiere"
+   "MR"
   ],
-  "notes": "Verified Apr 2026 via sxsw.com. SXSW 2026 XR Experience just completed — 10th anniversary edition. 2027 submissions open ~July 2026. Pattern: early ~Aug 25, regular ~Sept 17, final ~Oct 1 deadlines. Requires streamable 360° video or 2D playthrough link. Watch sxsw.com/apply/film-submissions.",
+  "notes": "2026 had a full XR Competition. 2027 submissions open July 2026. Requires streamable 360° video or 2D playthrough link. Watch sxsw.com/apply/film-submissions.",
   "url": "https://sxsw.com/apply/film-submissions/",
   "verified": true,
-  "src": "pdf",
-  "selected": true
+  "src": "pdf"
  },
  {
   "id": "vrdays",
   "name": "VR Days Amsterdam",
   "loc": "Amsterdam, Netherlands",
   "region": "Europe",
-  "dates": "Immersive Tech Week (ITW) 2026: TBA, Rotterdam",
-  "dl": "Not yet announced",
-  "dls": "2026-10-31",
+  "dates": "Nov 2026",
+  "dl": "~Oct 2026 (TBC)",
+  "dls": "2026-10-01",
   "status": "watch",
   "tags": [
    "VR",
@@ -1723,9 +1665,9 @@ const DB = [
    "Awards",
    "Exhibition"
   ],
-  "notes": "Verified Apr 2026 via vrdays.co. VR Days Europe has rebranded to Immersive Tech Week (ITW) and moved from Amsterdam to Rotterdam. 10th edition planned for 2026. Specific dates and submission deadlines not yet announced. Watch vrdays.co.",
+  "notes": "Annual VR industry event with Halo Awards and Church of VR exhibition. IFM Content market pitching and awards. Watch vrdays.co.",
   "url": "http://www.vrdays.co",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1733,9 +1675,9 @@ const DB = [
   "name": "TRICKY WOMEN TRICKY REALITIES",
   "loc": "Vienna, Austria",
   "region": "Europe",
-  "dates": "Next edition (2027): March 10–14, 2027 (TBC, follows pattern around Int'l Women's Day)",
-  "dl": "~Oct 2026 (TBC; 2026 deadline was ~Oct 2025)",
-  "dls": "2026-10-31",
+  "dates": "Mar 2027 (next edition)",
+  "dl": "~Oct 2026 (TBC)",
+  "dls": "2026-10-06",
   "status": "watch",
   "tags": [
    "Animation",
@@ -1744,9 +1686,9 @@ const DB = [
    "Women",
    "Genderqueer"
   ],
-  "notes": "Verified Apr 2026 via trickywomen.at + filmfreeway.com/trickywomentrickyrealities. Tricky Women / Tricky Realities held annually in Vienna around Int'l Women's Day. 2026 edition Mar 11–15, 2026. Animation festival for women/genderqueer artists with VR/immersive Tricky Realities strand. 2027 call expected ~Oct 2026.",
+  "notes": "Festival for animated films by women and/or genderqueer artists. Immersive Content (360 & Interactive). Waiver code historically: twtr25. €1 fee. Watch trickywomen.at.",
   "url": "https://trickywomen.at/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1754,9 +1696,9 @@ const DB = [
   "name": "FIPADOC — BIARRITZ IMMERSIVE",
   "loc": "Biarritz, France",
   "region": "Europe",
-  "dates": "Next edition (2027): ~Jan 22–30, 2027 (TBC, follows 2026 pattern)",
-  "dl": "~Oct 2026 (TBC; 2026 deadline was Sept 30, 2025)",
-  "dls": "2026-10-15",
+  "dates": "Jan 21–31, 2026 (next: ~Jan 2027)",
+  "dl": "~Oct 2026 (TBC)",
+  "dls": "2026-10-11",
   "status": "watch",
   "tags": [
    "Immersive",
@@ -1764,9 +1706,9 @@ const DB = [
    "Interactive",
    "Documentary"
   ],
-  "notes": "Verified Apr 2026 via fipadoc.com. 8th FIPADOC ran Jan 23–31, 2026 in Biarritz. Biarritz Immersive (formerly SMART) is the dedicated XR strand within FIPADOC Pro. Industry days Jan 26–29, 2026. Next edition ~Jan 2027 with submission call expected ~Oct 2026.",
+  "notes": "International documentary festival. Biarritz Immersive section for 360° & interactive doc. €18 fee. Watch fipadoc.com for 2027 call.",
   "url": "https://fipadoc.com/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1774,8 +1716,8 @@ const DB = [
   "name": "SAT Fest 2027",
   "loc": "Satosphere, Montreal, Canada",
   "region": "North America",
-  "dates": "SAT Fest 2027: ~March 2027 (TBC)",
-  "dl": "~Oct 22, 2026 (extrapolated from 2026 cycle which closed Oct 22, 2025)",
+  "dates": "~Mar 2027",
+  "dl": "~Oct 2026 (TBC — call opens Jul 2026)",
   "dls": "2026-10-22",
   "status": "watch",
   "tags": [
@@ -1784,7 +1726,7 @@ const DB = [
    "Short Film",
    "Generative Art"
   ],
-  "notes": "Verified Apr 2026 via filmfreeway.com/SATFest. Société des arts technologiques fulldome festival in Montréal at SATosphere (210° dome). 2026 ran Mar 24–28, 2026 with submissions Jul 8–Oct 22, 2025. 2027 expected ~March 2027 with similar submission window opening Jul 2026.",
+  "notes": "Short films under 11 min. Free submission via FilmFreeway. Call typically opens July. Watch sat.qc.ca/en/sat-fest. Also watch filmfreeway.com/SATFest.",
   "url": "https://filmfreeway.com/SATFest",
   "verified": true,
   "src": "dome"
@@ -1794,9 +1736,9 @@ const DB = [
   "name": "Dome Under Film Festival 2027",
   "loc": "Melbourne Planetarium, Australia",
   "region": "Asia-Pacific",
-  "dates": "Dome Under 2027: ~Jan–Feb 2027 (TBC)",
-  "dl": "~Oct 2026 (TBC; 2026 followed similar timing)",
-  "dls": "2026-10-31",
+  "dates": "~Jan–Feb 2027",
+  "dl": "~Oct 2026 (TBC)",
+  "dls": "2026-10-24",
   "status": "watch",
   "tags": [
    "Fulldome",
@@ -1805,7 +1747,7 @@ const DB = [
    "Feature Film",
    "Student Work"
   ],
-  "notes": "Verified Apr 2026 via museumsvictoria.com.au/scienceworks. Dome Under Film Festival (DUFF) — Australia's only Fulldome Film Festival, hosted by Melbourne Planetarium. 6th edition (2026) just ran. 7th edition expected Jan–Feb 2027 with submission call expected ~Oct 2026. Free to submit.",
+  "notes": "Australia's only fulldome festival — 7th edition expected Jan–Feb 2027. Submission call typically opens Sept–Oct. Enter via museumsvictoria.com.au/planetarium. Part of Best of Earth coalition.",
   "url": "https://museumsvictoria.com.au/planetarium/",
   "verified": true,
   "src": "dome"
@@ -1815,20 +1757,20 @@ const DB = [
   "name": "Atlanta Film Festival — Virtual Reality",
   "loc": "Atlanta, GA, USA",
   "region": "North America",
-  "dates": "2027 edition: ~April 22–May 2, 2027 (TBC)",
-  "dl": "~Nov 2026 (TBC; submitted Nov 2025 for 2026 cycle)",
-  "dls": "2026-11-15",
+  "dates": "Apr 22–May 2, 2027",
+  "dl": "TBC for 2027",
+  "dls": "2026-11-01",
   "status": "watch",
   "tags": [
    "VR",
    "Virtual Reality"
   ],
-  "notes": "Verified Apr 2026 via atlantafilmfestival.com + filmfreeway.com/ATLFF. Just celebrated 50 years. 2026 edition ran Apr 23–May 3, 2026 (in person) + May 4–11 (virtual). Dedicated Virtual Reality Film category. Submitted Nov 8, 2025 for 2026 — Not Selected. 2027 call expected ~Nov 2026.",
+  "notes": "Dedicated Virtual Reality Film category. Submitted Nov 8, 2025. Judged Not Selected for 2026 cycle. Watch for 2027 open call.",
   "url": "https://www.atlantafilmfestival.com/",
-  "verified": true,
+  "verified": false,
   "src": "both",
   "csv": {
-   "status": "",
+   "status": "In Consideration",
    "judging": "Not Selected",
    "tracking": "ATL26-6480",
    "submitted": "Nov 8, 2025",
@@ -1841,9 +1783,9 @@ const DB = [
   "name": "Cinequest Film & Creativity Festival",
   "loc": "San Jose, CA, USA",
   "region": "North America",
-  "dates": "Cinequest 2027: ~March 2027 (TBC, follows pattern)",
-  "dl": "~Oct–Nov 2026 (TBC; 2026 cycle deadlines Aug–Nov 2025)",
-  "dls": "2026-11-15",
+  "dates": "Mar 2027",
+  "dl": "~Oct–Nov 2026 (2027 submissions)",
+  "dls": "2026-11-01",
   "status": "watch",
   "tags": [
    "VR",
@@ -1851,9 +1793,9 @@ const DB = [
    "Immersive",
    "Short Film"
   ],
-  "notes": "Verified Apr 2026 via cinequest.org + filmfreeway.com/Cinequest. 2026 edition ran Mar 10–22, 2026 (in person San Jose) + Mar 24–31 online (CineJoy). Has VR/immersive section. 2027 submissions typically open Aug 2026. Watch cinequest.org. Contact programming@cinequest.org.",
+  "notes": "Cinequest has a VR/immersive section. 2026 edition ran Mar 3–15. Submissions for 2027 typically begin Oct 2026. Watch cinequest.org.",
   "url": "https://www.cinequest.org/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1861,8 +1803,8 @@ const DB = [
   "name": "CPH:DOX — INTER:ACTIVE",
   "loc": "Copenhagen, Denmark",
   "region": "Europe",
-  "dates": "CPH:DOX 2027: ~Mar 10–21, 2027 (TBC, follows pattern)",
-  "dl": "Nov 1, 2026 (TBC; 2026 deadline was Nov 1, 2025)",
+  "dates": "Mar 11–22, 2026 (next: ~Mar 2027)",
+  "dl": "~Nov 2026 (TBC)",
   "dls": "2026-11-01",
   "status": "watch",
   "tags": [
@@ -1871,9 +1813,9 @@ const DB = [
    "Interactive",
    "Immersive"
   ],
-  "notes": "Verified Apr 2026 via cphdox.dk. 23rd CPH:DOX ran Mar 11–22, 2026 with INTER:ACTIVE Exhibition (theme: HYPERVIGILANCE) at Kunsthal Charlottenborg, Copenhagen. PARA:DOX online Mar 20–Apr 5. 2027 call expected to open ~Aug 2026 with deadline Nov 1, 2026.",
+  "notes": "INTER:ACTIVE programme curated by Mark Atkin. Documentary 360° & Interactive. €20–€40 fee. Watch cphdox.dk for 2027 call.",
   "url": "https://cphdox.dk/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1881,9 +1823,9 @@ const DB = [
   "name": "IFSV DomeFest — Int'l Festival of Science Visualization",
   "loc": "Tokyo / Fukuoka, Japan",
   "region": "Asia-Pacific",
-  "dates": "15th DomeFest 2027: ~March 2027 (TBC)",
-  "dl": "~Nov 2026 (TBC)",
-  "dls": "2026-11-30",
+  "dates": "Mar annually (FDF2026 Fukuoka: Jun 18–19, 2026)",
+  "dl": "~Nov 2026 for 15th edition",
+  "dls": "2026-11-01",
   "status": "watch",
   "tags": [
    "Fulldome",
@@ -1893,7 +1835,7 @@ const DB = [
    "Feature Film",
    "Competition"
   ],
-  "notes": "Verified Apr 2026 via ifsv.org. International Festival of Science Visualization (Japan, since 2010). Annual DomeFest for fulldome science films. 2026 edition info limited online. 15th edition expected 2027. Watch ifsv.org/en for call announcements.",
+  "notes": "Japan's leading fulldome festival. FDF2026 parallel edition ran Jun 18–19, 2026 at Fukuoka City Science Museum. Accepts shorts (≤15 min) and features (15–40 min). Domemaster or equirectangular. English or Japanese required. Seth's history: Grand Prize (13th & 14th editions), Gold Award + Audience Choice (13th). Contact info@ifsv.org.",
   "url": "https://ifsv.org/",
   "verified": true,
   "src": "dome",
@@ -1923,8 +1865,8 @@ const DB = [
   "name": "InScience Film Festival Nijmegen — Beyond / VR",
   "loc": "Nijmegen, Netherlands",
   "region": "Europe",
-  "dates": "12th edition: Mar 2–7, 2027 (TBC)",
-  "dl": "Final Nov 1, 2026 (extended deadline pattern from 2026)",
+  "dates": "Mar 2–7, 2027",
+  "dl": "Nov 1, 2026 (final)",
   "dls": "2026-11-01",
   "status": "watch",
   "tags": [
@@ -1932,10 +1874,9 @@ const DB = [
    "XR",
    "Science",
    "Immersive",
-   "Experimental",
-   "In Consideration"
+   "Experimental"
   ],
-  "notes": "Verified Apr 2026 via insciencefestival.nl + filmfreeway.com. 11th InScience ran Mar 3–8, 2026 in Nijmegen. Active \"Beyond\" VR section — 6 VR experiences + installations in 2026. Theme 2027: \"Money\". 12th edition expected Mar 2–7, 2027. Films must be from 2026 or 2027. Strongly encourages VR/experimental.",
+  "notes": "12th edition. Active 'Beyond' VR section — 2026 had 6 VR experiences + installations. Theme 2027: 'Money'. Strongly encourages VR/experimental. Films must be from 2026 or 2027.",
   "url": "https://filmfreeway.com/InScience-InternationalScienceFilmFestivalNijmegen",
   "verified": true,
   "src": "csv",
@@ -1943,10 +1884,8 @@ const DB = [
    "status": "In Consideration",
    "judging": "Undecided",
    "tracking": "IN27-10",
-   "submitted": "April 24, 2026",
-   "notification": "December 14, 2026",
-   "notificationDate": "2026-12-14",
-   "eventDates": "March 02, 2027 to March 07, 2027",
+   "submitted": "Mar 21, 2026",
+   "notification": "Dec 14, 2026",
    "category": "VR/XR"
   }
  },
@@ -1955,9 +1894,9 @@ const DB = [
   "name": "One World Human Rights Festival — VR",
   "loc": "Prague, Czech Republic",
   "region": "Europe",
-  "dates": "29th edition: ~Mar 2027 (TBC, follows pattern)",
-  "dl": "~Nov 2026 (TBC; 2026 deadline was ~Nov 2025)",
-  "dls": "2026-11-30",
+  "dates": "Mar 11 – Apr 24, 2026 (next: ~Mar 2027)",
+  "dl": "~Nov 2026 (TBC)",
+  "dls": "2026-11-01",
   "status": "watch",
   "tags": [
    "VR",
@@ -1966,9 +1905,9 @@ const DB = [
    "360°",
    "Interactive"
   ],
-  "notes": "Verified Apr 2026 via oneworld.cz. 28th One World ran Mar 11–19, 2026 in Prague + Czech regional tour through Apr 24. Largest human rights film festival in Europe. VR/Immersive section. 29th edition expected Mar 2027 with call ~Sep–Nov 2026. Submit at my.oneworld.cz/film-submission. Contact: program@oneworld.cz.",
+  "notes": "Largest human rights doc festival in Europe. VR documentaries (interactive + 360°). €25 fee with waivers for many countries. Watch oneworld.cz for 2027 call.",
   "url": "https://www.oneworld.cz/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1976,18 +1915,18 @@ const DB = [
   "name": "Poppy Jasper Int'l Film Festival (PJIFF)",
   "loc": "Morgan Hill, CA, USA",
   "region": "North America",
-  "dates": "PJIFF 2027: ~Apr 2027 (TBC)",
+  "dates": "Apr 8–15, 2026 (next: ~Apr 2027)",
   "dl": "~Nov 2026 (TBC)",
-  "dls": "2026-11-30",
+  "dls": "2026-11-01",
   "status": "watch",
   "tags": [
    "Immersive",
    "360°",
    "Interactive"
   ],
-  "notes": "Verified Apr 2026 via pjiff.org + filmfreeway.com. 2026 edition ran Apr 8–15, 2026 in Morgan Hill, San Martin, Gilroy etc. (CA). 300 films, 40+ countries. VR/immersive presence not prominently featured — primarily film festival. 2027 call expected ~Nov 2026. Watch pjiff.org.",
+  "notes": "PJIFF accepts immersive content (360 & Interactive). $20–$45. Watch pjiff.org for 2027 call.",
   "url": "https://www.pjiff.org/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -1995,9 +1934,9 @@ const DB = [
   "name": "VR at EFM / Berlinale",
   "loc": "Berlin, Germany",
   "region": "Europe",
-  "dates": "77th Berlinale + EFM 2027: ~Feb 11–17, 2027 (TBC)",
+  "dates": "Feb 2027",
   "dl": "~Nov 2026 (TBC)",
-  "dls": "2026-11-30",
+  "dls": "2026-11-01",
   "status": "watch",
   "tags": [
    "VR",
@@ -2005,9 +1944,9 @@ const DB = [
    "Market",
    "Conference"
   ],
-  "notes": "Verified Apr 2026 via efm-berlinale.de. 76th Berlinale ran Feb 12–22, 2026, with EFM Feb 12–18 (kickoff Feb 11). VR @ EFM is the dedicated VR/XR section within the European Film Market. 77th Berlinale + EFM expected ~Feb 11–17, 2027. 2027 call expected ~Nov 2026.",
+  "notes": "EFM VR Cinema + VR Now Summit at the European Film Market. Industry screenings and VR Now Conference. Watch efm-berlinale.de for 2027 call.",
   "url": "https://www.efm-berlinale.de/en/horizon/programme/vr-at-efm/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -2015,8 +1954,8 @@ const DB = [
   "name": "Clermont-Ferrand Int'l Short Film Festival — XR",
   "loc": "Clermont-Ferrand, France",
   "region": "Europe",
-  "dates": "49th edition: ~Late Jan–early Feb 2027 (TBC)",
-  "dl": "~Nov 2026 (TBC; 2026 deadline was Sep–Oct 2025)",
+  "dates": "Feb 1–8, 2026 (next: ~Feb 2027)",
+  "dl": "~Nov 2026 (TBC)",
   "dls": "2026-11-15",
   "status": "watch",
   "tags": [
@@ -2025,9 +1964,9 @@ const DB = [
    "Competition",
    "Panorama"
   ],
-  "notes": "Verified Apr 2026 via clermont-filmfest.org. 48th Clermont-Ferrand ran Jan 30–Feb 7, 2026 — world's largest short film festival. Has dedicated XR/Immersive section. 49th edition expected late Jan–early Feb 2027. 2027 call expected ~Sep–Nov 2026. Contact XR@clermont-filmfest.org.",
+  "notes": "World's largest short film festival. XR section: Competition + Panorama. Coordination XR: Sébastien Duclocher (s.duclocher@clermont-filmfest.org). €13 fee.",
   "url": "https://www.clermont-filmfest.org/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -2035,9 +1974,9 @@ const DB = [
   "name": "FilmGate Interactive Festival — Dome Experience",
   "loc": "Miami, FL, USA",
   "region": "North America",
-  "dates": "FilmGate 2027: ~Mar 19–24, 2027 (TBC)",
-  "dl": "~Dec 2026 (TBC)",
-  "dls": "2026-12-15",
+  "dates": "Mar 19–24, 2027",
+  "dl": "TBC",
+  "dls": "2026-12-01",
   "status": "watch",
   "tags": [
    "Dome",
@@ -2045,12 +1984,12 @@ const DB = [
    "Immersive",
    "XR"
   ],
-  "notes": "Verified Apr 2026 via filmfreeway.com/FilmGateInteractive. Miami-based interactive/immersive media festival. Categories: Dome Experience, immersive media, AI, sound, interactive art. 2027 call expected ~Dec 2026. Submitted Oct 31, 2025 for 2026 cycle — Not Selected.",
+  "notes": "Miami-based interactive and immersive media festival. Dome Experience category. Submitted Oct 31, 2025. Notification Mar 16, 2026 (passed — awaiting further contact).",
   "url": "https://filmfreeway.com/FilmGateInteractiveFestival",
-  "verified": true,
+  "verified": false,
   "src": "csv",
   "csv": {
-   "status": "",
+   "status": "In Consideration",
    "judging": "Not Selected",
    "tracking": "FGI1396",
    "submitted": "Oct 31, 2025",
@@ -2063,39 +2002,37 @@ const DB = [
   "name": "Thessaloniki Int'l Film Festival — Immersive",
   "loc": "Thessaloniki, Greece",
   "region": "Europe",
-  "dates": "67th TIFF: Oct 30–Nov 9, 2026 (TBC). 29th TiDF: ~Mar 2027.",
-  "dl": "67th TIFF call open soon. 29th TiDF XR call ~Sep–Dec 2026.",
-  "dls": "2026-09-30",
+  "dates": "29th TiDF: ~Mar 2027 (TBC). 67th TIFF: Nov 2026 (TBC).",
+  "dl": "29th TiDF XR call ~Sept–Dec 2026 (TBC). 67th TIFF: 'Submissions will open soon' as of Apr 2026.",
+  "dls": "2026-12-31",
   "status": "watch",
   "tags": [
    "VR",
    "AR",
    "XR",
-   "Immersive",
-   "Selected"
+   "Immersive"
   ],
-  "notes": "Verified Apr 2026 via filmfestival.gr/en. 28th TiDF ran Mar 5–15, 2026 with Immersive (XR/VR/AR) competition (free for immersive). 29th TiDF expected Mar 2027 with XR call opening Sep–Dec 2026. Adjacent Thessaloniki XR/Immersive event also active. No fee for immersive.",
+  "notes": "Verified Apr 2026 via official open-calls page. 28th TiDF (XR deadline Jan 5, 2026) ran Mar 5–15, 2026 — past. 29th TiDF 2027 XR/Immersive call not yet open; historical pattern is call opens Sept and closes early Jan. 67th TIFF (main festival) listed as 'Submissions will open soon'. No fee for immersive. Watch filmfestival.gr/en/open-calls.",
   "url": "https://filmfestival.gr/en/open-calls/",
   "verified": true,
-  "src": "pdf",
-  "selected": true
+  "src": "pdf"
  },
  {
   "id": "anifilm",
   "name": "ANIFILM — Int'l Festival of Animated Films",
   "loc": "Třeboň, Czech Republic",
   "region": "Europe",
-  "dates": "25th edition: May 5–10, 2026",
-  "dl": "Extended Jan 31, 2026 — CLOSED",
-  "dls": "2026-01-31",
-  "status": "closed",
+  "dates": "~May 2026 (next edition)",
+  "dl": "~Dec 2026 (TBC)",
+  "dls": "2026-12-31",
+  "status": "watch",
   "tags": [
    "Animation",
    "360°"
   ],
-  "notes": "Verified Apr 2026 via anifilm.cz. 25th ANIFILM May 5–10, 2026 in Liberec, Czech Republic (milestone edition). Submission deadline extended to Jan 31, 2026 — now CLOSED. Free to submit. Oscar® qualifying for Short Animated Film. Eligibility: works completed/premiered after Jan 1, 2025. Animation festival with VR/immersive presence varies year-to-year.",
+  "notes": "Czech animation festival accepting 360° Animation Films. Free entry. Watch anifilm.cz.",
   "url": "https://anifilm.cz/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -2103,9 +2040,9 @@ const DB = [
   "name": "CINEKID",
   "loc": "Amsterdam, Netherlands",
   "region": "Europe",
-  "dates": "Cinekid 2026: Oct 10–25, 2026",
-  "dl": "Submissions for 2026 likely already closed or near-close",
-  "dls": "2026-06-30",
+  "dates": "~Oct 2026 (next edition, TBC)",
+  "dl": "~Jan 2026 (TBC for 2027 edition)",
+  "dls": "2026-12-31",
   "status": "watch",
   "tags": [
    "Animation",
@@ -2114,9 +2051,9 @@ const DB = [
    "Interactive",
    "Family"
   ],
-  "notes": "Verified Apr 2026 via cinekid.nl. Cinekid Festival Oct 10–25, 2026 in Amsterdam (main: Pathé Amsterdam Noord). Largest film and media festival for children (3–14). MediaLab is the immersive/interactive strand (open ~Oct 18–24, condensed window). Specific 2026 deadlines not surfaced — typically ~April–June.",
+  "notes": "Major children's media festival accepting Animation (360 & Interactive). Watch cinekid.nl.",
   "url": "https://cinekid.nl/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -2124,9 +2061,9 @@ const DB = [
   "name": "Dome Fest West 2027",
   "loc": "Fiske Planetarium, Boulder CO, USA",
   "region": "North America",
-  "dates": "Dome Fest West 2027: ~Apr/May 2027 (TBC)",
-  "dl": "Early ~Sept 2026 / Final ~Jan 2027 (extrapolated from 2026 cycle)",
-  "dls": "2027-01-15",
+  "dates": "~May 2027",
+  "dl": "Early ~Sept 2026 / Final ~Jan 2027",
+  "dls": "2027-01-01",
   "status": "watch",
   "tags": [
    "Fulldome",
@@ -2134,7 +2071,7 @@ const DB = [
    "Immersive",
    "Giant Screen"
   ],
-  "notes": "Verified Apr 2026 via domefestwest.com. America's biggest immersive cinema/fulldome/planetarium film festival. 2026 ran Apr 22–26, 2026. 2027 expected ~Apr 2027. Submission window typically opens early Sept with final deadline mid-Jan. Submitted Oct 24, 2025 for 2026 — Not Selected.",
+  "notes": "6th edition. Now also including Giant Screen submissions. Pattern: early Sept, regular Oct, late Dec, final Jan. Part of Best of Earth 2027. Watch domefestwest.com/submit.",
   "url": "https://www.domefestwest.com/submit",
   "verified": true,
   "src": "dome"
@@ -2144,8 +2081,8 @@ const DB = [
   "name": "NewImages Festival 2027",
   "loc": "Paris, France",
   "region": "Europe",
-  "dates": "10th edition: Apr 21–25, 2027",
-  "dl": "Call ~Nov 2026, deadline ~Jan 2027 (TBC, follows pattern)",
+  "dates": "Apr 21–25, 2027",
+  "dl": "~Jan 2027 (call ~Nov 2026)",
   "dls": "2027-01-31",
   "status": "watch",
   "tags": [
@@ -2154,23 +2091,21 @@ const DB = [
    "AR",
    "Dome",
    "Virtual Worlds",
-   "Performance",
-   "Selected"
+   "Performance"
   ],
-  "notes": "Verified Apr 2026 via newimages.art + newimages-hub.com. 9th NewImages ran Apr 8–12, 2026 in Paris. 100% dedicated immersive festival. 10th anniversary expected Apr 21–25, 2027. XR Competition (Grand Prize €6,000), Dome Competition, Virtual Worlds Competition, XR Markets. Call typically opens Nov–Dec.",
+  "notes": "10th anniversary. 100% dedicated immersive festival. XR Competition (Grand Prize €6,000), Dome Competition, Virtual Worlds Competition, XR Markets. Call typically opens Nov–Dec.",
   "url": "https://www.newimages.art/festival",
   "verified": true,
-  "src": "pdf",
-  "selected": true
+  "src": "pdf"
  },
  {
   "id": "brno_2027",
   "name": "Fulldome Festival Brno 2027",
   "loc": "Brno Observatory and Planetarium, Czech Republic",
   "region": "Europe",
-  "dates": "Fulldome Festival Brno 2027: ~May 2027 (TBC; 12th edition)",
-  "dl": "~Feb 2027 (TBC; 2026 was Feb 28)",
-  "dls": "2027-02-28",
+  "dates": "~May 2027",
+  "dl": "~Feb 2027 (call opens ~Oct 2026)",
+  "dls": "2027-02-01",
   "status": "watch",
   "tags": [
    "Fulldome",
@@ -2178,7 +2113,7 @@ const DB = [
    "Science",
    "Education"
   ],
-  "notes": "Verified Apr 2026 via fulldomefestivalbrno.com. 11th edition ran May 26–28, 2026 at Brno Observatory and Planetarium. 12th edition expected May 2027 with submission deadline ~Feb 2027. Free to submit. Contact director@fulldomefestivalbrno.com.",
+  "notes": "Annual fulldome festival, education-focused. Part of Best of Earth coalition. Watch fulldomefestivalbrno.com from Oct 2026.",
   "url": "https://www.fulldomefestivalbrno.com/show-submission/",
   "verified": true,
   "src": "dome"
@@ -2188,18 +2123,18 @@ const DB = [
   "name": "GoEast — Open Frame Award",
   "loc": "Wiesbaden / Frankfurt, Germany",
   "region": "Europe",
-  "dates": "27th edition: ~Apr 2027 (TBC)",
-  "dl": "~Dec 2026 (TBC; 2026 was Dec 31, 2025)",
-  "dls": "2026-12-31",
+  "dates": "May 2027",
+  "dl": "~Feb 2027 (TBC)",
+  "dls": "2027-02-01",
   "status": "watch",
   "tags": [
    "VR",
    "Central & Eastern European",
    "Award"
   ],
-  "notes": "Verified Apr 2026 via filmfestival-goeast.de. 26th goEast ran Apr 21–27, 2026 in Wiesbaden + Darmstadt/Mainz/Gießen. Open Frame Award (OFA) is the dedicated XR/VR competition. 27th expected ~Apr 2027 with submission deadline ~Dec 2026. Festival of Central and Eastern European Film.",
+  "notes": "GoEast Festival of Central and Eastern European Cinema. Open Frame Award for VR (€5,000 prize). Only Central & Eastern European VR projects eligible. Watch filmfestival-goeast.de.",
   "url": "http://filmfestival-goeast.de",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -2207,10 +2142,10 @@ const DB = [
   "name": "Sehsüchte International Student Film Festival",
   "loc": "Potsdam, Germany",
   "region": "Europe",
-  "dates": "55th edition: Apr 22–26, 2026",
-  "dl": "Closed (was Nov 2025/Jan 2026 cycle)",
-  "dls": "2026-01-31",
-  "status": "closed",
+  "dates": "Apr 23–27, 2026 (next: ~Apr 2027)",
+  "dl": "~Feb 2027 (TBC)",
+  "dls": "2027-02-11",
+  "status": "watch",
   "tags": [
    "XR",
    "AI",
@@ -2219,9 +2154,9 @@ const DB = [
    "Sensor",
    "Web-based"
   ],
-  "notes": "Verified Apr 2026 via sehsuechte.de. 55th Sehsüchte Apr 22–26, 2026 in Potsdam, Germany — Europe's largest student film festival. Has Crossmedia/VR section. 2026 submissions already closed. 56th edition expected Apr 2027 with call opening ~Sept–Nov 2026.",
+  "notes": "Major European student film festival. Showcases XR, AI, projection mapping, sensor-based systems, AV performances, web experiences. Watch sehsuechte.de.",
   "url": "https://www.sehsuechte.de/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -2229,17 +2164,17 @@ const DB = [
   "name": "ShorTS International Film Festival",
   "loc": "Trieste, Italy",
   "region": "Europe",
-  "dates": "27th edition: June 27–July 4, 2026",
-  "dl": "Extended Feb 22, 2026 — CLOSED",
-  "dls": "2026-02-22",
-  "status": "closed",
+  "dates": "Jun 28 – Jul 5, 2026",
+  "dl": "~Feb 2027 (TBC)",
+  "dls": "2027-02-16",
+  "status": "watch",
   "tags": [
    "Interactive",
    "360°"
   ],
-  "notes": "Verified Apr 2026 via maremetraggio.com. 27th ShorTS June 27–July 4, 2026 in Trieste, Italy. Submissions opened Oct 29, 2025; deadline extended Feb 22, 2026 — now CLOSED. Selections ~May 30, 2026. Short film festival with VR/360 section historically. 28th edition expected ~Jun–Jul 2027 with call ~Oct 2026.",
+  "notes": "Italian short film festival accepting Interactive/360° works. €7.85 fee. Watch maremetraggio.com.",
   "url": "https://www.maremetraggio.com/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -2247,18 +2182,18 @@ const DB = [
   "name": "Animafest Zagreb — VR Animation",
   "loc": "Zagreb, Croatia",
   "region": "Europe",
-  "dates": "36th edition: June 8–13, 2026",
-  "dl": "Short films passed (Dec 1, 2025); features ~Mar 2026 — CLOSED",
-  "dls": "2026-03-31",
-  "status": "closed",
+  "dates": "June 2027",
+  "dl": "~Mar 2027 (TBC)",
+  "dls": "2027-03-01",
+  "status": "watch",
   "tags": [
    "VR",
    "Animation",
    "360°"
   ],
-  "notes": "Verified Apr 2026 via animafest.hr. 36th Animafest Zagreb June 8–13, 2026. World Festival of Animated Film. VR/XR section present in some editions. 2026 submissions all closed. 37th edition expected ~June 2027 with call opening ~Sept 2026. Contact entries@animafest.hr.",
+  "notes": "World Festival of Animated Films includes VR animation competition. Watch animafest.hr for 2027 call. (2020 edition was cancelled.)",
   "url": "http://animafest.hr/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -2266,19 +2201,19 @@ const DB = [
   "name": "The Fine Arts Film Festival (FAFF)",
   "loc": "Los Angeles, CA, USA",
   "region": "North America",
-  "dates": "13th edition: Apr 26–May 6, 2026",
-  "dl": "Closed for 2026",
-  "dls": "2026-03-31",
-  "status": "closed",
+  "dates": "Apr 26 – May 6, 2026 (next: ~Apr 2027)",
+  "dl": "~Mar 2027 (TBC)",
+  "dls": "2027-03-07",
+  "status": "watch",
   "tags": [
    "VR",
    "Cinematic Narrative",
    "Documentary",
    "Woman-Centric"
   ],
-  "notes": "Verified Apr 2026 via veniceica.org/fineartsfilmfestival + filmfreeway.com/TheFineArtsFilmFestival. 13th FAFF Apr 26–May 6, 2026 at Beyond Baroque, Venice, CA. Organized by Venice Institute of Contemporary Art. VR/XR programming present. 14th edition expected ~Apr 2027 with call ~Sept–Dec 2026.",
+  "notes": "Awards: Best VR Cinematic Narrative 360 Film/Experience, Best VR Documentary 360, Best VR Woman-Centric 360. Standard $45, Student $35, Gold $33.75. Watch fineartsfilmfestival.com.",
   "url": "https://fineartsfilmfestival.com/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -2286,9 +2221,9 @@ const DB = [
   "name": "Raindance Immersive 2027",
   "loc": "London, UK",
   "region": "Europe",
-  "dates": "35th Raindance + Immersive 2027: June 16–25, 2027 (London)",
-  "dl": "Early Dec 7, 2026 / Standard Jan 18, 2027 / Late Mar 8, 2027",
-  "dls": "2026-12-07",
+  "dates": "June 2027",
+  "dl": "Dec 7, 2026 (early) / Jan 18, 2027 / Mar 8, 2027 (final)",
+  "dls": "2027-03-08",
   "status": "watch",
   "tags": [
    "VR",
@@ -2296,10 +2231,9 @@ const DB = [
    "XR",
    "360°",
    "Social VR",
-   "Virtual Worlds",
-   "In Consideration"
+   "Virtual Worlds"
   ],
-  "notes": "Verified Apr 2026 via filmfreeway.com/Raindance. Raindance Immersive 2026: June 13–21 (VRChat) + June 19–21 (London). 35th Raindance Film Festival 2027 confirmed June 16–25, 2027 — submissions OPEN. Tiered deadlines through Mar 2027. Includes Immersive strand.",
+  "notes": "35th Raindance. Accepts 6DoF VR/MR, 360/180 films, VR games, social VR platforms (VRChat etc.). Supports Meta Quest, Android XR, Apple Vision Pro, PCVR. FilmFreeway page live.",
   "url": "https://filmfreeway.com/Raindance",
   "verified": true,
   "src": "both",
@@ -2307,10 +2241,8 @@ const DB = [
    "status": "In Consideration",
    "judging": "Undecided",
    "tracking": "F2024-14731",
-   "submitted": "December 04, 2025",
+   "submitted": "Dec 4, 2025",
    "notification": "May 16, 2026",
-   "notificationDate": "2026-05-16",
-   "eventDates": "June 16, 2027 to June 25, 2027",
    "category": "Raindance Immersive"
   }
  },
@@ -2319,17 +2251,16 @@ const DB = [
   "name": "Philip K. Dick Sci-Fi & Supernatural Festival",
   "loc": "New York, USA",
   "region": "North America",
-  "dates": "14th edition: ~Apr 15–18, 2027 (TBC)",
-  "dl": "Regular Nov 15, 2026 / Late Jan 15, 2027 / Extended Mar 10, 2027",
-  "dls": "2026-11-15",
+  "dates": "Apr 15–18, 2027",
+  "dl": "Nov 15, 2026 (regular) / Mar 10, 2027 (extended)",
+  "dls": "2027-03-10",
   "status": "watch",
   "tags": [
    "VR",
    "Sci-Fi",
-   "Experimental",
-   "In Consideration"
+   "Experimental"
   ],
-  "notes": "Verified Apr 2026 via filmfreeway.com/ThePhilipKDIckFilmFestival + thephilipkdickfilmfestival.com. 2027 submissions OPEN. Regular Nov 15, 2026; Late Jan 15, 2027; Extended Mar 10, 2027. Has VR/Immersive category. NYC-based sci-fi/supernatural festival.",
+  "notes": "14th edition. Regularly features VR exhibition alongside films — confirmed VR in 2026 lineup. Early deadline Nov 15, 2026. Submit via FilmFreeway.",
   "url": "https://filmfreeway.com/ThePhilipKDIckFilmFestival",
   "verified": true,
   "src": "csv",
@@ -2337,10 +2268,8 @@ const DB = [
    "status": "In Consideration",
    "judging": "Undecided",
    "tracking": "5404428",
-   "submitted": "April 24, 2026",
-   "notification": "March 10, 2027",
-   "notificationDate": "2027-03-10",
-   "eventDates": "April 15, 2027 to April 18, 2027",
+   "submitted": "Apr 24, 2026",
+   "notification": "Mar 10, 2027",
    "category": "Best VR Film"
   }
  },
@@ -2349,9 +2278,9 @@ const DB = [
   "name": "Best of Earth Fulldome Awards",
   "loc": "International Coalition",
   "region": "Europe",
-  "dates": "2027 ceremony: March 20, 2027",
-  "dl": "No standalone open call — recognises films from partner fulldome festivals",
-  "dls": "2027-01-31",
+  "dates": "Mar 20, 2027 (next ceremony)",
+  "dl": "Via partner festival submissions",
+  "dls": "2027-03-20",
   "status": "watch",
   "tags": [
    "Fulldome",
@@ -2359,7 +2288,7 @@ const DB = [
    "Awards",
    "Coalition"
   ],
-  "notes": "Verified Apr 2026 via bestof.earth. Best of Earth Fulldome Awards — no standalone 2026 ceremony. Returns March 20, 2027. Awards films via partner festivals (Dome Fest West, FDUK etc.). No direct submission — submit to qualifying partner festivals. Cardiff-based (CULTVR Lab).",
+  "notes": "Coalition of world's top fulldome festivals: Jena, Dome Fest West, Fulldome UK, Dome Under, SAT Fest, Fulldome Brno. Films screened at any partner festival automatically enter. Next ceremony Mar 20, 2027. Submit via any partner festival. Seth's history: Best Art & Experiment Film 2025.",
   "url": "https://www.bestof.earth/",
   "verified": true,
   "src": "dome",
@@ -2377,10 +2306,10 @@ const DB = [
   "name": "Flickers' Rhode Island International Film Festival",
   "loc": "Providence, RI, USA",
   "region": "North America",
-  "dates": "30th RIIFF: ~Aug 2026 (TBC, typically early August)",
-  "dl": "Final ~Apr 2026 — typically closed by April",
-  "dls": "2026-04-30",
-  "status": "closed",
+  "dates": "~Aug annually",
+  "dl": "~Feb–Apr 2027 (TBC)",
+  "dls": "2027-04-01",
+  "status": "watch",
   "tags": [
    "Film Festival",
    "VR",
@@ -2388,9 +2317,9 @@ const DB = [
    "360°",
    "Short Film"
   ],
-  "notes": "Verified Apr 2026 via film-festival.org + filmfreeway.com/RIFilmFest. Providence/Newport, RI. Annual ~early August. Oscar-qualifying short film festival. VR/XR programming varies. 2026 deadlines already passed (final typically mid-April). 2027 cycle opens ~Sept 2026.",
+  "notes": "Oscar-qualifying festival. Has accepted VR/immersive/dome works. Seth's history: Semi-Finalist. Watch film-festival.org for 2027 call.",
   "url": "https://www.film-festival.org/",
-  "verified": true,
+  "verified": false,
   "src": "dome"
  },
  {
@@ -2406,8 +2335,7 @@ const DB = [
    "Multi-Channel",
    "Installation",
    "New Media",
-   "AR/VR",
-   "In Consideration"
+   "AR/VR"
   ],
   "notes": "Verified Apr 2026 via pdome.org. Pleasure Dome Toronto (artist-run experimental media since 1989). 2025 open call (deadline Apr 15, 2025) covers 2025–2026 programming. Submissions reviewed for 3 years (no individual notice). Next open call TBA — watch pdome.org/announcements.",
   "url": "https://pdome.org/",
@@ -2417,10 +2345,8 @@ const DB = [
    "status": "In Consideration",
    "judging": "Undecided",
    "tracking": "3912",
-   "submitted": "April 15, 2026",
-   "notification": "September 01, 2026",
-   "notificationDate": "2026-09-01",
-   "eventDates": "September 08, 2026 to September 08, 2026",
+   "submitted": "Apr 15, 2026",
+   "notification": "Sep 1, 2026",
    "category": "Open Call (Multi-Channel, Installation, New Media, AR/VR)"
   },
   "lastVerified": "2026-04-26"
@@ -2430,17 +2356,17 @@ const DB = [
   "name": "FDUK — Fulldome UK 2027",
   "loc": "UK (venue TBC)",
   "region": "Europe",
-  "dates": "FDUK 2026: Oct 9–10, 2026 (next confirmed). FDUK 2027: ~Oct 2027 (TBC)",
-  "dl": "May 4, 2026 (FDUK 2026) — open now",
-  "dls": "2026-05-04",
-  "status": "open",
+  "dates": "Oct 2027",
+  "dl": "~May 2027 (TBC)",
+  "dls": "2027-05-01",
+  "status": "watch",
   "tags": [
    "Fulldome",
    "360°",
    "Art",
    "Live Performance"
   ],
-  "notes": "Verified Apr 2026 via fulldome.org.uk + filmfreeway.com/FulldomeUK. FDUK 2026 Oct 9–10, 2026 at CULTVR Lab, Cardiff. Submission deadline May 4, 2026 — OPEN. Films, live performances, presentations all eligible. 2027 edition will follow ~Oct 2027.",
+  "notes": "Annual UK fulldome festival. 2026 was at Cardiff. Accepts domemaster 180°/210°, also equirectangular VR. Watch fulldome.org.uk.",
   "url": "https://www.fulldome.org.uk/",
   "verified": true,
   "src": "dome"
@@ -2450,9 +2376,9 @@ const DB = [
   "name": "Jena FullDome Festival 2027",
   "loc": "Zeiss-Planetarium Jena, Germany",
   "region": "Europe",
-  "dates": "Jena FullDome 2027: ~July 2027 (TBC). 2026 (20th anniversary): July 15–17, 2026",
-  "dl": "2026 closed. 2027 call expected ~Jan–Mar 2027.",
-  "dls": "2027-03-31",
+  "dates": "~May 2027",
+  "dl": "~Mar 2027 (TBC — call opens Jan–Feb)",
+  "dls": "2027-05-01",
   "status": "watch",
   "tags": [
    "Fulldome",
@@ -2461,7 +2387,7 @@ const DB = [
    "Live Acts",
    "Electronic Arts"
   ],
-  "notes": "Verified Apr 2026 via fulldome-festival.de. 20th FullDome Festival Jena July 15–17, 2026 — landmark edition (20 yrs of FDF + 100 yrs of Jena Planetarium). 2026 call closed. JANUS Award. 2027 expected ~July 2027 with call ~Jan–Mar 2027. Held at Zeiss-Planetarium Jena (oldest continuously operating planetarium in the world).",
+  "notes": "21st edition. Submission call typically opens Jan–Feb. Watch fulldome-festival.de/submit.",
   "url": "https://fulldome-festival.de/submit",
   "verified": true,
   "src": "dome"
@@ -2471,9 +2397,9 @@ const DB = [
   "name": "VRHAM! Digital & Immersive Art Biennale",
   "loc": "Hamburg, Germany",
   "region": "Europe",
-  "dates": "2nd Biennale (2027): TBA, Hamburg",
-  "dl": "No 2027 call yet — biennial structure",
-  "dls": "2027-02-28",
+  "dates": "~June 2027 (biennial)",
+  "dl": "TBC — next edition 2027",
+  "dls": "2027-06-01",
   "status": "watch",
   "tags": [
    "VR",
@@ -2483,7 +2409,7 @@ const DB = [
    "Performance",
    "Installation"
   ],
-  "notes": "Verified Apr 2026 via vrham.de. VRHAM! is a Hamburg-based biennial. 1st edition June 11–18, 2025 at Oberhafenquartier (theme: Visual Arts × Immersive Tech). 2nd edition 2027 (theme: Dance & Performance). 3rd edition 2029 (Film & Media). 2027 call TBA — typically Submittable.",
+  "notes": "Germany's leading immersive art biennale — now biennial. Ran June 2025; next expected June 2027. Watch vrham.de for open call.",
   "url": "https://www.vrham.de/en/",
   "verified": true,
   "src": "pdf"
@@ -2493,18 +2419,18 @@ const DB = [
   "name": "COURANT 3D",
   "loc": "Angoulême, France",
   "region": "Europe",
-  "dates": "COURANT 3D 2026: Mar 18–24, 2026",
-  "dl": "2026 cycle closed",
-  "dls": "2026-12-31",
+  "dates": "TBC",
+  "dl": "TBC — no public info",
+  "dls": "2099-01-01",
   "status": "watch",
   "tags": [
    "3D",
    "Stereoscopic",
    "Immersive"
   ],
-  "notes": "Verified Apr 2026 via Prenez du Relief. COURANT 3D — Angoulême, France. 3D stereoscopic short films + VR/AR/AI. 2026 edition Mar 18–24, 2026 (note: shifted from historical autumn slot). 2027 call info not yet published. Watch courant3d / prenezdurelief.com.",
-  "url": "https://www.prenezdurelief.com/",
-  "verified": true,
+  "notes": "3D / stereoscopic film festival listed in XRMust calendar. No published 2026 info.",
+  "url": "",
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -2512,18 +2438,18 @@ const DB = [
   "name": "Tbilisi Animation Film Festival",
   "loc": "Tbilisi, Georgia",
   "region": "Europe",
-  "dates": "9th edition: ~Oct 2026 (TBC)",
-  "dl": "Early Feb 28 / Final Sept 5, 2026 — OPEN",
-  "dls": "2026-09-05",
-  "status": "open",
+  "dates": "TBC",
+  "dl": "TBC — no public info",
+  "dls": "2099-01-01",
+  "status": "watch",
   "tags": [
    "Animation",
    "360°",
    "Interactive"
   ],
-  "notes": "Verified Apr 2026 via tbilisianimationfestival.com + filmfreeway.com/TbilisiAnimationFestival. TIAF 2026 — 9th edition. Submissions OPEN: Early Feb 28, Final Sept 5, 2026. Selected films Sept 18, 2026 due. VR/Immersive category historically present. Contact animalabgeorgia@gmail.com.",
-  "url": "https://www.tbilisianimationfestival.com/",
-  "verified": true,
+  "notes": "Listed in XRMust calendar accepting Animation (360 & Interactive). No published deadlines/dates. Direct contact required.",
+  "url": "",
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -2601,8 +2527,7 @@ const DB = [
    "VR",
    "360°",
    "Narrative",
-   "Documentary",
-   "In Consideration"
+   "Documentary"
   ],
   "notes": "Verified Apr 2026 via filmfreeway.com/GIFFMX. GIFF XXIX Jul 24 – Aug 2, 2026. Has VR competition category (gaming/AR/non-narrative excluded). Submissions via FilmFreeway. Mexican shorts free at early phase. Watch GIFF for 2027 call (~Jan 2027).",
   "url": "https://filmfreeway.com/GIFFMX",
@@ -2612,10 +2537,8 @@ const DB = [
    "status": "In Consideration",
    "judging": "Undecided",
    "tracking": "26-3397",
-   "submitted": "March 21, 2026",
-   "notification": "July 04, 2026",
-   "notificationDate": "2026-07-04",
-   "eventDates": "July 24, 2026 to August 02, 2026",
+   "submitted": "Mar 21, 2026",
+   "notification": "Jul 4, 2026",
    "category": "International Virtual Reality"
   },
   "lastVerified": "2026-04-26"
@@ -2659,7 +2582,7 @@ const DB = [
   "verified": false,
   "src": "csv",
   "csv": {
-   "status": "",
+   "status": "In Consideration",
    "judging": "Not Selected",
    "tracking": "1484",
    "submitted": "Oct 24, 2025",
@@ -2673,8 +2596,8 @@ const DB = [
   "name": "Jena FullDome Festival 2026 — 20th Anniversary",
   "loc": "Zeiss-Planetarium Jena, Germany",
   "region": "Europe",
-  "dates": "Jena FullDome 2026 (20th anniversary): July 15–17, 2026",
-  "dl": "CLOSED. JANUS Awards Ceremony Jul 15 (nominations) + Jul 17 (winners)",
+  "dates": "Jul 15–17, 2026",
+  "dl": "CLOSED — JANUS Awards ceremony Jul 17, 2026",
   "dls": "2026-07-17",
   "status": "closed",
   "tags": [
@@ -2684,7 +2607,7 @@ const DB = [
    "JANUS Award",
    "Electronic Arts"
   ],
-  "notes": "Verified Apr 2026 via fulldome-festival.de. 20th FullDome Festival Jena July 15–17, 2026 at Zeiss-Planetarium Jena (oldest continuously operating planetarium). Combined 20 yrs of FDF + 100 yrs of Jena Planetarium. JANUS Awards: nominations Jul 15, winners Jul 17 19:00 CET. Ceremony streamed globally.",
+  "notes": "20th anniversary (& 100 Years Jena Planetarium). World's oldest running fulldome festival. JANUS Awards Jul 17 at 19:00 CET, streamed live. Accepts fulldome films, live acts, 3D sound. Seth's history: Best Art & Experiment 2025.",
   "url": "https://fulldome-festival.de/submit",
   "verified": true,
   "src": "dome",
@@ -2746,7 +2669,7 @@ const DB = [
   "verified": true,
   "src": "both",
   "csv": {
-   "status": "",
+   "status": "In Consideration",
    "judging": "Not Selected",
    "tracking": "OCDF14006",
    "submitted": "Nov 21, 2025",
@@ -2768,23 +2691,21 @@ const DB = [
    "Immersive",
    "VR",
    "Science",
-   "Documentary",
-   "Selected"
+   "Documentary"
   ],
   "notes": "Verified Apr 2026 via afo.cz. AFO 61 Apr 28 – May 3, 2026. Immersive Competition open to all original immersive works. 2026 deadlines: Early Nov 2, Regular Dec 14, Extended Jan 12. Selection notifs by Feb 16; screener due Feb 27.",
   "url": "https://afo.cz/en/",
   "verified": false,
   "src": "csv",
   "csv": {
-   "status": "",
+   "status": "In Consideration",
    "judging": "Selected",
    "tracking": "AFO27655",
    "submitted": "Nov 27, 2025",
    "notification": "Mar 2, 2026",
    "category": "Immersive Competition"
   },
-  "lastVerified": "2026-04-26",
-  "selected": true
+  "lastVerified": "2026-04-26"
  },
  {
   "id": "sat_fest_2026",
@@ -2799,8 +2720,7 @@ const DB = [
    "Fulldome",
    "360°",
    "Short Film",
-   "Generative Art",
-   "Selected"
+   "Generative Art"
   ],
   "notes": "Verified Apr 2026 via filmfreeway.com/SATFest. SAT Fest 2026 ran Mar 24–28 at Satosphere Montréal — 52 films from 14 countries, 9 pro events. 2026 submissions were Jul 8 – Oct 22, 2025. Selection notified late Jan 2026. Watch for SAT Fest 2027 call (~Jul 2026).",
   "url": "https://filmfreeway.com/SATFest",
@@ -2814,8 +2734,7 @@ const DB = [
     "loc": "Montreal, Canada"
    }
   ],
-  "lastVerified": "2026-04-26",
-  "selected": true
+  "lastVerified": "2026-04-26"
  },
  {
   "id": "sous_dome_2026",
@@ -2884,8 +2803,7 @@ const DB = [
    "AR",
    "XR",
    "Immersive",
-   "Interactive",
-   "In Consideration"
+   "Interactive"
   ],
   "notes": "Verified Apr 2026. Doc Edge 2026: Auckland Jun 24–Jul 12, Wellington Jul 15–26, industry/awards Jun 29–Jul 1. Oscar®-qualifying. Immersive Exhibition for VR/AR/XR docs. Submit via FilmFreeway.",
   "url": "https://filmfreeway.com/DocEdgeFestival",
@@ -2895,10 +2813,8 @@ const DB = [
    "status": "In Consideration",
    "judging": "Undecided",
    "tracking": "DEF210519",
-   "submitted": "October 24, 2025",
-   "notification": "April 30, 2026",
-   "notificationDate": "2026-04-30",
-   "eventDates": "June 24, 2026 to August 22, 2026",
+   "submitted": "Oct 24, 2025",
+   "notification": "Apr 30, 2026",
    "category": "International Immersive Projects"
   },
   "lastVerified": "2026-04-26"
@@ -2985,7 +2901,7 @@ const DB = [
   "verified": false,
   "src": "csv",
   "csv": {
-   "status": "",
+   "status": "In Consideration",
    "judging": "Not Selected",
    "tracking": "FFWGS4191",
    "submitted": "Nov 12, 2025",
@@ -3056,7 +2972,7 @@ const DB = [
   "verified": false,
   "src": "csv",
   "csv": {
-   "status": "",
+   "status": "In Consideration",
    "judging": "Not Selected",
    "tracking": "SF26-264",
    "submitted": "Oct 24, 2025",
@@ -3148,15 +3064,13 @@ const DB = [
   "tags": [
    "VR",
    "Storytelling",
-   "Award",
-   "Selected"
+   "Award"
   ],
   "notes": "Verified Apr 2026 via lichter-filmfest.de. LICHTER Filmfest Frankfurt Apr 29 – May 3, 2026. VR Storytelling Award (€1,000 + Bembel) at display – Raum für Digitale Praxis, Berliner Str. 60. Established 2008 — one of the longer-running VR film fests.",
   "url": "https://lichter-filmfest.de/en/",
   "verified": false,
   "src": "pdf",
-  "lastVerified": "2026-04-26",
-  "selected": true
+  "lastVerified": "2026-04-26"
  },
  {
   "id": "laval",
@@ -3194,8 +3108,7 @@ const DB = [
    "AR",
    "XR",
    "360°",
-   "Installation",
-   "In Consideration"
+   "Installation"
   ],
   "notes": "Verified Apr 2026 via miff.com.au. 74th MIFF Aug 6–23, 2026. XR/VR/AR/MR strand within festival window (12pm–8pm daily, selected days). Submissions notified by end June 2026. For 2027 watch miff.com.au/about/submissions.",
   "url": "https://miff.com.au/about/submissions",
@@ -3205,10 +3118,8 @@ const DB = [
    "status": "In Consideration",
    "judging": "Undecided",
    "tracking": "MIFF26-1868",
-   "submitted": "October 31, 2025",
-   "notification": "June 30, 2026",
-   "notificationDate": "2026-06-30",
-   "eventDates": "August 06, 2026 to August 23, 2026",
+   "submitted": "Oct 31, 2025",
+   "notification": "Jun 30, 2026",
    "category": "XR - International"
   },
   "lastVerified": "2026-04-26"
@@ -3231,7 +3142,7 @@ const DB = [
   "verified": false,
   "src": "csv",
   "csv": {
-   "status": "",
+   "status": "In Consideration",
    "judging": "Not Selected",
    "tracking": "162773",
    "submitted": "Oct 31, 2025",
@@ -3344,8 +3255,7 @@ const DB = [
   "tags": [
    "VR",
    "360°",
-   "Documentary",
-   "In Consideration"
+   "Documentary"
   ],
   "notes": "Verified Apr 2026 via lunenburgdocfest.com. 13th Lunenburg Doc Fest Sep 23–27, 2026 in UNESCO World Heritage Site. IMPORTANT: No dedicated 360/VR/XR/immersive category in 2026 — focus is traditional doc features and shorts. Mark as not relevant for VR/XR creators unless pattern changes.",
   "url": "https://filmfreeway.com/LunenburgDocFest",
@@ -3355,10 +3265,8 @@ const DB = [
    "status": "In Consideration",
    "judging": "Undecided",
    "tracking": "LDF6445",
-   "submitted": "March 21, 2026",
-   "notification": "August 07, 2026",
-   "notificationDate": "2026-08-07",
-   "eventDates": "September 23, 2026 to September 27, 2026",
+   "submitted": "Mar 21, 2026",
+   "notification": "Aug 7, 2026",
    "category": "360 Video/ VR"
   },
   "lastVerified": "2026-04-26"
@@ -3433,17 +3341,17 @@ const DB = [
   "name": "Australian VR Film Festival (AVRFF)",
   "loc": "Brisbane, Australia",
   "region": "Asia-Pacific",
-  "dates": "Status uncertain — site offline",
-  "dl": "Not accepting (no public info)",
-  "dls": "2026-12-31",
+  "dates": "TBC",
+  "dl": "No info on 2026 edition",
+  "dls": "2099-01-01",
   "status": "no",
   "tags": [
    "VR",
    "360°"
   ],
-  "notes": "Verified Apr 2026 — avrff.com returns no accessible content. Australian VR Film Festival (founded 2017, Brisbane Powerhouse). Likely dormant or wound down. No 2026/2027 info indexed. Check Qld XR Festival as active Brisbane alternative.",
+  "notes": "Previous editions ran in Brisbane. No confirmed 2026 edition as of April 2026. Check avrff.com.",
   "url": "http://avrff.com",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -3451,9 +3359,9 @@ const DB = [
   "name": "BARCELONA 360° VR and AR Market",
   "loc": "Barcelona, Spain",
   "region": "Europe",
-  "dates": "Status uncertain — last edition 2024",
-  "dl": "No 2026/2027 call surfaced",
-  "dls": "2026-12-31",
+  "dates": "TBC",
+  "dl": "No 2026 info",
+  "dls": "2099-01-01",
   "status": "no",
   "tags": [
    "VR",
@@ -3461,9 +3369,9 @@ const DB = [
    "360°",
    "Market"
   ],
-  "notes": "Verified Apr 2026 — 360vrfest.pro has no current info. Last confirmed edition was 2024 (8th). No 2026 or 2027 dates publicly available. Festival may be dormant. Watch FilmFreeway/360VRFestGMBarcelona for updates.",
+  "notes": "Submission + Competition + Market. No information on 2026 edition as of April 2026. Check 360vrfest.pro.",
   "url": "http://360vrfest.pro/",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -3471,19 +3379,19 @@ const DB = [
   "name": "Belfast XR Festival",
   "loc": "Belfast, UK",
   "region": "Europe",
-  "dates": "5th edition (2026): TBA",
-  "dl": "Not yet announced — site has no current call",
-  "dls": "2026-12-31",
-  "status": "watch",
+  "dates": "TBC — last ran Feb 2024",
+  "dl": "NOT ACCEPTING — festival on hold",
+  "dls": "2099-01-01",
+  "status": "no",
   "tags": [
    "VR",
    "XR",
    "360°",
    "Interactive"
   ],
-  "notes": "Verified Apr 2026 via belfastxrfestival.com. BXRF history: 2022 (1st), 2023 (2nd), 2024 (3rd Feb 28–Mar 1), 2025 (4th Feb 24–Mar 23). 2026 edition not yet confirmed publicly. No call announced. Northern Ireland VR/XR storytelling festival.",
-  "url": "https://www.belfastxrfestival.com/",
-  "verified": true,
+  "notes": "Per source list: 'Not accepting application'. Last ran Feb 28–29, 2024.",
+  "url": "",
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -3491,19 +3399,19 @@ const DB = [
   "name": "Contemporary Culture Lab (C-Lab), Taipei",
   "loc": "Taipei, Taiwan",
   "region": "Asia-Pacific",
-  "dates": "Future Vision Lab 2026: 8 weekends, Apr 18 – Jun 7, 2026",
-  "dl": "2026 open call — closed",
-  "dls": "2026-06-07",
-  "status": "watch",
+  "dates": "Ongoing programming",
+  "dl": "N/A — venue/lab, contact directly",
+  "dls": "2099-01-01",
+  "status": "no",
   "tags": [
    "Digital Art",
    "Immersive",
    "Dome",
    "Residency"
   ],
-  "notes": "Verified Apr 2026 via clab.org.tw. C-LAB Taipei Future Vision Lab 2026 at FVL DOME — eight consecutive weekends Apr 18–Jun 7, 2026. Active programming venue (not a traditional festival). 2026 open call closed. Contact via clab.org.tw or open-call.clab.org.tw for 2027 info.",
+  "notes": "Taiwan's major government-backed experimental arts platform with dome/immersive screening facilities. Astro_v3 screened here in 2023. Contact directly: clab.org.tw.",
   "url": "https://clab.org.tw/",
-  "verified": true,
+  "verified": false,
   "src": "dome"
  },
  {
@@ -3511,17 +3419,17 @@ const DB = [
   "name": "Dubai International Film Festival",
   "loc": "Dubai, UAE",
   "region": "Middle East",
-  "dates": "Defunct — last edition 2017",
-  "dl": "N/A — festival on indefinite hiatus",
-  "dls": "2026-12-31",
+  "dates": "TBC",
+  "dl": "No 2026 info",
+  "dls": "2099-01-01",
   "status": "no",
   "tags": [
    "VR",
    "Exhibition"
   ],
-  "notes": "Verified Apr 2026 — Original Dubai International Film Festival (DIFF) on indefinite hiatus since 2017. dubaifilmfest.com is a third-party informational site, not active. Note: smaller \"Indo Dubai\" and \"Golden Dunes Dubai\" festivals exist on FilmFreeway as separate events.",
+  "notes": "DIFF previously included VR/immersive exhibition. Festival has been on hiatus — no confirmed 2026 edition.",
   "url": "https://dubaifilmfest.com/en",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -3529,9 +3437,9 @@ const DB = [
   "name": "Femmes Designer Exhibition — Shoreditch Art Club",
   "loc": "Shoreditch Art Club, London, UK",
   "region": "Europe",
-  "dates": "One-off launch event (2023). No 2026/2027 edition.",
-  "dl": "N/A",
-  "dls": "2026-12-31",
+  "dates": "2023 (one-off launch event)",
+  "dl": "N/A — past one-off event",
+  "dls": "2099-01-01",
   "status": "no",
   "tags": [
    "Exhibition",
@@ -3539,9 +3447,9 @@ const DB = [
    "Design",
    "London"
   ],
-  "notes": "Verified Apr 2026 — Femmes Designers \"Through Her Lens\" was a one-off Shoreditch Arts Club exhibition. No 2026/2027 follow-up announced. Watch shoreditchartsclub.com/events/femmes-designers.",
+  "notes": "Astro_v3 featured at the Femmes Designer Launch Exhibition, Shoreditch Art Club London, 2023. One-off curated event, not a recurring festival. Contact Femmes Designer directly for future opportunities.",
   "url": "https://www.femmesdesigner.com/",
-  "verified": true,
+  "verified": false,
   "src": "dome"
  },
  {
@@ -3549,18 +3457,18 @@ const DB = [
   "name": "Forum des Images",
   "loc": "Paris, France",
   "region": "Europe",
-  "dates": "Year-round programming. NewImages Festival = main XR event (separate listing).",
-  "dl": "N/A — venue / programmer (not a festival)",
-  "dls": "2026-12-31",
+  "dates": "Ongoing programming",
+  "dl": "N/A — venue, contact for programming",
+  "dls": "2099-01-01",
   "status": "no",
   "tags": [
    "Cinema",
    "Immersive",
    "Venue"
   ],
-  "notes": "Verified Apr 2026 via forumdesimages.fr. Paris cinema/comics/games venue with year-round VR/immersive programming (incl. POPUP' Station VR). Its NewImages Hub runs the NewImages Festival (separate listing). Not a submission-based festival itself. Contact directly for programming.",
+  "notes": "Major Parisian cinema and media arts venue. Astro_v3 screened here in 2023. Contact programming team directly for dome/immersive screening opportunities.",
   "url": "https://www.forumdesimages.fr/",
-  "verified": true,
+  "verified": false,
   "src": "dome"
  },
  {
@@ -3568,17 +3476,17 @@ const DB = [
   "name": "Hyper VR Festival",
   "loc": "São Paulo, Brazil",
   "region": "Latin America",
-  "dates": "Status uncertain — domain not indexed",
-  "dl": "No public info",
-  "dls": "2026-12-31",
+  "dates": "TBC",
+  "dl": "No 2026 info",
+  "dls": "2099-01-01",
   "status": "no",
   "tags": [
    "VR",
    "360°"
   ],
-  "notes": "Verified Apr 2026 — hypervrfestival.com returns no indexed results. No FilmFreeway listing under this name. Festival may not exist or be inactive. Remove from active tracking.",
+  "notes": "Previously ran in São Paulo. No confirmed 2026 edition as of April 2026. Watch hypervrfestival.com.",
   "url": "https://www.hypervrfestival.com",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -3586,9 +3494,9 @@ const DB = [
   "name": "IVRPA 2020 — VR Cinema Program",
   "loc": "Belfast, Ireland",
   "region": "Europe",
-  "dates": "No active VR Cinema submissions program",
-  "dl": "N/A — IVRPA cancelled VR Cinema after 2020",
-  "dls": "2026-12-31",
+  "dates": "Cancelled 2020",
+  "dl": "N/A — cancelled",
+  "dls": "2099-01-01",
   "status": "no",
   "tags": [
    "VR",
@@ -3596,9 +3504,9 @@ const DB = [
    "Photography",
    "Cinema"
   ],
-  "notes": "Verified Apr 2026 via ivrpa.org. International VR Professional Association — serves 360°/VR creator community but the historical \"VR Cinema\" submission program ended after 2020. Active as professional membership/conference org. No current open call.",
+  "notes": "IVRPA (Int'l VR Photographers Association) annual VR Cinema program was cancelled in 2020. Check ivrpa.org for current events.",
   "url": "http://ivrpa.org",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -3606,16 +3514,16 @@ const DB = [
   "name": "Locarno International Film Festival",
   "loc": "Locarno, Switzerland",
   "region": "Europe",
-  "dates": "Locarno 79: August 5–15, 2026",
-  "dl": "Locarno 79: deadlines varied (closed by ~April 2026)",
-  "dls": "2026-04-30",
-  "status": "closed",
+  "dates": "Aug 2026",
+  "dl": "No confirmed VR programme 2026",
+  "dls": "2099-01-01",
+  "status": "no",
   "tags": [
    "Film"
   ],
-  "notes": "Verified Apr 2026 via locarnofestival.ch. Locarno 79 Aug 5–15, 2026 (Piazza Grande open-air cinema for 8,000). Submissions for 2026 closed. No dedicated VR/XR strand currently — primarily traditional film. 80th edition expected Aug 2027 with deadlines Jan–Apr 2027.",
+  "notes": "Locarno ran a 'Gender Bender VR Program' in 2019 but this was cancelled in 2020. No confirmed VR/XR programme for 2026 at time of research.",
   "url": "https://www.locarnofestival.ch",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -3623,9 +3531,9 @@ const DB = [
   "name": "METAXIS / Earth Metaxis Festival",
   "loc": "Planetarium 1, St Petersburg (+ Nizhny Novgorod, Yerevan)",
   "region": "Europe",
-  "dates": "Status uncertain — no current public presence",
-  "dl": "No public info",
-  "dls": "2026-12-31",
+  "dates": "2021–2022 editions confirmed; 2026 status uncertain",
+  "dl": "No confirmed 2026 edition",
+  "dls": "2099-01-01",
   "status": "no",
   "tags": [
    "New Media Art",
@@ -3633,9 +3541,9 @@ const DB = [
    "Immersive",
    "Russia"
   ],
-  "notes": "Verified Apr 2026 — METAXIS / Earth Metaxis Festival has no indexed website, FilmFreeway page, or active Instagram. Last known activity 2021–2022. Likely defunct or operating under different name. Remove from active tracking.",
+  "notes": "New media art festival touring Russian/CIS planetariums. Astro_v2 screened here (2022 Earth Metaxis) and METAXIS Media Art Festival 2021. Instagram: @metaxis.festival. Status uncertain due to geopolitical situation. Contact araternitas on Instagram.",
   "url": "https://www.instagram.com/metaxis.festival/",
-  "verified": true,
+  "verified": false,
   "src": "dome"
  },
  {
@@ -3643,18 +3551,18 @@ const DB = [
   "name": "Planétarium de Vaulx-en-Velin, Lyon",
   "loc": "Lyon, France",
   "region": "Europe",
-  "dates": "Year-round venue programming",
-  "dl": "N/A — planetarium venue (no open festival call)",
-  "dls": "2026-12-31",
+  "dates": "Past screenings (2024)",
+  "dl": "N/A — venue, not festival",
+  "dls": "2099-01-01",
   "status": "no",
   "tags": [
    "Planetarium",
    "Fulldome",
    "Venue"
   ],
-  "notes": "Verified Apr 2026 — Planétarium de Vaulx-en-Velin (Lyon). Official site is planetariumvv.com. Active venue with planetarium screenings but no public submission portal/festival call. Contact directly to propose works.",
-  "url": "https://www.planetariumvv.com/",
-  "verified": true,
+  "notes": "Astro_v3 screened here in 2024. Contact the planetarium directly for programming. Part of the French regional planetarium network.",
+  "url": "https://www.planetarium-de-vaulx-en-velin.fr/",
+  "verified": false,
   "src": "dome"
  },
  {
@@ -3662,9 +3570,9 @@ const DB = [
   "name": "Reflections of the Universe — Russian Fulldome Festival",
   "loc": "Yaroslavl, Russia",
   "region": "Europe",
-  "dates": "Status uncertain — last confirmed edition pre-2024",
-  "dl": "No 2026 call surfaced",
-  "dls": "2026-12-31",
+  "dates": "~June annually (last confirmed: 2023)",
+  "dl": "No confirmed 2026 edition",
+  "dls": "2099-01-01",
   "status": "no",
   "tags": [
    "Fulldome",
@@ -3673,9 +3581,9 @@ const DB = [
    "Russia",
    "Planetarium"
   ],
-  "notes": "Verified Apr 2026 — festival.planetariums.ru. Russian fulldome festival (Yaroslavl). Submissions/event status not confirmed for 2026/2027. Operations likely affected by geopolitical situation. Watch festival.planetariums.ru/_en for updates.",
+  "notes": "Russia's first international fulldome festival. Held at V.V. Tereshkova Center, Yaroslavl since 2014. Last confirmed edition: June 2023. Status uncertain due to geopolitical situation. Contact: festival.planetariums.ru.",
   "url": "http://festival.planetariums.ru/_en/",
-  "verified": true,
+  "verified": false,
   "src": "dome"
  },
  {
@@ -3683,14 +3591,14 @@ const DB = [
   "name": "Sundance Film Festival — New Frontier",
   "loc": "Boulder, CO, USA",
   "region": "North America",
-  "dates": "Sundance 2027: Jan 21–31, 2027 (TBC)",
-  "dl": "New Frontier PAUSED — no VR/XR submissions for 2026/2027",
-  "dls": "2026-09-30",
+  "dates": "Jan 2027",
+  "dl": "NOT ACCEPTING VR/XR",
+  "dls": "2099-01-01",
   "status": "no",
   "tags": [
    "Film only"
   ],
-  "notes": "Verified Apr 2026 via sundance.org. Sundance has confirmed New Frontier exhibition is paused — NOT accepting VR/AR/XR/immersive submissions for the 2026 (or currently 2027) Festival. Films with VR/XR elements as standard cinema can still be submitted. Contact: newfrontier@sundance.org.",
+  "notes": "CONFIRMED NOT ACCEPTING. 2026 FAQ explicitly states: 'We are currently not accepting submissions that fall within the specific realm of the VR/AR/XR project category.' New Frontier Exhibition has been discontinued.",
   "url": "https://www.sundance.org/festivals/sundance-film-festival/submit/",
   "verified": true,
   "src": "pdf"
@@ -3700,17 +3608,17 @@ const DB = [
   "name": "Vancouver VR Film Festival",
   "loc": "Vancouver, Canada",
   "region": "North America",
-  "dates": "Status uncertain — last edition 2019",
-  "dl": "No 2026 call surfaced",
-  "dls": "2026-12-31",
+  "dates": "No 2026 info",
+  "dl": "No info on 2026 edition",
+  "dls": "2099-01-01",
   "status": "no",
   "tags": [
    "VR",
    "360°"
   ],
-  "notes": "Verified Apr 2026 — yvrff.com / FilmFreeway/YVRFF only show 2017–2019 editions. Vancouver VR Film Festival appears dormant. No 2026/2027 dates or call. Showpass page exists but no upcoming events. Likely defunct.",
+  "notes": "No information on 2026 edition as of April 2026. Check yvrff.com.",
   "url": "http://www.yvrff.com",
-  "verified": true,
+  "verified": false,
   "src": "pdf"
  },
  {
@@ -3718,68 +3626,19 @@ const DB = [
   "name": "Zeiss-Großplanetarium Berlin",
   "loc": "Berlin, Germany",
   "region": "Europe",
-  "dates": "Year-round programming",
-  "dl": "N/A — planetarium venue (no open festival call)",
-  "dls": "2026-12-31",
+  "dates": "Ongoing programming",
+  "dl": "N/A — planetarium venue",
+  "dls": "2099-01-01",
   "status": "no",
   "tags": [
    "Planetarium",
    "Fulldome",
    "Venue"
   ],
-  "notes": "Verified Apr 2026 via planetarium.berlin. Zeiss-Großplanetarium (Stiftung Planetarium Berlin) — active venue with fulldome programming. No public submission portal. Contact directly for collaboration. Adjacent: FullDome Festival Jena handles open submissions for German fulldome scene.",
+  "notes": "One of Europe's premier digital planetariums. Astro_v3 screened here twice (2023 invited show). Contact programming directly for dome screening opportunities.",
   "url": "https://www.planetarium.berlin/en/",
-  "verified": true,
+  "verified": false,
   "src": "dome"
- },
- {
-  "id": "strasbourgeuropeanfa_csv",
-  "name": "Strasbourg European Fantastic Film Festival (Festival européen du film fantastique de Strasbourg)",
-  "loc": "",
-  "region": "Unknown",
-  "dates": "September 25, 2026 to October 04, 2026",
-  "dl": "",
-  "dls": "",
-  "status": "watch",
-  "tags": [
-   "In Consideration"
-  ],
-  "url": "",
-  "verified": false,
-  "notes": "Submitted via FilmFreeway. Category: Virtual reality",
-  "csv": {
-   "status": "In Consideration",
-   "judging": "Undecided",
-   "tracking": "1730",
-   "submitted": "April 26, 2026",
-   "notification": "September 18, 2026",
-   "notificationDate": "2026-09-18",
-   "eventDates": "September 25, 2026 to October 04, 2026",
-   "category": "Virtual reality"
-  },
-  "src": "csv"
- },
- {
-  "id": "adaf_2026",
-  "name": "ADAF — Athens Digital Arts Festival",
-  "loc": "Athens, Greece",
-  "region": "Europe",
-  "dates": "2026 (dates TBC)",
-  "dl": "TBA",
-  "dls": "2026-12-31",
-  "status": "watch",
-  "tags": [
-   "New Media",
-   "Digital Art",
-   "VR",
-   "Interactive",
-   "Selected"
-  ],
-  "url": "https://adaf.gr/",
-  "verified": false,
-  "notes": "Athens Digital Arts Festival — selected for Reality Looks Back.",
-  "selected": true,
-  "src": "pdf"
  }
 ];
 
@@ -3801,10 +3660,7 @@ const STATIC_FESTIVALS = DB.filter(f => { if(seen.has(f.id)){return false;} seen
 */
 let submitted = new Set(JSON.parse(localStorage.getItem('rlb_sub')||'[]'));
 let needSubmit = new Set(JSON.parse(localStorage.getItem('rlb_need')||'[]'));
-const _PRESELECTED = new Set(['idfa','sxsw','thessaloniki','newimages','sat_fest_2026','lichter','academia_olomouc','adaf_2026']);
 let selectedSet = new Set(JSON.parse(localStorage.getItem('rlb_selected')||'[]'));
-// Pre-seed selected festivals if not already stored
-if(!localStorage.getItem('rlb_selected')){ selectedSet = new Set(_PRESELECTED); }
 let userEdits = JSON.parse(localStorage.getItem('rlb_edits')||'{}');
 let customFestivals = JSON.parse(localStorage.getItem('rlb_custom')||'[]');
 let aiUpdates = JSON.parse(localStorage.getItem('rlb_ai')||'{}');
@@ -3932,11 +3788,11 @@ function setSort(s, btn){
 }
 function syncSortButtons(){
   const dirArrow = sortDir === 'desc' ? ' ↓' : ' ↑';
-  const labels = {dl:'Deadline', ev:'Event date', name:'Name', notif:'Notification'};
+  const labels = {dl:'Deadline', ev:'Event date', name:'Name'};
   document.querySelectorAll('.sb').forEach(b => {
     const bs = b.getAttribute('data-s');
     b.classList.toggle('active', bs === currentSort);
-    b.textContent = (labels[bs]||bs) + (bs === currentSort && bs !== 'name' ? dirArrow : '');
+    b.textContent = labels[bs] + (bs === currentSort && bs !== 'name' ? dirArrow : '');
   });
 }
 
@@ -3971,99 +3827,7 @@ function quickStatus(id, newStatus){
   persist(); rebuild();
 }
 
-/* ── SWIPE TO DELETE ── */
-let _swipePendingId = null;
-
-function initSwipe(id){
-  const wrap = document.getElementById('sw-' + id);
-  if(!wrap) return;
-  const card = wrap.querySelector('.card');
-  const bg   = wrap.querySelector('.swipe-bg');
-  if(!card || !bg) return;
-
-  let startX = 0, startY = 0, curX = 0, swiping = false, activated = false;
-  const THRESHOLD = 80; // px to trigger
-
-  card.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX;
-    startY = e.touches[0].clientY;
-    curX = 0; swiping = false; activated = false;
-    card.style.transition = 'none';
-  }, {passive: true});
-
-  card.addEventListener('touchmove', e => {
-    const dx = e.touches[0].clientX - startX;
-    const dy = e.touches[0].clientY - startY;
-    // Only hijack if horizontal swipe and left direction
-    if(!swiping && Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
-    if(!swiping){
-      if(Math.abs(dx) < Math.abs(dy)) return; // vertical scroll wins
-      swiping = true;
-    }
-    if(dx > 0) return; // only left swipe
-    e.preventDefault();
-    curX = dx;
-    const clamped = Math.max(dx, -THRESHOLD * 1.5);
-    card.style.transform = `translateX(${clamped}px)`;
-    const progress = Math.min(Math.abs(clamped) / THRESHOLD, 1);
-    bg.style.opacity = progress;
-    activated = Math.abs(clamped) >= THRESHOLD;
-    bg.style.background = activated ? 'var(--red)' : 'rgba(229,62,62,0.7)';
-  }, {passive: false});
-
-  card.addEventListener('touchend', () => {
-    card.style.transition = '';
-    if(activated){
-      // snap fully left briefly then show confirm
-      card.style.transform = `translateX(-100%)`;
-      card.style.opacity = '0.4';
-      setTimeout(() => showDeleteConfirm(id), 200);
-    } else {
-      card.style.transform = '';
-      bg.style.opacity = '0';
-    }
-    swiping = false; activated = false;
-  });
-}
-
-function showDeleteConfirm(id){
-  _swipePendingId = id;
-  const f = festivals.find(x=>x.id===id);
-  document.getElementById('delete-confirm-name').textContent = f ? f.name : id;
-  document.getElementById('delete-confirm').classList.remove('hidden');
-}
-
-function cancelDelete(){
-  document.getElementById('delete-confirm').classList.add('hidden');
-  // snap card back
-  if(_swipePendingId){
-    const card = document.querySelector(`#sw-${CSS.escape(_swipePendingId)} .card`);
-    const bg   = document.querySelector(`#sw-${CSS.escape(_swipePendingId)} .swipe-bg`);
-    if(card){ card.style.transform=''; card.style.opacity=''; }
-    if(bg) bg.style.opacity='0';
-  }
-  _swipePendingId = null;
-}
-
-function confirmDelete(){
-  document.getElementById('delete-confirm').classList.add('hidden');
-  if(!_swipePendingId) return;
-  const id = _swipePendingId;
-  _swipePendingId = null;
-  // Animate out
-  const wrap = document.getElementById('sw-' + id);
-  if(wrap){ wrap.style.transition='all 0.25s'; wrap.style.height='0'; wrap.style.opacity='0'; wrap.style.marginBottom='0'; }
-  setTimeout(()=>{
-    // Remove from all sets and data
-    customFestivals = customFestivals.filter(c=>c.id!==id);
-    delete userEdits[id];
-    submitted.delete(id);
-    needSubmit.delete(id);
-    selectedSet.delete(id);
-    inCalendar.delete(id);
-    persist(); rebuild();
-  }, 250);
-}
+/* ── COLLAPSE / EXPAND ALL ── */
 function toggleCollapse(){
   collapsedAll = !collapsedAll;
   localStorage.setItem('rlb_collapsed', collapsedAll ? '1' : '0');
@@ -4206,25 +3970,19 @@ document.addEventListener('click', e => {
 const SO = {open:0,watch:1,closed:2,no:3};
 function getList(){
   const q = (document.getElementById('srch')?.value||'').toLowerCase();
-  // "All" shows every festival regardless of submitted/list status
-  // Only dedicated tabs filter to their subset
-  let list = [...festivals];
+  // Submitted items only show in the "submitted" tab
+  let list = festivals.filter(f=>!submitted.has(f.id));
   if(currentTab==='open') list = list.filter(f=>f.status==='open');
   else if(currentTab==='watch') list = list.filter(f=>f.status==='watch');
   else if(currentTab==='need') list = list.filter(f=>needSubmit.has(f.id));
-  else if(currentTab==='consider'){
-    const validTracking = new Set(['1730','KFFK20-1209','5404428','SOFF5748','IN27-10','3912','2026KFF9004','VM26182','26-3397','LDF6445','RIPB26_6308','ASFF21752','BFF20262197','F2024-14731','PPD2606','FVRS2027','MIFF26-1868','DEF210519','PFCAT2250']);
-    list = list.filter(f=>f.csv && validTracking.has(f.csv.tracking));
-  }
-  else if(currentTab==='selected') list = list.filter(f=>selectedSet.has(f.id));
   else if(currentTab==='csv') list = list.filter(f=>f.src==='csv'||f.src==='both');
   else if(currentTab==='dome') list = list.filter(f=>f.src==='dome');
-  else if(currentTab==='submitted') list = list.filter(f=>submitted.has(f.id));
-  // Status filter applies on all tabs (except calendar which has no list)
-  if(currentStatusFilter !== 'all'){
+  else if(currentTab==='submitted') list = festivals.filter(f=>submitted.has(f.id));
+  // Status filter bar (only on tabs that show the full list)
+  if(currentStatusFilter !== 'all' && !['open','watch','submitted','need'].includes(currentTab)){
     list = list.filter(f=>f.status===currentStatusFilter);
   }
-  if(currentFilter!=='all'){
+  if(currentFilter!=='all' && !['submitted','need','calendar'].includes(currentTab)){
     list = list.filter(f=>f.region===currentFilter);
   }
   if(q) list = list.filter(f =>
@@ -4236,11 +3994,6 @@ function getList(){
   list.sort((a,b)=>{
     if(currentTab==='all' && currentSort==='dl' && currentStatusFilter==='all'){
       const s = SO[a.status]-SO[b.status]; if(s!==0) return s;
-    }
-    if(currentSort==='notif'){
-      const an = a.csv?.notificationDate || a.csv?.notification || '';
-      const bn = b.csv?.notificationDate || b.csv?.notification || '';
-      return dir * an.localeCompare(bn);
     }
     if(currentSort==='ev'){
       return dir * eventDateFromDates(a.dates).localeCompare(eventDateFromDates(b.dates));
@@ -4254,9 +4007,9 @@ function getList(){
 }
 
 /* ── HELPERS ── */
-function cbCls(f,isSub){ if(isSub)return 'cb-sub'; return {open:'cb-open',watch:'cb-watch',closed:'cb-closed',no:'cb-no',tbc:'cb-tbc'}[f.status]||'cb-closed'; }
-function badgeCls(f,isSub){ if(isSub)return 'b-sub'; return {open:'b-open',watch:'b-watch',closed:'b-closed',no:'b-no',tbc:'b-tbc'}[f.status]||'b-closed'; }
-function badgeLbl(f,isSub){ if(isSub)return 'Submitted'; if(f.status==='no')return 'Not accepting XR'; if(f.status==='tbc')return 'TBC'; return f.dl; }
+function cbCls(f,isSub){ if(isSub)return 'cb-sub'; return {open:'cb-open',watch:'cb-watch',closed:'cb-closed',no:'cb-no'}[f.status]||'cb-closed'; }
+function badgeCls(f,isSub){ if(isSub)return 'b-sub'; return {open:'b-open',watch:'b-watch',closed:'b-closed',no:'b-no'}[f.status]||'b-closed'; }
+function badgeLbl(f,isSub){ if(isSub)return 'Submitted'; if(f.status==='no')return 'Not accepting XR'; return f.dl; }
 function csvBadgeCls(s,j){ if(s==='Disqualified')return 'b-disq'; if(j==='Selected')return 'b-selected'; if(j==='Not Selected')return 'b-notsel'; return 'b-open'; }
 function csvBadgeLbl(s,j){ if(s==='Disqualified')return 'Disqualified'; if(j==='Selected')return '★ Selected'; if(j==='Not Selected')return 'Not Selected'; return 'In Consideration'; }
 function esc(s){ return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
@@ -4265,7 +4018,6 @@ function esc(s){ return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<'
 const STATUS_META = {
   open:  {lbl:'Open'},
   watch: {lbl:'Watchlist'},
-  tbc:   {lbl:'TBC'},
   closed:{lbl:'Closed'},
   no:    {lbl:'No XR'}
 };
@@ -4291,16 +4043,12 @@ function cardHTML(f){
   const customBadge = isCustom?`<span class="badge" style="background:var(--purple-dim);color:var(--purple);font-size:9px;padding:1px 7px;margin-left:3px">Custom</span>`:'';
   const editedBadge = isEdited?`<span class="badge" style="background:var(--teal-dim);color:var(--teal);font-size:9px;padding:1px 7px;margin-left:3px">Edited</span>`:'';
   const verif = f.verified?`<span class="vc ok">✓ verified</span>`:`<span class="vc">⚠ unverified</span>`;
-  const notifHighlight = f.csv?.notificationDate && f.csv.notificationDate <= '2026-07-01' ? 'color:var(--amber);font-weight:500' : 'color:var(--ink3)';
   const csvRow = f.csv?`<div class="csvrow">
     <span class="badge ${csvBadgeCls(f.csv.status,f.csv.judging)}">${csvBadgeLbl(f.csv.status,f.csv.judging)}</span>
-    <span style="${notifHighlight}">🔔 ${esc(f.csv.notification)}</span>
-    <span style="color:var(--ink3)">📤 ${esc(f.csv.submitted)}</span>
-    ${f.csv.category?`<span style="color:var(--ink3);font-style:italic">${esc(f.csv.category.trim())}</span>`:''}
+    <span>📅 ${esc(f.csv.submitted)}</span>
+    <span>🔔 ${esc(f.csv.notification)}</span>
     <span class="tracking">#${esc(f.csv.tracking)}</span>
   </div>`:'';
-  // For consider tab: show notification date in mini-info too
-  const notifMini = f.csv?.notification && currentTab==='consider' ? `<span style="color:var(--amber)">🔔 ${esc(f.csv.notification)}</span>` : '';
   const highlight = f.csv?.judging==='Selected'?'border-color:rgba(59,130,246,0.4);':f.csv?.status==='Disqualified'?'border-color:rgba(229,62,62,0.35);':'';
   const portalLink = f.url ? `<a class="portal-link" href="${esc(f.url)}" target="_blank" rel="noopener">↗ Portal</a>` : '';
   const needBtnStyle = isNeed ? 'color:var(--amber);border-color:rgba(217,119,6,0.4);background:var(--amber-dim)' : '';
@@ -4310,17 +4058,14 @@ function cardHTML(f){
   const isCollapsed = collapsedAll ? 'collapsed' : '';
   const deadlineMini = f.dl && f.dl !== 'TBA' ? `<span style="color:var(--amber)">⏰ ${esc(f.dl)}</span>` : '';
   const datesMini = f.dates ? `<span>📅 ${esc(f.dates)}</span>` : '';
-  const miniParts = [datesMini, deadlineMini, notifMini].filter(Boolean);
-  return `<div class="card-swipe-wrap" id="sw-${esc(f.id)}">
-  <div class="swipe-bg"><span>🗑</span> Remove</div>
-  <div class="card${isSub?' is-sub':''}${f.status==='open'?' is-open':''}${f.status==='tbc'?' is-tbc':''}${(f.src==='csv'||f.src==='both')?' from-csv':''} ${isCollapsed}" id="c-${esc(f.id)}" style="${selHighlight}">
+  return `<div class="card${isSub?' is-sub':''}${(f.src==='csv'||f.src==='both')?' from-csv':''} ${isCollapsed}" id="c-${esc(f.id)}" style="${selHighlight}">
   <div class="cb ${cbCls(f,isSub)}"></div>
   <div class="card-inner">
     <div class="card-left" onclick="toggleCardCollapse('${esc(f.id)}')">
       <div class="ct">
         <div class="cn">${esc(f.name)}${selBadge}${csvBadge}${pdfBadge}${domeBadge}${customBadge}${editedBadge}</div>
       </div>
-      <div class="card-mini-info">${miniParts.join(' · ')}</div>
+      <div class="card-mini-info">${[datesMini,deadlineMini].filter(Boolean).join(' · ')}</div>
       <div class="cmeta"><strong>${esc(f.loc)}</strong> · 📅 ${esc(f.dates)} · ⏰ deadline: ${esc(f.dl)}</div>
       ${csvRow}
       <div class="tags">${tags}</div>
@@ -4341,7 +4086,6 @@ function cardHTML(f){
       </div>
     </div>
   </div>
-</div>
 </div>`;
 }
 
@@ -4421,11 +4165,6 @@ function render(){
   const consC = festivals.filter(f=>f.csv && f.csv.judging!=='Selected' && f.csv.judging!=='Not Selected' && f.csv.status!=='Disqualified').length;
 
   function setCount(id, val){ const el = document.getElementById(id); if(el) el.textContent = val; }
-  const selectedC = [...selectedSet].length;
-  setCount('c-selected', selectedC);
-  const _validConsider = new Set(['1730','KFFK20-1209','5404428','SOFF5748','IN27-10','3912','2026KFF9004','VM26182','26-3397','LDF6445','RIPB26_6308','ASFF21752','BFF20262197','F2024-14731','PPD2606','FVRS2027','MIFF26-1868','DEF210519','PFCAT2250']);
-  const considerC = festivals.filter(f=>f.csv && _validConsider.has(f.csv.tracking)).length;
-  setCount('c-consider', considerC);
   setCount('c-dome', domeC);
   setCount('c-all', allNS.length);
   setCount('c-open', openC);
@@ -4442,7 +4181,7 @@ function render(){
 
   const el = document.getElementById('list');
   const fr = document.getElementById('filter-row');
-  fr.style.display = currentTab === 'calendar' ? 'none' : 'flex';
+  fr.style.display = ['submitted','need','calendar'].includes(currentTab) ? 'none' : 'flex';
 
   // Sync collapse button label
   const colBtn = document.getElementById('collapse-btn');
@@ -4457,24 +4196,8 @@ function render(){
   }
 
   const list = getList();
-
-  // Build list header for all tabs except 'all' and 'calendar'
-  let listHeaderHTML = '';
-  if(currentTab !== 'all'){
-    const def = ALL_TABS.find(t => currentStatusFilter !== 'all' ? t.sf === currentStatusFilter : t.id === currentTab);
-    if(def && def.id !== '__sep__'){
-      const color = def.color || 'var(--ink3)';
-      const label = def.label.replace(' ★','');
-      listHeaderHTML = `<div class="list-header">
-        <span class="list-header-dot" style="background:${color}"></span>
-        <span class="list-header-name" style="color:${color}">${label}</span>
-        <span class="list-header-count">${list.length} festival${list.length!==1?'s':''}</span>
-      </div>`;
-    }
-  }
-
   if(list.length === 0){
-    el.innerHTML = listHeaderHTML + '<div class="empty-state">No festivals match this view yet.</div>';
+    el.innerHTML = '<div class="empty-state">No festivals match this view yet.</div>';
   } else if(currentTab === 'all'){
     let html = '', last = null;
     list.forEach(f=>{
@@ -4489,10 +4212,8 @@ function render(){
     });
     el.innerHTML = html;
   } else {
-    el.innerHTML = listHeaderHTML + list.map(f=>cardHTML(f)).join('');
+    el.innerHTML = list.map(f=>cardHTML(f)).join('');
   }
-  // Init swipe gestures on all rendered cards
-  festivals.forEach(f=>{ try{ initSwipe(f.id); }catch(e){} });
 }
 
 /* ── AI REFRESH ── */
@@ -4548,19 +4269,17 @@ syncSortButtons();
    TAB MANAGEMENT — reorder + show/hide
 ══════════════════════════════════════════════ */
 const ALL_TABS = [
-  {id:'all',       label:'All',              countId:'c-all'},
-  {id:'open',      label:'Open',             countId:'c-open',      color:'var(--green)'},
-  {id:'watch',     label:'Watchlist',        countId:'c-watch',     color:'var(--amber)'},
-  {id:'need',      label:'Need to submit',   countId:'c-need',      color:'var(--amber)'},
-  {id:'consider',  label:'In Consideration', countId:'c-consider',  color:'var(--teal)'},
-  {id:'selected',  label:'Selected ★',       countId:'c-selected',  color:'var(--blue)'},
-  {id:'submitted', label:'Submitted',        countId:'c-sub',       color:'var(--green)'},
-  {id:'calendar',  label:'Calendar',         countId:'c-cal'},
-  {id:'csv',       label:'FilmFreeway',      countId:'c-csv',       color:'var(--purple)'},
-  {id:'dome',      label:'Dome',             countId:'c-dome',      color:'var(--amber)'},
-  {id:'__sep__',   label:'—',               countId:null},
-  {id:'sf-closed', label:'Closed',           countId:'sf-n-closed', sf:'closed', color:'var(--ink3)'},
-  {id:'sf-no',     label:'No XR',            countId:'sf-n-no',     sf:'no',     color:'var(--red)'},
+  {id:'all',      label:'All',            countId:'c-all'},
+  {id:'open',     label:'Open',           countId:'c-open'},
+  {id:'watch',    label:'Watchlist',      countId:'c-watch'},
+  {id:'need',     label:'Need to submit', countId:'c-need'},
+  {id:'submitted',label:'Submitted',      countId:'c-sub'},
+  {id:'calendar', label:'Calendar',       countId:'c-cal'},
+  {id:'csv',      label:'FilmFreeway',    countId:'c-csv'},
+  {id:'dome',     label:'Dome',           countId:'c-dome'},
+  {id:'__sep__',  label:'—',             countId:null},
+  {id:'sf-closed',label:'Closed',         countId:'sf-n-closed', sf:'closed'},
+  {id:'sf-no',    label:'No XR',          countId:'sf-n-no',     sf:'no'},
 ];
 
 let tabConfig = JSON.parse(localStorage.getItem('rlb_tabs') || 'null');
@@ -4683,18 +4402,6 @@ rebuild();
 
 renderTabBar();
 </script>
-
-<div class="card-delete-confirm hidden" id="delete-confirm">
-  <div class="delete-dialog">
-    <h3>🗑 Remove festival?</h3>
-    <p id="delete-confirm-name" style="color:var(--ink2);font-weight:500;margin-bottom:0.3rem"></p>
-    <p>This will remove it from your tracker. Built-in festivals can be re-added via the + Add button.</p>
-    <div class="delete-dialog-btns">
-      <button class="btn-sec" onclick="cancelDelete()">Cancel</button>
-      <button class="btn-danger" onclick="confirmDelete()">Remove</button>
-    </div>
-  </div>
-</div>
 
 <div class="tab-modal-back" id="tab-modal-back" onclick="if(event.target===this)closeTabModal()">
   <div class="tab-modal">
