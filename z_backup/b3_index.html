@@ -135,17 +135,6 @@ main{max-width:1040px;margin:0 auto;padding:1rem 1.5rem calc(5rem + var(--sab));
 .tab-manage-btn{font-family:var(--font-body);font-size:11px;padding:6px 10px;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--ink3);cursor:pointer;opacity:0.5;transition:all 0.15s;white-space:nowrap;flex-shrink:0;margin-left:2px}
 .tab-manage-btn:hover{opacity:1;color:var(--ink2)}
 .tab-btn.drag-over{border-bottom-color:var(--purple);background:var(--purple-dim)}
-.tab-btn.long-pressing{background:var(--bg3);transform:scale(0.94);transition:transform 0.4s ease, background 0.2s}
-.tab-btn.long-pressing::after{content:'';position:absolute;inset:auto 0 0 0;height:2px;background:linear-gradient(90deg,var(--purple),var(--green));animation:tab-press-fill 0.5s linear forwards}
-.tab-btn{position:relative}
-@keyframes tab-press-fill{from{width:0}to{width:100%}}
-.toast-stack{position:fixed;bottom:calc(0.9rem + var(--sab));left:50%;transform:translateX(-50%);display:flex;flex-direction:column;gap:6px;z-index:300;pointer-events:none;align-items:center}
-.toast{background:var(--bg2);border:1px solid var(--border2);border-radius:99px;padding:8px 14px 8px 16px;display:flex;align-items:center;gap:10px;font-size:12px;color:var(--ink);box-shadow:0 6px 24px rgba(0,0,0,0.45);pointer-events:auto;animation:toast-in 0.18s ease}
-.toast-msg{white-space:nowrap}
-.toast-btn{background:var(--green-dim);border:1px solid rgba(62,207,142,0.4);color:var(--green);font-size:11px;font-weight:600;padding:4px 12px;border-radius:99px;cursor:pointer}
-.toast-btn:hover{background:var(--green);color:var(--bg)}
-@keyframes toast-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-@keyframes toast-out{from{opacity:1}to{opacity:0;transform:translateY(8px)}}
 .tab-btn[draggable]{cursor:grab}
 .tab-btn[draggable]:active{cursor:grabbing;opacity:0.6}
 
@@ -154,32 +143,18 @@ main{max-width:1040px;margin:0 auto;padding:1rem 1.5rem calc(5rem + var(--sab));
 .tab-modal-back.show{display:flex}
 .tab-modal{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius-lg);width:340px;max-height:80vh;overflow-y:auto;padding:1.2rem;box-shadow:0 10px 40px rgba(0,0,0,0.4)}
 .tab-modal h3{font-family:var(--font-head);font-size:0.85rem;font-weight:600;color:var(--ink);margin-bottom:0.9rem;display:flex;align-items:center;justify-content:space-between}
-.tm-row{display:flex;align-items:center;gap:8px;padding:8px 4px;border-bottom:1px solid var(--border);touch-action:manipulation;-webkit-user-select:none;user-select:none}
+.tm-row{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--border);cursor:grab}
 .tm-row:last-of-type{border-bottom:none}
-.tm-row.dragging{opacity:0.4;background:var(--bg3)}
-.tm-row.drop-target{border-top:2px solid var(--purple);background:var(--purple-dim)}
-.tm-grip{color:var(--ink3);font-size:18px;flex-shrink:0;cursor:grab;padding:6px 4px;line-height:1;touch-action:none}
-.tm-grip:active{cursor:grabbing;color:var(--ink)}
-.tm-move-btns{display:flex;flex-direction:column;gap:2px;flex-shrink:0}
-.tm-move-btn{width:32px;height:22px;background:var(--bg3);border:1px solid var(--border2);border-radius:5px;color:var(--ink2);font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;line-height:1}
-.tm-move-btn:hover:not(:disabled){background:var(--bg);color:var(--ink);border-color:var(--ink3)}
-.tm-move-btn:disabled{opacity:0.25;cursor:not-allowed}
-.tm-move-btn:active:not(:disabled){transform:scale(0.92)}
-.tm-label{font-size:13px;color:var(--ink2);flex:1;padding:0 4px}
-.tm-toggle{position:relative;width:38px;height:22px;flex-shrink:0;display:inline-block}
-.tm-toggle input{opacity:0;width:0;height:0;position:absolute;pointer-events:none}
+.tm-row:active{cursor:grabbing;opacity:0.6}
+.tm-drag{color:var(--ink3);font-size:13px;flex-shrink:0;user-select:none}
+.tm-label{font-size:12px;color:var(--ink2);flex:1}
+.tm-toggle{position:relative;width:28px;height:16px;flex-shrink:0}
+.tm-toggle input{opacity:0;width:0;height:0;position:absolute}
 .tm-slider{position:absolute;inset:0;background:var(--border2);border-radius:99px;transition:0.2s;cursor:pointer}
-.tm-slider:before{content:'';position:absolute;width:18px;height:18px;left:2px;top:2px;background:#fff;border-radius:50%;transition:0.2s}
+.tm-slider:before{content:'';position:absolute;width:12px;height:12px;left:2px;top:2px;background:#fff;border-radius:50%;transition:0.2s}
 .tm-toggle input:checked+.tm-slider{background:var(--green)}
-.tm-toggle input:checked+.tm-slider:before{transform:translateX(16px)}
-.tm-footer{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:0.85rem}
-.tm-hint{font-size:10px;color:var(--ink3)}
-@media(max-width:600px){
-  .tab-modal{width:100%;max-width:none;max-height:88vh;border-radius:14px}
-  .tm-move-btn{width:38px;height:30px;font-size:14px}
-  .tm-label{font-size:14px}
-  .tm-row{padding:10px 4px}
-}
+.tm-toggle input:checked+.tm-slider:before{transform:translateX(12px)}
+.tm-footer{display:flex;justify-content:flex-end;margin-top:0.85rem}
 
 /* FILTER */
 .filter-row{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1.1rem;align-items:center}
@@ -4770,13 +4745,9 @@ function renderTabBar(){
     btn.innerHTML = `${def.label}${def.countId ? ` <span class="tc" id="${def.countId}">—</span>` : ''}`;
 
     btn.onclick = () => {
-      if(btn._longPressFired){ btn._longPressFired = false; return; }
       if(def.sf){ setStatusFilter(def.sf, btn); }
       else { setTab(def.id, btn); }
     };
-
-    // long-press to hide
-    attachLongPressHide(btn, cfg.id, def.label);
 
     // drag-to-reorder
     btn.addEventListener('dragstart', e=>{ dragSrc=cfg.id; e.dataTransfer.effectAllowed='move'; });
@@ -4814,293 +4785,43 @@ function saveTabConfig(rerender=true){
   if(rerender){ renderTabBar(); render(); }
 }
 
-// ── Long-press to hide tab + Undo toast ──
-const LONG_PRESS_MS = 500;
-function attachLongPressHide(btn, tabId, label){
-  let timer = null, startX = 0, startY = 0, fired = false;
-
-  const cancel = () => {
-    if(timer){ clearTimeout(timer); timer = null; }
-    btn.classList.remove('long-pressing');
-  };
-  const start = (x, y) => {
-    fired = false;
-    startX = x; startY = y;
-    btn.classList.add('long-pressing');
-    timer = setTimeout(() => {
-      fired = true;
-      btn._longPressFired = true;
-      btn.classList.remove('long-pressing');
-      // haptic on supported devices
-      if(navigator.vibrate) try { navigator.vibrate(15); } catch(e){}
-      hideTabWithUndo(tabId, label);
-    }, LONG_PRESS_MS);
-  };
-  const move = (x, y) => {
-    if(!timer) return;
-    if(Math.abs(x-startX) > 8 || Math.abs(y-startY) > 8) cancel();
-  };
-
-  btn.addEventListener('touchstart', e=>{
-    if(e.touches.length !== 1) return;
-    const t = e.touches[0];
-    start(t.clientX, t.clientY);
-  }, {passive:true});
-  btn.addEventListener('touchmove',  e=>{ const t = e.touches[0]; move(t.clientX, t.clientY); }, {passive:true});
-  btn.addEventListener('touchend',   cancel);
-  btn.addEventListener('touchcancel',cancel);
-
-  btn.addEventListener('mousedown', e=>{ if(e.button===0) start(e.clientX, e.clientY); });
-  btn.addEventListener('mousemove', e=>move(e.clientX, e.clientY));
-  btn.addEventListener('mouseup',   cancel);
-  btn.addEventListener('mouseleave',cancel);
-  // Right-click on desktop = quick alternative
-  btn.addEventListener('contextmenu', e=>{
-    e.preventDefault();
-    btn._longPressFired = true;
-    hideTabWithUndo(tabId, label);
-  });
-}
-
-function hideTabWithUndo(tabId, label){
-  const cfg = tabConfig.find(c=>c.id===tabId);
-  if(!cfg || !cfg.visible) return;
-  cfg.visible = false;
-  // If we just hid the active tab, switch to the first remaining visible non-status tab
-  if(currentTab === tabId){
-    const fallback = tabConfig.find(c=>{
-      if(!c.visible) return false;
-      const d = ALL_TABS.find(t=>t.id===c.id);
-      return d && !d.sf && d.id!=='__sep__';
-    });
-    if(fallback) currentTab = fallback.id;
-  }
-  saveTabConfig(true);
-  showToast(`Hid "${label}"`, 'Undo', ()=>{
-    cfg.visible = true;
-    saveTabConfig(true);
-  });
-}
-
-let _toastStack = null, _toastTimer = null;
-function showToast(msg, actionLabel, actionFn, ms=4000){
-  if(!_toastStack){
-    _toastStack = document.createElement('div');
-    _toastStack.className = 'toast-stack';
-    document.body.appendChild(_toastStack);
-  }
-  // Replace any existing toast
-  _toastStack.innerHTML = '';
-  if(_toastTimer){ clearTimeout(_toastTimer); _toastTimer = null; }
-
-  const t = document.createElement('div');
-  t.className = 'toast';
-  const m = document.createElement('span');
-  m.className = 'toast-msg';
-  m.textContent = msg;
-  t.appendChild(m);
-  if(actionLabel){
-    const b = document.createElement('button');
-    b.className = 'toast-btn';
-    b.textContent = actionLabel;
-    b.onclick = () => { dismissToast(t); if(actionFn) actionFn(); };
-    t.appendChild(b);
-  }
-  const close = document.createElement('button');
-  close.className = 'toast-btn';
-  close.style.background = 'transparent';
-  close.style.border = '1px solid var(--border2)';
-  close.style.color = 'var(--ink3)';
-  close.style.padding = '4px 8px';
-  close.textContent = '✕';
-  close.onclick = () => dismissToast(t);
-  t.appendChild(close);
-
-  _toastStack.appendChild(t);
-  _toastTimer = setTimeout(()=>dismissToast(t), ms);
-}
-function dismissToast(t){
-  if(!t || !t.parentNode) return;
-  t.style.animation = 'toast-out 0.18s ease forwards';
-  setTimeout(()=>{ if(t.parentNode) t.parentNode.removeChild(t); }, 200);
-  if(_toastTimer){ clearTimeout(_toastTimer); _toastTimer = null; }
-}
-
-// ── Tab modal (touch + mouse friendly) ──
-function tmVisibleIndices(){
-  // indices in tabConfig that represent real tabs (skip separator entries)
-  const out = [];
-  tabConfig.forEach((cfg,i)=>{
-    const def = ALL_TABS.find(t=>t.id===cfg.id);
-    if(def && def.id!=='__sep__') out.push(i);
-  });
-  return out;
-}
-function tmMove(fromIdx, dir){
-  // dir = -1 up, +1 down. fromIdx is absolute index into tabConfig.
-  const order = tmVisibleIndices();
-  const pos = order.indexOf(fromIdx);
-  if(pos < 0) return;
-  const newPos = pos + dir;
-  if(newPos < 0 || newPos >= order.length) return;
-  const targetIdx = order[newPos];
-  const [item] = tabConfig.splice(fromIdx, 1);
-  // adjust target if we removed something before it
-  const insertAt = (targetIdx > fromIdx) ? targetIdx : targetIdx;
-  tabConfig.splice(insertAt, 0, item);
-  saveTabConfig(true);
-  openTabModal();
-}
-function tmToggle(idx, visible){
-  tabConfig[idx].visible = visible;
-  saveTabConfig(true);
-}
-function tmReorderTo(srcIdx, destIdx){
-  if(srcIdx === destIdx) return;
-  const [item] = tabConfig.splice(srcIdx, 1);
-  const adj = (destIdx > srcIdx) ? destIdx - 1 : destIdx;
-  tabConfig.splice(adj, 0, item);
-  saveTabConfig(true);
-  openTabModal();
-}
-
-let tmDragRow = null, tmDragSrcIdx = null, tmGhost = null, tmTouchActive = false;
-
-function tmStartDrag(srcIdx, row, clientY){
-  tmDragSrcIdx = srcIdx;
-  tmDragRow = row;
-  row.classList.add('dragging');
-  // ghost element that follows the finger/cursor
-  tmGhost = row.cloneNode(true);
-  tmGhost.style.position = 'fixed';
-  tmGhost.style.left = '0';
-  tmGhost.style.right = '0';
-  tmGhost.style.top = (clientY - row.offsetHeight/2) + 'px';
-  tmGhost.style.margin = '0 auto';
-  tmGhost.style.maxWidth = (row.offsetWidth) + 'px';
-  tmGhost.style.opacity = '0.92';
-  tmGhost.style.pointerEvents = 'none';
-  tmGhost.style.background = 'var(--bg2)';
-  tmGhost.style.border = '1px solid var(--purple)';
-  tmGhost.style.borderRadius = '8px';
-  tmGhost.style.padding = '8px';
-  tmGhost.style.boxShadow = '0 6px 20px rgba(0,0,0,0.45)';
-  tmGhost.style.zIndex = '999';
-  tmGhost.classList.remove('dragging');
-  document.body.appendChild(tmGhost);
-}
-function tmMoveDrag(clientY){
-  if(!tmGhost) return;
-  tmGhost.style.top = (clientY - tmGhost.offsetHeight/2) + 'px';
-  // highlight nearest row as drop target
-  const rows = document.querySelectorAll('#tm-list .tm-row');
-  let nearest = null, nearestDist = Infinity;
-  rows.forEach(r=>{
-    if(r === tmDragRow) return;
-    const rect = r.getBoundingClientRect();
-    const mid = rect.top + rect.height/2;
-    const d = Math.abs(clientY - mid);
-    if(d < nearestDist){ nearestDist = d; nearest = r; }
-    r.classList.remove('drop-target');
-  });
-  if(nearest) nearest.classList.add('drop-target');
-}
-function tmEndDrag(clientY){
-  const rows = Array.from(document.querySelectorAll('#tm-list .tm-row'));
-  let destIdx = null;
-  for(const r of rows){
-    if(r === tmDragRow) continue;
-    const rect = r.getBoundingClientRect();
-    const mid = rect.top + rect.height/2;
-    if(clientY < mid){ destIdx = parseInt(r.dataset.idx,10); break; }
-  }
-  if(destIdx === null){
-    // dropped past last row → end of list
-    const lastVis = tmVisibleIndices();
-    destIdx = lastVis[lastVis.length-1] + 1;
-  }
-  if(tmGhost){ tmGhost.remove(); tmGhost = null; }
-  if(tmDragRow){ tmDragRow.classList.remove('dragging'); tmDragRow = null; }
-  rows.forEach(r=>r.classList.remove('drop-target'));
-  if(tmDragSrcIdx !== null && destIdx !== null){
-    tmReorderTo(tmDragSrcIdx, destIdx);
-  }
-  tmDragSrcIdx = null;
-  tmTouchActive = false;
-}
-
+// ── Tab modal ──
+let tmDragSrc = null;
 function openTabModal(){
   const list = document.getElementById('tm-list');
   list.innerHTML = '';
-  const order = tmVisibleIndices();
-  order.forEach((absIdx, pos)=>{
-    const cfg = tabConfig[absIdx];
+  tabConfig.forEach((cfg,i)=>{
     const def = ALL_TABS.find(t=>t.id===cfg.id);
-    if(!def) return;
+    if(!def || def.id==='__sep__') return;
     const row = document.createElement('div');
     row.className = 'tm-row';
-    row.dataset.idx = absIdx;
-    const isFirst = pos === 0;
-    const isLast  = pos === order.length-1;
+    row.setAttribute('draggable','true');
+    row.dataset.idx = i;
     row.innerHTML = `
-      <div class="tm-move-btns">
-        <button class="tm-move-btn" ${isFirst?'disabled':''} onclick="tmMove(${absIdx},-1)" aria-label="Move up">▲</button>
-        <button class="tm-move-btn" ${isLast?'disabled':''} onclick="tmMove(${absIdx},1)" aria-label="Move down">▼</button>
-      </div>
-      <span class="tm-grip" data-grip="1">⠿</span>
+      <span class="tm-drag">⠿</span>
       <span class="tm-label">${def.label}</span>
       <label class="tm-toggle">
-        <input type="checkbox" ${cfg.visible?'checked':''} onchange="tmToggle(${absIdx}, this.checked)">
+        <input type="checkbox" ${cfg.visible?'checked':''} onchange="tabConfig[${i}].visible=this.checked">
         <span class="tm-slider"></span>
       </label>`;
 
-    // Mouse drag from grip
-    const grip = row.querySelector('.tm-grip');
-    grip.addEventListener('mousedown', e=>{
-      e.preventDefault();
-      tmStartDrag(absIdx, row, e.clientY);
-      const onMove = ev => tmMoveDrag(ev.clientY);
-      const onUp   = ev => {
-        document.removeEventListener('mousemove', onMove);
-        document.removeEventListener('mouseup', onUp);
-        tmEndDrag(ev.clientY);
-      };
-      document.addEventListener('mousemove', onMove);
-      document.addEventListener('mouseup', onUp);
+    row.addEventListener('dragstart', e=>{ tmDragSrc=i; e.dataTransfer.effectAllowed='move'; });
+    row.addEventListener('dragover',  e=>{ e.preventDefault(); row.style.opacity='0.5'; });
+    row.addEventListener('dragleave', ()=>row.style.opacity='');
+    row.addEventListener('drop', e=>{
+      e.preventDefault(); row.style.opacity='';
+      if(tmDragSrc===i) return;
+      const [item] = tabConfig.splice(tmDragSrc,1);
+      // find new index after splice
+      const newIdx = tabConfig.findIndex(c=>c.id===cfg.id);
+      tabConfig.splice(newIdx+1,0,item);
+      openTabModal(); // re-render modal
     });
-    // Touch drag from grip (works on iOS PWA)
-    grip.addEventListener('touchstart', e=>{
-      if(e.touches.length !== 1) return;
-      e.preventDefault();
-      const t = e.touches[0];
-      tmTouchActive = true;
-      tmStartDrag(absIdx, row, t.clientY);
-    }, {passive:false});
 
     list.appendChild(row);
   });
   document.getElementById('tab-modal-back').classList.add('show');
 }
-// Global touch listeners (attached once) so finger movement keeps tracking
-document.addEventListener('touchmove', e=>{
-  if(!tmTouchActive || !tmGhost) return;
-  e.preventDefault();
-  tmMoveDrag(e.touches[0].clientY);
-}, {passive:false});
-document.addEventListener('touchend', e=>{
-  if(!tmTouchActive) return;
-  const t = (e.changedTouches && e.changedTouches[0]) || null;
-  tmEndDrag(t ? t.clientY : 0);
-});
-document.addEventListener('touchcancel', ()=>{
-  if(!tmTouchActive) return;
-  if(tmGhost){ tmGhost.remove(); tmGhost = null; }
-  if(tmDragRow){ tmDragRow.classList.remove('dragging'); tmDragRow = null; }
-  document.querySelectorAll('#tm-list .tm-row').forEach(r=>r.classList.remove('drop-target'));
-  tmDragSrcIdx = null;
-  tmTouchActive = false;
-});
-
 function closeTabModal(){ document.getElementById('tab-modal-back').classList.remove('show'); }
 
 rebuild();
@@ -5123,11 +4844,10 @@ renderTabBar();
 <div class="tab-modal-back" id="tab-modal-back" onclick="if(event.target===this)closeTabModal()">
   <div class="tab-modal">
     <h3>Manage tabs <button class="modal-close" onclick="closeTabModal()">✕</button></h3>
-    <p style="font-size:11px;color:var(--ink3);margin-bottom:0.75rem">Tap ▲▼ to reorder · drag the ⠿ grip · toggle the switch to hide</p>
+    <p style="font-size:11px;color:var(--ink3);margin-bottom:0.75rem">Drag to reorder · toggle to show/hide</p>
     <div id="tm-list"></div>
     <div class="tm-footer">
-      <span class="tm-hint">Changes save automatically</span>
-      <button class="btn-pri" onclick="closeTabModal()">Done</button>
+      <button class="btn-pri" onclick="saveTabConfig();closeTabModal()">Done</button>
     </div>
   </div>
 </div>
