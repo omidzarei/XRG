@@ -161,7 +161,7 @@ main{max-width:1040px;margin:0 auto;padding:1rem 1.5rem calc(5rem + var(--sab));
 .search-box,.legend,.ai-status,.modal,.tab-modal,.card,.delete-dialog,.swipe-bg,
 .tag,.verif,.badge,.ai-meta-pill,.stat-card,.tm-row,.tm-toggle,.tm-slider,.tm-move-btn,
 .cb,.empty-state,.toast,.toast-btn,.tab-manage-btn,.btn-pri,.btn-sec,.btn-danger,
-.event-logo,.day-cell,.ev-card,.modal-close,.add-btn,.theme-btn,.filter-toggle-btn,
+.event-logo,.day-cell,.ev-card,.modal-close,.add-btn,.theme-btn,
 input,textarea,select,
 .field input,.field textarea,.field select{border-radius:0 !important}
 
@@ -508,32 +508,20 @@ h2,h3,h4{text-transform:uppercase !important;letter-spacing:0.06em}
 }
 
 /* FILTER */
-.filter-row{display:flex;flex-direction:column;gap:5px;margin-bottom:0.85rem}
-.filter-row-line1{display:flex;gap:4px;align-items:center;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
-.filter-row-line1::-webkit-scrollbar{display:none}
-.filter-row-line2{display:flex;gap:4px;align-items:center;flex-wrap:nowrap}
-.filter-row-line3{display:flex}
-.fb{font-family:var(--font-body);font-size:10px;padding:3px 9px;border-radius:99px;border:1px solid var(--border2);background:transparent;color:var(--ink3);cursor:pointer;transition:all 0.12s;white-space:nowrap;flex-shrink:0}
+.filter-row{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1.1rem;align-items:center}
+.fb{font-family:var(--font-body);font-size:11px;padding:4px 12px;border-radius:99px;border:1px solid var(--border2);background:transparent;color:var(--ink3);cursor:pointer;transition:all 0.12s}
 .fb:hover{color:var(--ink2)}
 .fb.active{background:var(--bg3);color:var(--ink);border-color:var(--border2)}
-.sort-box{display:inline-flex;align-items:center;gap:3px;flex-shrink:0}
-.sort-lbl{font-family:var(--font-body);font-size:9px;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink3);margin-right:2px;flex-shrink:0}
-.sb{font-family:var(--font-body);font-size:10px;padding:3px 8px;border-radius:99px;border:1px solid var(--border2);background:transparent;color:var(--ink3);cursor:pointer;transition:all 0.12s;white-space:nowrap;flex-shrink:0}
+.sort-box{display:inline-flex;align-items:center;gap:4px;margin-left:auto;padding:0 8px;border-left:1px solid var(--border2)}
+.sort-lbl{font-family:var(--font-body);font-size:10px;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink3);margin-right:4px}
+.sb{font-family:var(--font-body);font-size:11px;padding:4px 10px;border-radius:99px;border:1px solid var(--border2);background:transparent;color:var(--ink3);cursor:pointer;transition:all 0.12s}
 .sb:hover{color:var(--ink2)}
 .sb.active{background:var(--purple-dim);color:var(--purple);border-color:transparent}
 .cal-event{border-left-color:var(--blue) !important;background:var(--blue-dim) !important}
 .cal-event .cal-d,.cal-event .cal-m{color:var(--blue) !important}
-.search-box{font-family:var(--font-body);font-size:11px;padding:3px 10px;border-radius:99px;border:1px solid var(--border2);background:var(--bg3);color:var(--ink);outline:none;width:100%}
+.search-box{font-family:var(--font-body);font-size:12px;padding:5px 12px;border-radius:99px;border:1px solid var(--border2);background:var(--bg3);color:var(--ink);outline:none;margin-left:auto;width:200px}
 .search-box::placeholder{color:var(--ink3)}
 .search-box:focus{border-color:var(--green)}
-/* Filter section collapsible */
-.filter-section{margin-bottom:0.2rem}
-.filter-toggle-btn{display:flex;align-items:center;gap:5px;font-family:var(--font-body);font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:0.18em;color:var(--ink3);background:transparent;border:none;cursor:pointer;padding:4px 0;margin-bottom:0;line-height:1;transition:color 0.12s}
-.filter-toggle-btn:hover{color:var(--ink)}
-.filter-toggle-icon{font-size:10px;line-height:1;display:inline-block;transition:transform 0.18s;font-style:normal}
-.filter-toggle-btn.collapsed .filter-toggle-icon{transform:rotate(-90deg)}
-.filter-panel{overflow:hidden;transition:max-height 0.22s ease,opacity 0.18s ease;max-height:200px;opacity:1;margin-top:4px}
-.filter-panel.collapsed{max-height:0;opacity:0;pointer-events:none;margin-top:0}
 
 /* SECTION DIVIDER */
 .sh{display:flex;align-items:center;gap:8px;margin:1.5rem 0 0.65rem}
@@ -684,11 +672,10 @@ h2,h3,h4{text-transform:uppercase !important;letter-spacing:0.06em}
   /* Header tighter */
   .header-inner{padding:0}
   .btn-sm{font-size:11px;padding:5px 9px}
-  /* Filter row: two compact lines */
-  .filter-row{gap:4px;margin-bottom:0.6rem}
-  .fb,.sb{padding:3px 8px;font-size:10px}
-  .sort-box{padding:0}
-  .search-box{max-width:none;font-size:10px}
+  /* Filter row: pack tighter, allow horizontal scroll */
+  .filter-row{gap:4px;margin-bottom:0.7rem}
+  .fb,.sb{padding:4px 10px}
+  .sort-box{padding:0 6px}
   .legend{padding:0.5rem 0.75rem;gap:0.7rem;margin-bottom:0.85rem}
   .status-bar{margin-bottom:0.65rem}
   .sf-btn{padding:4px 10px 4px 8px}
@@ -849,36 +836,22 @@ input,select,textarea{font-size:16px}
 
   <div id="tab-bar-wrap"></div>
 
-  <div class="filter-section" id="filter-section">
-    <button class="filter-toggle-btn" id="filter-toggle-btn" onclick="toggleFilterPanel()" title="Show/hide filters &amp; sort">
-      <span class="filter-toggle-icon" id="filter-toggle-icon">▾</span>
-      <span class="filter-toggle-lbl">Filters</span>
-    </button>
-    <div class="filter-panel" id="filter-panel">
-      <div class="filter-row" id="filter-row">
-        <div class="filter-row-line1">
-          <button class="fb active" data-f="all" onclick="setFilter('all',this)">All</button>
-          <button class="fb" data-f="Europe" onclick="setFilter('Europe',this)">Europe</button>
-          <button class="fb" data-f="North America" onclick="setFilter('North America',this)">N. America</button>
-          <button class="fb" data-f="Asia-Pacific" onclick="setFilter('Asia-Pacific',this)">Asia-Pacific</button>
-          <button class="fb" data-f="Latin America" onclick="setFilter('Latin America',this)">Latin America</button>
-          <button class="fb" data-f="Middle East" onclick="setFilter('Middle East',this)">Middle East</button>
-        </div>
-        <div class="filter-row-line2">
-          <div class="sort-box">
-            <span class="sort-lbl">Sort:</span>
-            <button class="sb active" data-s="dl" id="sb-dl" onclick="setSort('dl',this)">Deadline ↑</button>
-            <button class="sb" data-s="ev" id="sb-ev" onclick="setSort('ev',this)">Event</button>
-            <button class="sb" data-s="name" id="sb-name" onclick="setSort('name',this)">Name</button>
-            <button class="sb" data-s="notif" id="sb-notif" onclick="setSort('notif',this)">Notif</button>
-            <button class="collapse-btn" id="collapse-btn" onclick="toggleCollapse()" style="margin-left:4px" title="Cycle: Expanded → Collapsed → Minimal → List">⊟</button>
-          </div>
-        </div>
-        <div class="filter-row-line3">
-          <input class="search-box" id="srch" placeholder="Search…" oninput="render()">
-        </div>
-      </div>
+  <div class="filter-row" id="filter-row">
+    <button class="fb active" data-f="all" onclick="setFilter('all',this)">All</button>
+    <button class="fb" data-f="Europe" onclick="setFilter('Europe',this)">Europe</button>
+    <button class="fb" data-f="North America" onclick="setFilter('North America',this)">N. America</button>
+    <button class="fb" data-f="Asia-Pacific" onclick="setFilter('Asia-Pacific',this)">Asia-Pacific</button>
+    <button class="fb" data-f="Latin America" onclick="setFilter('Latin America',this)">Latin America</button>
+    <button class="fb" data-f="Middle East" onclick="setFilter('Middle East',this)">Middle East</button>
+    <div class="sort-box">
+      <span class="sort-lbl">Sort:</span>
+      <button class="sb active" data-s="dl" id="sb-dl" onclick="setSort('dl',this)">Deadline ↑</button>
+      <button class="sb" data-s="ev" id="sb-ev" onclick="setSort('ev',this)">Event date</button>
+      <button class="sb" data-s="name" id="sb-name" onclick="setSort('name',this)">Name</button>
+      <button class="sb" data-s="notif" id="sb-notif" onclick="setSort('notif',this)">Notification</button>
+      <button class="collapse-btn" id="collapse-btn" onclick="toggleCollapse()" style="margin-left:8px" title="Cycle: Expanded → Collapsed → Minimal → List">⊟ Collapse all</button>
     </div>
+    <input class="search-box" id="srch" placeholder="Search…" oninput="render()">
   </div>
 
   <div id="list"></div>
@@ -4532,28 +4505,6 @@ function setViewMode(mode){
   render();
 }
 function toggleCollapse(){ setViewMode(VIEW_MODE_NEXT[viewMode]); }
-
-/* ── FILTER PANEL COLLAPSE ── */
-let filterPanelOpen = (localStorage.getItem('rlb_filterpanel') !== '0');
-function toggleFilterPanel(){
-  filterPanelOpen = !filterPanelOpen;
-  localStorage.setItem('rlb_filterpanel', filterPanelOpen ? '1' : '0');
-  applyFilterPanel();
-}
-function applyFilterPanel(){
-  const btn = document.getElementById('filter-toggle-btn');
-  const panel = document.getElementById('filter-panel');
-  if(!btn || !panel) return;
-  if(filterPanelOpen){
-    panel.classList.remove('collapsed');
-    btn.classList.remove('collapsed');
-  } else {
-    panel.classList.add('collapsed');
-    btn.classList.add('collapsed');
-  }
-}
-// Init on load
-document.addEventListener('DOMContentLoaded', () => { applyFilterPanel(); });
 
 /* ── EXPORT / IMPORT CHANGES ── */
 function exportChanges(){
