@@ -280,26 +280,6 @@ h2,h3,h4{text-transform:uppercase !important;letter-spacing:0.06em}
 .undo-btn{font-family:var(--font-body) !important}
 .undo-btn:disabled{opacity:0.35 !important;cursor:default !important;border-color:var(--border) !important;color:var(--ink3) !important}
 
-/* Header: keep title + 4 buttons on a single line, no wrapping */
-.header-top{flex-wrap:nowrap !important;gap:6px !important;align-items:center}
-.header-left{flex:1 1 auto;min-width:0;flex-wrap:nowrap}
-.header-left .project-pill{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block;max-width:100%}
-.header-actions{flex-wrap:nowrap !important;flex-shrink:0;gap:4px !important}
-/* Square, icon-only header action buttons */
-.header-actions .btn-sm{
-  width:32px;min-width:32px;height:32px;padding:0 !important;
-  display:inline-flex;align-items:center;justify-content:center;
-  font-size:13px !important;letter-spacing:0 !important;
-}
-.header-actions .add-btn{width:auto;min-width:32px;padding:0 8px !important;font-size:12px !important;letter-spacing:0.08em !important}
-.header-actions #collapse-btn{font-size:14px !important;line-height:1}
-@media(max-width:600px){
-  .header-actions .btn-sm{width:30px;min-width:30px;height:30px;font-size:12px !important}
-  .header-actions #collapse-btn{font-size:13px !important}
-  .header-actions .add-btn{padding:0 7px !important;font-size:11px !important}
-  .header-left .project-pill{font-size:10px !important;padding:4px 8px !important;letter-spacing:0.14em !important}
-}
-
 /* Quick toast — minimal, brief, bottom of screen */
 .quick-toast{
   position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom, 0px));
@@ -633,48 +613,19 @@ h1.fp-title.fp-name-static[contenteditable="true"]{padding:0 4px}
   .tm-row{padding:10px 4px}
 }
 
-/* FILTER — three-line collapsible section */
-.filters-wrap{margin-bottom:0.9rem}
-.filters-toggle{
-  display:inline-flex;align-items:center;gap:6px;
-  background:transparent;border:none;cursor:pointer;
-  font-family:var(--font-head);font-size:9px;font-weight:600;
-  letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3);
-  padding:6px 0;margin-bottom:6px;
-  transition:color 0.12s;
-}
-.filters-toggle:hover{color:var(--ink2)}
-.filters-caret{display:inline-block;font-size:11px;line-height:1;width:10px;text-align:center;transition:transform 0.18s}
-.filters-wrap.collapsed .filters-caret{transform:rotate(0deg)}
-.filter-row{
-  display:flex;flex-direction:column;gap:7px;
-  margin-bottom:1.1rem;
-  overflow:hidden;
-  max-height:600px;opacity:1;
-  transition:max-height 0.22s ease, opacity 0.18s ease, margin-bottom 0.22s ease;
-}
-.filters-wrap.collapsed .filter-row{max-height:0;opacity:0;margin-bottom:0;pointer-events:none}
-.fr-line{
-  display:flex;align-items:center;gap:5px;
-  flex-wrap:nowrap;
-  overflow-x:auto;overflow-y:hidden;
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
-}
-.fr-line::-webkit-scrollbar{display:none}
-.fr-line > *{flex-shrink:0}
-.fr-search{overflow:visible}
-.fr-search .search-box{width:100%;flex:1 1 auto;margin-left:0}
-.fb{font-family:var(--font-body);font-size:11px;padding:4px 11px;border-radius:99px;border:1px solid var(--border2);background:transparent;color:var(--ink3);cursor:pointer;transition:all 0.12s;white-space:nowrap}
+/* FILTER */
+.filter-row{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1.1rem;align-items:center}
+.fb{font-family:var(--font-body);font-size:11px;padding:4px 12px;border-radius:99px;border:1px solid var(--border2);background:transparent;color:var(--ink3);cursor:pointer;transition:all 0.12s}
 .fb:hover{color:var(--ink2)}
 .fb.active{background:var(--bg3);color:var(--ink);border-color:var(--border2)}
-.sort-lbl{font-family:var(--font-body);font-size:10px;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink3);margin-right:4px;white-space:nowrap;flex-shrink:0}
-.sb{font-family:var(--font-body);font-size:11px;padding:4px 10px;border-radius:99px;border:1px solid var(--border2);background:transparent;color:var(--ink3);cursor:pointer;transition:all 0.12s;white-space:nowrap}
+.sort-box{display:inline-flex;align-items:center;gap:4px;margin-left:auto;padding:0 8px;border-left:1px solid var(--border2)}
+.sort-lbl{font-family:var(--font-body);font-size:10px;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink3);margin-right:4px}
+.sb{font-family:var(--font-body);font-size:11px;padding:4px 10px;border-radius:99px;border:1px solid var(--border2);background:transparent;color:var(--ink3);cursor:pointer;transition:all 0.12s}
 .sb:hover{color:var(--ink2)}
 .sb.active{background:var(--purple-dim);color:var(--purple);border-color:transparent}
 .cal-event{border-left-color:var(--blue) !important;background:var(--blue-dim) !important}
 .cal-event .cal-d,.cal-event .cal-m{color:var(--blue) !important}
-.search-box{font-family:var(--font-body);font-size:12px;padding:6px 14px;border-radius:99px;border:1px solid var(--border2);background:var(--bg3);color:var(--ink);outline:none;width:100%}
+.search-box{font-family:var(--font-body);font-size:12px;padding:5px 12px;border-radius:99px;border:1px solid var(--border2);background:var(--bg3);color:var(--ink);outline:none;margin-left:auto;width:200px}
 .search-box::placeholder{color:var(--ink3)}
 .search-box:focus{border-color:var(--green)}
 
@@ -812,9 +763,9 @@ h1.fp-title.fp-name-static[contenteditable="true"]{padding:0 4px}
   .card-inner{gap:0.5rem}
   .min-btn{width:34px;height:34px;font-size:15px}
   .badge{align-self:flex-start}
-  .header-top{flex-direction:row;flex-wrap:nowrap;gap:0.4rem}
+  .header-top{flex-direction:row}
   .stats-row{grid-template-columns:repeat(2,1fr)}
-  .search-box{width:100%;margin-left:0;font-size:11px;padding:6px 12px}
+  .search-box{width:100%;margin-left:0}
   /* iPhone: full-bleed tab bar */
   .tab-bar{padding-left:var(--sal);padding-right:var(--sar);margin-bottom:0.7rem}
   /* Larger tap targets */
@@ -827,11 +778,10 @@ h1.fp-title.fp-name-static[contenteditable="true"]{padding:0 4px}
   /* Header tighter */
   .header-inner{padding:0}
   .btn-sm{font-size:11px;padding:5px 9px}
-  /* Filter row: pack tighter, allow horizontal scroll on each line */
-  .filters-wrap{margin-bottom:0.7rem}
-  .filter-row{gap:6px;margin-bottom:0.7rem}
-  .fb,.sb{padding:5px 11px;font-size:11px;min-height:30px}
-  .fr-line{gap:5px}
+  /* Filter row: pack tighter, allow horizontal scroll */
+  .filter-row{gap:4px;margin-bottom:0.7rem}
+  .fb,.sb{padding:4px 10px}
+  .sort-box{padding:0 6px}
   .legend{padding:0.5rem 0.75rem;gap:0.7rem;margin-bottom:0.85rem}
   .status-bar{margin-bottom:0.65rem}
   .sf-btn{padding:4px 10px 4px 8px}
@@ -968,9 +918,9 @@ input,select,textarea{font-size:16px}
       </div>
       <div class="header-actions">
         <button class="btn-sm theme-btn no-emoji" id="theme-btn" onclick="toggleTheme()" title="Toggle light/dark">◐&#xFE0E;</button>
-        <button class="btn-sm collapse-btn" id="collapse-btn" onclick="toggleCollapse()" title="Cycle: Expanded → Collapsed → Minimal → List">⊟</button>
+        <button class="btn-sm collapse-btn" id="collapse-btn" onclick="toggleCollapse()" title="Cycle: Expanded → Collapsed → Minimal → List">⊟ Collapse all</button>
         <button class="btn-sm add-btn" onclick="openAdd()">+ Add</button>
-        <button class="btn-sm undo-btn no-emoji" id="undo-btn" onclick="performUndo()" title="Undo last change" disabled>↶&#xFE0E;</button>
+        <button class="btn-sm undo-btn no-emoji" id="undo-btn" onclick="performUndo()" title="Undo last change" disabled>↶&#xFE0E; Undo</button>
       </div>
     </div>
   </div>
@@ -990,31 +940,21 @@ input,select,textarea{font-size:16px}
 
   <div id="tab-bar-wrap"></div>
 
-  <div class="filters-wrap" id="filters-wrap">
-    <button class="filters-toggle" id="filters-toggle" onclick="toggleFiltersSection()" title="Show / hide filters">
-      <span class="filters-caret" id="filters-caret">▾</span>
-      <span>Filters</span>
-    </button>
-    <div class="filter-row" id="filter-row">
-      <div class="fr-line fr-regions" id="fr-regions">
-        <button class="fb active" data-f="all" onclick="setFilter('all',this)">All</button>
-        <button class="fb" data-f="Europe" onclick="setFilter('Europe',this)">Europe</button>
-        <button class="fb" data-f="North America" onclick="setFilter('North America',this)">N. America</button>
-        <button class="fb" data-f="Asia-Pacific" onclick="setFilter('Asia-Pacific',this)">Asia-Pacific</button>
-        <button class="fb" data-f="Latin America" onclick="setFilter('Latin America',this)">L. America</button>
-        <button class="fb" data-f="Middle East" onclick="setFilter('Middle East',this)">Middle East</button>
-      </div>
-      <div class="fr-line fr-sort" id="fr-sort">
-        <span class="sort-lbl">Sort</span>
-        <button class="sb active" data-s="dl" id="sb-dl" onclick="setSort('dl',this)" title="Sort by deadline">Deadline ↑</button>
-        <button class="sb" data-s="ev" id="sb-ev" onclick="setSort('ev',this)" title="Sort by event date">Event</button>
-        <button class="sb" data-s="name" id="sb-name" onclick="setSort('name',this)" title="Sort by name">Name</button>
-        <button class="sb" data-s="notif" id="sb-notif" onclick="setSort('notif',this)" title="Sort by notification date">Notif</button>
-      </div>
-      <div class="fr-line fr-search">
-        <input class="search-box" id="srch" placeholder="Search…" oninput="render()">
-      </div>
+  <div class="filter-row" id="filter-row">
+    <button class="fb active" data-f="all" onclick="setFilter('all',this)">All</button>
+    <button class="fb" data-f="Europe" onclick="setFilter('Europe',this)">Europe</button>
+    <button class="fb" data-f="North America" onclick="setFilter('North America',this)">N. America</button>
+    <button class="fb" data-f="Asia-Pacific" onclick="setFilter('Asia-Pacific',this)">Asia-Pacific</button>
+    <button class="fb" data-f="Latin America" onclick="setFilter('Latin America',this)">Latin America</button>
+    <button class="fb" data-f="Middle East" onclick="setFilter('Middle East',this)">Middle East</button>
+    <div class="sort-box">
+      <span class="sort-lbl">Sort:</span>
+      <button class="sb active" data-s="dl" id="sb-dl" onclick="setSort('dl',this)">Deadline ↑</button>
+      <button class="sb" data-s="ev" id="sb-ev" onclick="setSort('ev',this)">Event date</button>
+      <button class="sb" data-s="name" id="sb-name" onclick="setSort('name',this)">Name</button>
+      <button class="sb" data-s="notif" id="sb-notif" onclick="setSort('notif',this)">Notification</button>
     </div>
+    <input class="search-box" id="srch" placeholder="Search…" oninput="render()">
   </div>
 
   <div id="list"></div>
@@ -4399,8 +4339,7 @@ let currentTab = 'all', currentFilter = 'all';
 /* viewMode: 'expanded' | 'collapsed' | 'minimal' | 'list' */
 const VIEW_MODES = ['expanded','collapsed','minimal','list'];
 const VIEW_MODE_NEXT = {expanded:'collapsed',collapsed:'minimal',minimal:'list',list:'expanded'};
-const VIEW_MODE_BTN_LABEL = {expanded:'⊟',collapsed:'◇',minimal:'≡',list:'⊞'};
-const VIEW_MODE_BTN_TITLE = {expanded:'Collapse all (currently Expanded)',collapsed:'Minimal view (currently Collapsed)',minimal:'List view (currently Minimal)',list:'Expand all (currently List)'};
+const VIEW_MODE_BTN_LABEL = {expanded:'⊟ Collapse all',collapsed:'◇ Minimal',minimal:'≡ List',list:'⊞ Expand all'};
 let viewMode = (function(){
   const stored = localStorage.getItem('rlb_viewmode');
   if(stored && VIEW_MODES.includes(stored)) return stored;
@@ -4753,31 +4692,10 @@ function setViewMode(mode){
   localStorage.setItem('rlb_viewmode', viewMode);
   localStorage.setItem('rlb_collapsed', collapsedAll ? '1' : '0');
   const btn = document.getElementById('collapse-btn');
-  if(btn){
-    btn.textContent = VIEW_MODE_BTN_LABEL[viewMode];
-    btn.title = VIEW_MODE_BTN_TITLE[viewMode];
-  }
+  if(btn) btn.textContent = VIEW_MODE_BTN_LABEL[viewMode];
   render();
 }
 function toggleCollapse(){ setViewMode(VIEW_MODE_NEXT[viewMode]); }
-
-/* ── FILTERS section collapse/expand (persists in localStorage) ── */
-function applyFiltersCollapsed(collapsed){
-  const wrap = document.getElementById('filters-wrap');
-  const caret = document.getElementById('filters-caret');
-  if(!wrap) return;
-  wrap.classList.toggle('collapsed', !!collapsed);
-  if(caret) caret.textContent = collapsed ? '▸' : '▾';
-}
-function toggleFiltersSection(){
-  const cur = localStorage.getItem('rlb_filters_collapsed') === '1';
-  const next = !cur;
-  localStorage.setItem('rlb_filters_collapsed', next ? '1' : '0');
-  applyFiltersCollapsed(next);
-}
-function initFiltersSection(){
-  applyFiltersCollapsed(localStorage.getItem('rlb_filters_collapsed') === '1');
-}
 
 /* ── EXPORT / IMPORT CHANGES ── */
 function exportChanges(){
@@ -5242,15 +5160,12 @@ function render(){
   setCount('sf-n-no', noC);
 
   const el = document.getElementById('list');
-  const fw = document.getElementById('filters-wrap');
-  if(fw) fw.style.display = currentTab === 'calendar' ? 'none' : 'block';
+  const fr = document.getElementById('filter-row');
+  fr.style.display = currentTab === 'calendar' ? 'none' : 'flex';
 
   // Sync collapse button label
   const colBtn = document.getElementById('collapse-btn');
-  if(colBtn){
-    colBtn.textContent = VIEW_MODE_BTN_LABEL[viewMode];
-    colBtn.title = VIEW_MODE_BTN_TITLE[viewMode];
-  }
+  if(colBtn) colBtn.textContent = VIEW_MODE_BTN_LABEL[viewMode];
   syncSortButtons();
 
   // CALENDAR view
@@ -6165,7 +6080,6 @@ rebuild();
 
 renderTabBar();
 refreshUndoButton();
-initFiltersSection();
 </script>
 
 <div class="card-delete-confirm hidden" id="delete-confirm">
