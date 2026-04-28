@@ -161,7 +161,7 @@ main{max-width:1040px;margin:0 auto;padding:1rem 1.5rem calc(5rem + var(--sab));
 .search-box,.legend,.ai-status,.modal,.tab-modal,.card,.delete-dialog,.swipe-bg,
 .tag,.verif,.badge,.ai-meta-pill,.stat-card,.tm-row,.tm-toggle,.tm-slider,.tm-move-btn,
 .cb,.empty-state,.toast,.toast-btn,.tab-manage-btn,.btn-pri,.btn-sec,.btn-danger,
-.event-logo,.day-cell,.ev-card,.modal-close,.add-btn,.theme-btn,
+.event-logo,.day-cell,.ev-card,.modal-close,.add-btn,.theme-btn,.filter-toggle-btn,
 input,textarea,select,
 .field input,.field textarea,.field select{border-radius:0 !important}
 
@@ -275,112 +275,6 @@ h2,h3,h4{text-transform:uppercase !important;letter-spacing:0.06em}
 
 /* Empty states */
 .empty-state{border:1px dashed var(--border2) !important;text-transform:none}
-
-/* Undo button styling */
-.undo-btn{font-family:var(--font-body) !important}
-.undo-btn:disabled{opacity:0.35 !important;cursor:default !important;border-color:var(--border) !important;color:var(--ink3) !important}
-
-/* Quick toast — minimal, brief, bottom of screen */
-.quick-toast{
-  position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom, 0px));
-  transform:translateX(-50%) translateY(8px);
-  background:var(--ink);color:var(--bg);
-  font-family:var(--font-head);font-size:11px;font-weight:700;
-  letter-spacing:0.16em;text-transform:uppercase;
-  padding:8px 14px;border:1px solid var(--ink);
-  pointer-events:none;opacity:0;
-  transition:opacity 0.12s, transform 0.12s;
-  z-index:2000;white-space:nowrap;max-width:90vw;overflow:hidden;text-overflow:ellipsis;
-}
-.quick-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-/* List-mode show-all override — when user taps a list-mode card */
-.list-mode .card.show-all .card-mini-info,
-.list-mode .card.show-all .cmeta,
-.list-mode .card.show-all .csvrow,
-.list-mode .card.show-all .tags,
-.list-mode .card.show-all .ai-upd,
-.list-mode .card.show-all .card-actions,
-.list-mode .card.show-all .minimal-actions{display:flex !important}
-.list-mode .card.show-all .card-actions{flex-wrap:wrap}
-.list-mode .card.show-all{padding-bottom:10px}
-.list-mode .card.show-all::after{content:'▲';position:absolute;top:6px;right:8px;font-size:9px;color:var(--ink3);opacity:0.6}
-.list-mode .card{position:relative}
-.list-mode .card:not(.show-all)::after{content:'▼';position:absolute;top:6px;right:8px;font-size:9px;color:var(--ink3);opacity:0.4}
-
-/* Hide the AI status bar (AI feature removed from header) */
-.ai-wrap{display:none !important}
-
-/* Masthead editable state — clean dashed outline that works for h1 + spans */
-.fp-name-static{transition:outline-color 0.12s,background 0.12s}
-.fp-name-static[contenteditable="true"]{outline:1px dashed var(--ink2);outline-offset:4px;background:transparent;border-radius:0}
-.fp-name-static[contenteditable="true"]:focus{outline:1px solid var(--ink);outline-offset:4px;background:var(--bg2)}
-h1.fp-title.fp-name-static[contenteditable="true"]{padding:0 4px}
-
-/* ── Print / PDF press-kit stylesheet ── */
-@media print{
-  @page{ size:A4; margin:14mm 14mm 16mm 14mm; }
-  html,body{ background:#0a0a0a !important; color:#f4f1ea !important; -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
-  body.printing-presskit *{ visibility:hidden !important; }
-  body.printing-presskit #film-page,
-  body.printing-presskit #film-page *{ visibility:visible !important; }
-  body.printing-presskit #film-page{
-    position:absolute !important; left:0; top:0; right:0;
-    width:100% !important; max-width:100% !important;
-    background:#0a0a0a !important; color:#f4f1ea !important;
-    box-shadow:none !important; padding:0 !important; transform:none !important;
-    overflow:visible !important;
-  }
-  /* Hide controls/edit chrome */
-  body.printing-presskit .fp-back-btn,
-  body.printing-presskit .fp-edit-btn,
-  body.printing-presskit .fp-share-btn,
-  body.printing-presskit .fp-foot-actions,
-  body.printing-presskit .fp-presskit-row,
-  body.printing-presskit .fp-photo-remove,
-  body.printing-presskit .fp-photo-add,
-  body.printing-presskit .fp-link-add,
-  body.printing-presskit .fp-link-row .fp-link-remove,
-  body.printing-presskit .fp-foot-meta,
-  body.printing-presskit .fp-edit-only,
-  body.printing-presskit input[data-fp-field]::placeholder,
-  body.printing-presskit [contenteditable]{ outline:none !important; background:transparent !important; }
-  body.printing-presskit .fp-back-btn,
-  body.printing-presskit .fp-edit-btn,
-  body.printing-presskit .fp-share-btn,
-  body.printing-presskit .fp-foot-actions,
-  body.printing-presskit .fp-presskit-row,
-  body.printing-presskit .fp-photo-remove,
-  body.printing-presskit .fp-photo-add,
-  body.printing-presskit .fp-link-add{ display:none !important; }
-  /* Typography for print */
-  body.printing-presskit .fp-title{ color:#fff !important; font-family:'Syne',serif !important; font-weight:800 !important; }
-  body.printing-presskit .fp-eyebrow,
-  body.printing-presskit .fp-sub,
-  body.printing-presskit .fp-section-title{ color:#cfcabe !important; }
-  body.printing-presskit .fp-section{ page-break-inside:avoid; border-color:#3a3833 !important; }
-  body.printing-presskit .fp-link-btn{
-    border:1px solid #6b6660 !important; color:#f4f1ea !important; background:transparent !important;
-  }
-  body.printing-presskit .fp-photo-grid img{ max-width:100% !important; height:auto !important; }
-  body.printing-presskit .fp-poster img{ max-width:60% !important; height:auto !important; }
-  body.printing-presskit input[data-fp-field],
-  body.printing-presskit textarea[data-fp-field]{
-    background:transparent !important; border:none !important; color:#f4f1ea !important;
-    -webkit-text-fill-color:#f4f1ea !important; padding:0 !important;
-  }
-}
-
-/* PDF press-kit export button (bottom of film page) */
-.fp-export-pdf{
-  display:inline-flex;align-items:center;gap:8px;
-  background:transparent;border:1px solid var(--ink);color:var(--ink);
-  font-family:var(--font-body);font-size:11px;font-weight:700;
-  letter-spacing:0.18em;text-transform:uppercase;
-  padding:10px 18px;cursor:pointer;border-radius:0;
-  transition:all 0.12s;
-}
-.fp-export-pdf:hover{background:var(--ink);color:var(--bg)}
 
 /* Mobile tightening retains NTS sizes */
 @media(max-width:600px){
@@ -531,7 +425,7 @@ h1.fp-title.fp-name-static[contenteditable="true"]{padding:0 4px}
   .fp-bar-title{display:none}
   .fp-masthead{padding-bottom:1rem;margin-bottom:1.3rem}
   .fp-eyebrow{font-size:9px;letter-spacing:0.25em;margin-bottom:0.35rem}
-  .fp-title{font-size:clamp(2rem, 13.5vw, 4.4rem);letter-spacing:-0.02em;line-height:0.92;word-break:break-word;overflow-wrap:break-word;hyphens:auto;width:100%;max-width:100%}
+  .fp-title{font-size:clamp(1.7rem, 9vw, 2.4rem);letter-spacing:-0.015em;line-height:0.95;word-break:break-word;hyphens:auto}
   .fp-sub{font-size:0.78rem;line-height:1.4}
   .fp-section{margin-bottom:1.5rem}
   .fp-section-head{margin-bottom:0.6rem;padding-bottom:0.3rem;gap:8px;flex-wrap:wrap}
@@ -614,20 +508,32 @@ h1.fp-title.fp-name-static[contenteditable="true"]{padding:0 4px}
 }
 
 /* FILTER */
-.filter-row{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1.1rem;align-items:center}
-.fb{font-family:var(--font-body);font-size:11px;padding:4px 12px;border-radius:99px;border:1px solid var(--border2);background:transparent;color:var(--ink3);cursor:pointer;transition:all 0.12s}
+.filter-row{display:flex;flex-direction:column;gap:5px;margin-bottom:0.85rem}
+.filter-row-line1{display:flex;gap:4px;align-items:center;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+.filter-row-line1::-webkit-scrollbar{display:none}
+.filter-row-line2{display:flex;gap:4px;align-items:center;flex-wrap:nowrap}
+.filter-row-line3{display:flex}
+.fb{font-family:var(--font-body);font-size:10px;padding:3px 9px;border-radius:99px;border:1px solid var(--border2);background:transparent;color:var(--ink3);cursor:pointer;transition:all 0.12s;white-space:nowrap;flex-shrink:0}
 .fb:hover{color:var(--ink2)}
 .fb.active{background:var(--bg3);color:var(--ink);border-color:var(--border2)}
-.sort-box{display:inline-flex;align-items:center;gap:4px;margin-left:auto;padding:0 8px;border-left:1px solid var(--border2)}
-.sort-lbl{font-family:var(--font-body);font-size:10px;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink3);margin-right:4px}
-.sb{font-family:var(--font-body);font-size:11px;padding:4px 10px;border-radius:99px;border:1px solid var(--border2);background:transparent;color:var(--ink3);cursor:pointer;transition:all 0.12s}
+.sort-box{display:inline-flex;align-items:center;gap:3px;flex-shrink:0}
+.sort-lbl{font-family:var(--font-body);font-size:9px;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink3);margin-right:2px;flex-shrink:0}
+.sb{font-family:var(--font-body);font-size:10px;padding:3px 8px;border-radius:99px;border:1px solid var(--border2);background:transparent;color:var(--ink3);cursor:pointer;transition:all 0.12s;white-space:nowrap;flex-shrink:0}
 .sb:hover{color:var(--ink2)}
 .sb.active{background:var(--purple-dim);color:var(--purple);border-color:transparent}
 .cal-event{border-left-color:var(--blue) !important;background:var(--blue-dim) !important}
 .cal-event .cal-d,.cal-event .cal-m{color:var(--blue) !important}
-.search-box{font-family:var(--font-body);font-size:12px;padding:5px 12px;border-radius:99px;border:1px solid var(--border2);background:var(--bg3);color:var(--ink);outline:none;margin-left:auto;width:200px}
+.search-box{font-family:var(--font-body);font-size:11px;padding:3px 10px;border-radius:99px;border:1px solid var(--border2);background:var(--bg3);color:var(--ink);outline:none;width:100%}
 .search-box::placeholder{color:var(--ink3)}
 .search-box:focus{border-color:var(--green)}
+/* Filter section collapsible */
+.filter-section{margin-bottom:0.2rem}
+.filter-toggle-btn{display:flex;align-items:center;gap:5px;font-family:var(--font-body);font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:0.18em;color:var(--ink3);background:transparent;border:none;cursor:pointer;padding:4px 0;margin-bottom:0;line-height:1;transition:color 0.12s}
+.filter-toggle-btn:hover{color:var(--ink)}
+.filter-toggle-icon{font-size:10px;line-height:1;display:inline-block;transition:transform 0.18s;font-style:normal}
+.filter-toggle-btn.collapsed .filter-toggle-icon{transform:rotate(-90deg)}
+.filter-panel{overflow:hidden;transition:max-height 0.22s ease,opacity 0.18s ease;max-height:200px;opacity:1;margin-top:4px}
+.filter-panel.collapsed{max-height:0;opacity:0;pointer-events:none;margin-top:0}
 
 /* SECTION DIVIDER */
 .sh{display:flex;align-items:center;gap:8px;margin:1.5rem 0 0.65rem}
@@ -778,10 +684,11 @@ h1.fp-title.fp-name-static[contenteditable="true"]{padding:0 4px}
   /* Header tighter */
   .header-inner{padding:0}
   .btn-sm{font-size:11px;padding:5px 9px}
-  /* Filter row: pack tighter, allow horizontal scroll */
-  .filter-row{gap:4px;margin-bottom:0.7rem}
-  .fb,.sb{padding:4px 10px}
-  .sort-box{padding:0 6px}
+  /* Filter row: two compact lines */
+  .filter-row{gap:4px;margin-bottom:0.6rem}
+  .fb,.sb{padding:3px 8px;font-size:10px}
+  .sort-box{padding:0}
+  .search-box{max-width:none;font-size:10px}
   .legend{padding:0.5rem 0.75rem;gap:0.7rem;margin-bottom:0.85rem}
   .status-bar{margin-bottom:0.65rem}
   .sf-btn{padding:4px 10px 4px 8px}
@@ -918,9 +825,11 @@ input,select,textarea{font-size:16px}
       </div>
       <div class="header-actions">
         <button class="btn-sm theme-btn no-emoji" id="theme-btn" onclick="toggleTheme()" title="Toggle light/dark">◐&#xFE0E;</button>
-        <button class="btn-sm collapse-btn" id="collapse-btn" onclick="toggleCollapse()" title="Cycle: Expanded → Collapsed → Minimal → List">⊟ Collapse all</button>
         <button class="btn-sm add-btn" onclick="openAdd()">+ Add</button>
-        <button class="btn-sm undo-btn no-emoji" id="undo-btn" onclick="performUndo()" title="Undo last change" disabled>↶&#xFE0E; Undo</button>
+        <button class="btn-sm" id="refresh-btn" onclick="runAI()">
+          <span class="spin" id="spin-icon">⟳</span>
+          <span id="rlabel">AI update</span>
+        </button>
       </div>
     </div>
   </div>
@@ -940,21 +849,36 @@ input,select,textarea{font-size:16px}
 
   <div id="tab-bar-wrap"></div>
 
-  <div class="filter-row" id="filter-row">
-    <button class="fb active" data-f="all" onclick="setFilter('all',this)">All</button>
-    <button class="fb" data-f="Europe" onclick="setFilter('Europe',this)">Europe</button>
-    <button class="fb" data-f="North America" onclick="setFilter('North America',this)">N. America</button>
-    <button class="fb" data-f="Asia-Pacific" onclick="setFilter('Asia-Pacific',this)">Asia-Pacific</button>
-    <button class="fb" data-f="Latin America" onclick="setFilter('Latin America',this)">Latin America</button>
-    <button class="fb" data-f="Middle East" onclick="setFilter('Middle East',this)">Middle East</button>
-    <div class="sort-box">
-      <span class="sort-lbl">Sort:</span>
-      <button class="sb active" data-s="dl" id="sb-dl" onclick="setSort('dl',this)">Deadline ↑</button>
-      <button class="sb" data-s="ev" id="sb-ev" onclick="setSort('ev',this)">Event date</button>
-      <button class="sb" data-s="name" id="sb-name" onclick="setSort('name',this)">Name</button>
-      <button class="sb" data-s="notif" id="sb-notif" onclick="setSort('notif',this)">Notification</button>
+  <div class="filter-section" id="filter-section">
+    <button class="filter-toggle-btn" id="filter-toggle-btn" onclick="toggleFilterPanel()" title="Show/hide filters &amp; sort">
+      <span class="filter-toggle-icon" id="filter-toggle-icon">▾</span>
+      <span class="filter-toggle-lbl">Filters</span>
+    </button>
+    <div class="filter-panel" id="filter-panel">
+      <div class="filter-row" id="filter-row">
+        <div class="filter-row-line1">
+          <button class="fb active" data-f="all" onclick="setFilter('all',this)">All</button>
+          <button class="fb" data-f="Europe" onclick="setFilter('Europe',this)">Europe</button>
+          <button class="fb" data-f="North America" onclick="setFilter('North America',this)">N. America</button>
+          <button class="fb" data-f="Asia-Pacific" onclick="setFilter('Asia-Pacific',this)">Asia-Pacific</button>
+          <button class="fb" data-f="Latin America" onclick="setFilter('Latin America',this)">Latin America</button>
+          <button class="fb" data-f="Middle East" onclick="setFilter('Middle East',this)">Middle East</button>
+        </div>
+        <div class="filter-row-line2">
+          <div class="sort-box">
+            <span class="sort-lbl">Sort:</span>
+            <button class="sb active" data-s="dl" id="sb-dl" onclick="setSort('dl',this)">Deadline ↑</button>
+            <button class="sb" data-s="ev" id="sb-ev" onclick="setSort('ev',this)">Event</button>
+            <button class="sb" data-s="name" id="sb-name" onclick="setSort('name',this)">Name</button>
+            <button class="sb" data-s="notif" id="sb-notif" onclick="setSort('notif',this)">Notif</button>
+            <button class="collapse-btn" id="collapse-btn" onclick="toggleCollapse()" style="margin-left:4px" title="Cycle: Expanded → Collapsed → Minimal → List">⊟</button>
+          </div>
+        </div>
+        <div class="filter-row-line3">
+          <input class="search-box" id="srch" placeholder="Search…" oninput="render()">
+        </div>
+      </div>
     </div>
-    <input class="search-box" id="srch" placeholder="Search…" oninput="render()">
   </div>
 
   <div id="list"></div>
@@ -4431,92 +4355,25 @@ function setTab(t,btn){
   render();
 }
 function setFilter(f,btn){ currentFilter=f; document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); render(); }
-function _captureStatusSnapshot(id){
-  return {
-    sub: submitted.has(id),
-    need: needSubmit.has(id),
-    sel: selectedSet.has(id),
-    cal: inCalendar.has(id)
-  };
-}
-function _restoreStatusSnapshot(id, snap){
-  if(snap.sub) submitted.add(id); else submitted.delete(id);
-  if(snap.need) needSubmit.add(id); else needSubmit.delete(id);
-  if(snap.sel) selectedSet.add(id); else selectedSet.delete(id);
-  if(snap.cal) inCalendar.add(id); else inCalendar.delete(id);
-  persist(); render();
-}
-function _festName(id){ const f = festivals.find(x=>x.id===id); return f ? f.name : id; }
-
 function toggleSub(id){
-  const before = _captureStatusSnapshot(id);
   if(submitted.has(id)) submitted.delete(id);
   else { submitted.add(id); needSubmit.delete(id); }
   persist(); render();
-  pushUndo({label:`${submitted.has(id)?'Marked':'Unmarked'} "${_festName(id)}" submitted`, undo:()=>_restoreStatusSnapshot(id, before)});
-  showQuickToast(submitted.has(id)?'✓ Submitted':'Unmarked');
 }
 function toggleNeed(id){
-  const before = _captureStatusSnapshot(id);
   if(needSubmit.has(id)) needSubmit.delete(id);
   else needSubmit.add(id);
   persist(); render();
-  pushUndo({label:`${needSubmit.has(id)?'Added':'Removed'} "${_festName(id)}" to-submit`, undo:()=>_restoreStatusSnapshot(id, before)});
-  showQuickToast(needSubmit.has(id)?'● To-submit':'Removed');
 }
 function toggleSelected(id){
-  const before = _captureStatusSnapshot(id);
   if(selectedSet.has(id)) selectedSet.delete(id);
   else { selectedSet.add(id); submitted.add(id); needSubmit.delete(id); }
   persist(); render();
-  pushUndo({label:`${selectedSet.has(id)?'Selected':'Deselected'} "${_festName(id)}"`, undo:()=>_restoreStatusSnapshot(id, before)});
-  showQuickToast(selectedSet.has(id)?'★ Selected':'Deselected');
 }
 function toggleCal(id){
-  const before = _captureStatusSnapshot(id);
   if(inCalendar.has(id)) inCalendar.delete(id);
   else inCalendar.add(id);
   persist(); render();
-  pushUndo({label:`${inCalendar.has(id)?'Added to':'Removed from'} calendar`, undo:()=>_restoreStatusSnapshot(id, before)});
-  showQuickToast(inCalendar.has(id)?'■ On calendar':'Removed from cal');
-}
-
-/* ── UNDO SYSTEM ── */
-let undoStack = [];
-const UNDO_MAX = 40;
-function pushUndo(action){
-  if(!action || typeof action.undo !== 'function') return;
-  undoStack.push(action);
-  if(undoStack.length > UNDO_MAX) undoStack.shift();
-  refreshUndoButton();
-}
-function performUndo(){
-  const a = undoStack.pop();
-  if(!a){ refreshUndoButton(); return; }
-  try { a.undo(); } catch(e){ console.warn('undo failed', e); }
-  refreshUndoButton();
-  showQuickToast('↶ Undone' + (a.label?' · '+a.label:''));
-}
-function refreshUndoButton(){
-  const b = document.getElementById('undo-btn');
-  if(!b) return;
-  b.disabled = undoStack.length === 0;
-  b.style.opacity = undoStack.length === 0 ? '0.35' : '1';
-  b.style.cursor = undoStack.length === 0 ? 'default' : 'pointer';
-}
-
-/* ── QUICK TOAST (brief, no buttons) ── */
-let _qToast = null, _qTimer = null;
-function showQuickToast(msg, ms=750){
-  if(!_qToast){
-    _qToast = document.createElement('div');
-    _qToast.className = 'quick-toast no-emoji';
-    document.body.appendChild(_qToast);
-  }
-  _qToast.textContent = msg;
-  _qToast.classList.add('show');
-  if(_qTimer) clearTimeout(_qTimer);
-  _qTimer = setTimeout(()=>{ if(_qToast) _qToast.classList.remove('show'); }, ms);
 }
 function setSort(s, btn){
   if(currentSort === s && (s === 'dl' || s === 'ev')){
@@ -4553,11 +4410,6 @@ function setStatusFilter(s, btn){
 function toggleCardCollapse(id){
   const card = document.getElementById('c-' + id);
   if(!card) return;
-  // In list mode, tap cycles between hidden info (default) and shown info via .show-all
-  if(viewMode === 'list'){
-    card.classList.toggle('show-all');
-    return;
-  }
   card.classList.toggle('collapsed');
 }
 
@@ -4655,17 +4507,11 @@ function confirmDelete(){
   if(!_swipePendingId) return;
   const id = _swipePendingId;
   _swipePendingId = null;
-  // Capture pre-delete state for undo
-  const f = festivals.find(x=>x.id===id);
-  const name = f?f.name:id;
-  const wasCustom = customFestivals.find(c=>c.id===id);
-  const customCopy = wasCustom ? JSON.parse(JSON.stringify(wasCustom)) : null;
-  const editCopy = userEdits[id] ? JSON.parse(JSON.stringify(userEdits[id])) : null;
-  const wasSub = submitted.has(id), wasNeed = needSubmit.has(id), wasSel = selectedSet.has(id), wasCal = inCalendar.has(id);
   // Animate out
   const wrap = document.getElementById('sw-' + id);
   if(wrap){ wrap.style.transition='all 0.25s'; wrap.style.height='0'; wrap.style.opacity='0'; wrap.style.marginBottom='0'; }
   setTimeout(()=>{
+    // Remove from all sets and data
     customFestivals = customFestivals.filter(c=>c.id!==id);
     delete userEdits[id];
     submitted.delete(id);
@@ -4674,16 +4520,6 @@ function confirmDelete(){
     inCalendar.delete(id);
     persist(); rebuild();
   }, 250);
-  pushUndo({label:`Removed "${name}"`, undo:()=>{
-    if(customCopy) customFestivals.push(customCopy);
-    if(editCopy) userEdits[id] = editCopy;
-    if(wasSub) submitted.add(id);
-    if(wasNeed) needSubmit.add(id);
-    if(wasSel) selectedSet.add(id);
-    if(wasCal) inCalendar.add(id);
-    persist(); rebuild();
-  }});
-  showQuickToast('⌫ Removed "' + name + '"');
 }
 function setViewMode(mode){
   if(!VIEW_MODES.includes(mode)) mode = 'expanded';
@@ -4696,6 +4532,28 @@ function setViewMode(mode){
   render();
 }
 function toggleCollapse(){ setViewMode(VIEW_MODE_NEXT[viewMode]); }
+
+/* ── FILTER PANEL COLLAPSE ── */
+let filterPanelOpen = (localStorage.getItem('rlb_filterpanel') !== '0');
+function toggleFilterPanel(){
+  filterPanelOpen = !filterPanelOpen;
+  localStorage.setItem('rlb_filterpanel', filterPanelOpen ? '1' : '0');
+  applyFilterPanel();
+}
+function applyFilterPanel(){
+  const btn = document.getElementById('filter-toggle-btn');
+  const panel = document.getElementById('filter-panel');
+  if(!btn || !panel) return;
+  if(filterPanelOpen){
+    panel.classList.remove('collapsed');
+    btn.classList.remove('collapsed');
+  } else {
+    panel.classList.add('collapsed');
+    btn.classList.add('collapsed');
+  }
+}
+// Init on load
+document.addEventListener('DOMContentLoaded', () => { applyFilterPanel(); });
 
 /* ── EXPORT / IMPORT CHANGES ── */
 function exportChanges(){
@@ -4807,10 +4665,6 @@ function saveEdit(){
   if(!data.name){ alert('Festival name is required.'); return; }
   const customIdx = customFestivals.findIndex(c=>c.id===id);
   const isStatic = STATIC_FESTIVALS.find(s=>s.id===id);
-  // Capture old state for undo
-  const oldCustom = customIdx >= 0 ? JSON.parse(JSON.stringify(customFestivals[customIdx])) : null;
-  const oldEdit = userEdits[id] ? JSON.parse(JSON.stringify(userEdits[id])) : null;
-  const wasNew = customIdx < 0 && !isStatic;
   if(customIdx >= 0){
     customFestivals[customIdx] = {id, ...customFestivals[customIdx], ...data};
   } else if(isStatic){
@@ -4819,43 +4673,15 @@ function saveEdit(){
     customFestivals.push({id, ...data});
   }
   persist(); closeEdit(); rebuild();
-  pushUndo({label: wasNew ? `Added "${data.name}"` : `Edited "${data.name}"`, undo:()=>{
-    if(wasNew){
-      customFestivals = customFestivals.filter(c=>c.id!==id);
-    } else if(oldCustom){
-      const i = customFestivals.findIndex(c=>c.id===id);
-      if(i>=0) customFestivals[i] = oldCustom;
-    } else if(oldEdit !== null){
-      userEdits[id] = oldEdit;
-    } else {
-      delete userEdits[id];
-    }
-    persist(); rebuild();
-  }});
-  showQuickToast(wasNew ? '+ Added "'+data.name+'"' : '✎ Saved "'+data.name+'"');
 }
 function deleteEntry(){
   const id = document.getElementById('edit-id').value;
   if(!confirm('Delete this festival entry? This only deletes entries you added yourself.')) return;
-  const f = festivals.find(x=>x.id===id);
-  const name = f?f.name:id;
-  const customCopy = customFestivals.find(c=>c.id===id);
-  const customCopyJson = customCopy ? JSON.parse(JSON.stringify(customCopy)) : null;
-  const editCopy = userEdits[id] ? JSON.parse(JSON.stringify(userEdits[id])) : null;
-  const wasSub = submitted.has(id), wasNeed = needSubmit.has(id);
   customFestivals = customFestivals.filter(c=>c.id!==id);
   delete userEdits[id];
   submitted.delete(id);
   needSubmit.delete(id);
   persist(); closeEdit(); rebuild();
-  pushUndo({label:`Deleted "${name}"`, undo:()=>{
-    if(customCopyJson) customFestivals.push(customCopyJson);
-    if(editCopy) userEdits[id] = editCopy;
-    if(wasSub) submitted.add(id);
-    if(wasNeed) needSubmit.add(id);
-    persist(); rebuild();
-  }});
-  showQuickToast('⌫ Deleted "' + name + '"');
 }
 // close modal on backdrop click
 document.addEventListener('click', e => {
@@ -5414,7 +5240,6 @@ function attachLongPressHide(btn, tabId, label){
 function hideTabWithUndo(tabId, label){
   const cfg = tabConfig.find(c=>c.id===tabId);
   if(!cfg || !cfg.visible) return;
-  const prevTab = currentTab;
   cfg.visible = false;
   // If we just hid the active tab, switch to the first remaining visible non-status tab
   if(currentTab === tabId){
@@ -5426,23 +5251,10 @@ function hideTabWithUndo(tabId, label){
     if(fallback) currentTab = fallback.id;
   }
   saveTabConfig(true);
-  pushUndo({label:`Hid tab "${label}"`, undo:()=>{
+  showToast(`Hid "${label}"`, 'Undo', ()=>{
     cfg.visible = true;
-    currentTab = prevTab;
     saveTabConfig(true);
-  }});
-  showQuickToast('◌ Hid "' + label + '"');
-}
-function showTabWithUndo(tabId, label){
-  const cfg = tabConfig.find(c=>c.id===tabId);
-  if(!cfg || cfg.visible) return;
-  cfg.visible = true;
-  saveTabConfig(true);
-  pushUndo({label:`Showed tab "${label}"`, undo:()=>{
-    cfg.visible = false;
-    saveTabConfig(true);
-  }});
-  showQuickToast('+ Showed "' + label + '"');
+  });
 }
 
 let _toastStack = null, _toastTimer = null;
@@ -5515,18 +5327,8 @@ function tmMove(fromIdx, dir){
   openTabModal();
 }
 function tmToggle(idx, visible){
-  const cfg = tabConfig[idx];
-  if(!cfg) return;
-  const def = ALL_TABS.find(t=>t.id===cfg.id);
-  const label = def ? def.label : cfg.id;
-  const wasVisible = cfg.visible;
-  cfg.visible = visible;
+  tabConfig[idx].visible = visible;
   saveTabConfig(true);
-  pushUndo({label: visible ? `Showed tab "${label}"` : `Hid tab "${label}"`, undo:()=>{
-    cfg.visible = wasVisible;
-    saveTabConfig(true);
-  }});
-  showQuickToast((visible?'+ Showed "':'◌ Hid "') + label + '"');
 }
 function tmReorderTo(srcIdx, destIdx){
   if(srcIdx === destIdx) return;
@@ -5709,8 +5511,6 @@ function fpCleanText(s){
     .replace(/[ \t]{2,}/g,' ')
     .trim();
 }
-// Masthead fields that should fall back to their placeholder default if empty
-const FP_PLACEHOLDER_FIELDS = new Set(['title','eyebrow','filmByPrefix','dirSep']);
 function fpHydrate(){
   const page = document.getElementById('film-page');
   if(!page) return;
@@ -5724,12 +5524,7 @@ function fpHydrate(){
   // Text fields
   page.querySelectorAll('[data-fp-field]').forEach(el => {
     const key = el.getAttribute('data-fp-field');
-    let val = fpData[key];
-    if((val === undefined || val === '') && FP_PLACEHOLDER_FIELDS.has(key)){
-      val = el.getAttribute('data-placeholder') || el.textContent || '';
-    } else if(val === undefined){
-      val = '';
-    }
+    const val = fpData[key] || '';
     if(el.tagName === 'INPUT'){
       el.value = val;
     } else {
@@ -5839,26 +5634,6 @@ function fpFlashCopied(btn){
   clearTimeout(btn._t);
   btn._t = setTimeout(()=>{ btn.classList.remove('copied'); btn.innerHTML = orig; }, 1400);
 }
-// ── PDF press-kit export ──
-// Uses browser print + dedicated print stylesheet that mimics NTS dark style.
-function fpExportPDF(){
-  // Make sure film page is open + fully hydrated
-  const page = document.getElementById('film-page');
-  if(!page || !page.classList.contains('show')){
-    if(typeof openFilmPage === 'function') openFilmPage();
-  }
-  // Mark body so the print stylesheet activates only film-page content
-  document.body.classList.add('printing-presskit');
-  // Give layout a tick to settle, then print
-  setTimeout(()=>{
-    try { window.print(); }
-    finally {
-      // Remove the marker shortly after print dialog interaction
-      setTimeout(()=>document.body.classList.remove('printing-presskit'), 800);
-    }
-  }, 80);
-}
-
 function fpExportJson(){
   const blob = new Blob([JSON.stringify(fpData, null, 2)], {type:'application/json'});
   const url = URL.createObjectURL(blob);
@@ -5969,11 +5744,20 @@ function fpToggleEdit(){
   if(lbl) lbl.textContent = fpEditMode ? 'Done' : 'Edit';
   document.querySelectorAll('.fp-name-static').forEach(el => {
     el.setAttribute('contenteditable', fpEditMode ? 'true' : 'false');
+    if(fpEditMode){
+      el.style.borderBottom = '1px solid var(--ink2)';
+      el.style.padding = '0 4px';
+      el.style.background = 'var(--bg2)';
+    } else {
+      el.style.borderBottom = '';
+      el.style.padding = '';
+      el.style.background = '';
+    }
   });
   if(fpEditMode){
-    // Focus the title first (largest editable target)
-    const title = document.getElementById('fp-title-el');
-    if(title) title.focus();
+    // Focus the first name field for instant editing
+    const first = document.querySelector('.fp-sub .fp-name-static');
+    if(first) first.focus();
   } else {
     fpSave();
   }
@@ -6057,6 +5841,9 @@ fpHydrate = function(){
   }
   document.querySelectorAll('.fp-name-static').forEach(el => {
     el.setAttribute('contenteditable', 'false');
+    el.style.borderBottom = '';
+    el.style.padding = '';
+    el.style.background = '';
   });
 };
 
@@ -6079,7 +5866,6 @@ function closeFilmPage(){
 rebuild();
 
 renderTabBar();
-refreshUndoButton();
 </script>
 
 <div class="card-delete-confirm hidden" id="delete-confirm">
@@ -6123,14 +5909,14 @@ refreshUndoButton();
   <div class="fp-scroll">
     <div class="fp-inner">
       <div class="fp-masthead">
-        <div class="fp-eyebrow"><span contenteditable="false" class="fp-name-static" data-fp-field="eyebrow" data-placeholder="◈ Feature · Immersive · 2026">◈ Feature · Immersive · 2026</span></div>
-        <h1 class="fp-title fp-name-static" id="fp-title-el" contenteditable="false" data-fp-field="title" data-placeholder="Reality Looks Back">Reality Looks Back</h1>
+        <div class="fp-eyebrow"><span>◈ Feature · Immersive · 2026</span></div>
+        <h1 class="fp-title">Reality Looks Back</h1>
         <div class="fp-sub">
-          <span contenteditable="false" class="fp-name-static" data-fp-field="filmByPrefix" data-placeholder="A film by">A film by</span>
+          A film by
           <span contenteditable="false" class="fp-name-static" data-fp-field="dir1Name" data-placeholder="Director One"></span>
-          <span contenteditable="false" class="fp-name-static" data-fp-field="dirSep" data-placeholder="&amp;">&amp;</span>
+          &amp;
           <span contenteditable="false" class="fp-name-static" data-fp-field="dir2Name" data-placeholder="Director Two"></span>
-          <button class="fp-edit-toggle" id="fp-edit-toggle" onclick="fpToggleEdit()" title="Edit title, eyebrow & director names">
+          <button class="fp-edit-toggle" id="fp-edit-toggle" onclick="fpToggleEdit()" title="Edit director names">
             <span class="sym">✎&#xFE0E;</span> <span id="fp-edit-toggle-label">Edit</span>
           </button>
         </div>
@@ -6279,11 +6065,6 @@ refreshUndoButton();
           </div>
           <div id="fp-custom-links"></div>
         </div>
-      </div>
-
-      <div class="fp-presskit-row" style="margin-top:2.5rem;padding-top:1.4rem;border-top:1px solid var(--border2);text-align:center">
-        <button class="fp-export-pdf no-emoji" onclick="fpExportPDF()" title="Export press kit as PDF (uses your browser's Save as PDF)">↧&#xFE0E; Export Press Kit (PDF)</button>
-        <div style="margin-top:8px;font-size:10px;color:var(--ink3);letter-spacing:0.16em;text-transform:uppercase">Opens print dialog · choose &ldquo;Save as PDF&rdquo;</div>
       </div>
 
       <div class="fp-footer">
